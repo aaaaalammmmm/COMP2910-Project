@@ -1,0 +1,69 @@
+COMP2910 - PROJECT!
+It's full time. Yayo.
+2h mandatory lab sesions each day!
+Weekly lectures during first 3 weeks. Yaaaaay.
+
+We're expected to work together outside these scheduled times. Yay.
+
+
+THE PROJECT:
+Theme: ZERO FOOD WASTE
+
+Education
+  - Explore, learn, gain knowledge
+Awareness
+  - Raise awareness and assess one's current zero food waste management
+Behavioural Change
+  - To affect a behavioural change based on awareness
+
+Project management: AGILE SCRUM.
+Technology: HTML5, CSS, JavaScript, PHP
+
+
+
+
+ideas:
+2 phase
+1: amount of food needed to feed people
+2: how much food people actually buy
+3: cry why evenqqqqqqqq.
+- local places to buy compost things
+- nearest collection facilities
+
+
+PROJECT MANAGEMENT!
+- unique
+- goal
+- beginning and end (timeline)
+- budget
+  - limited resources
+
+
+Project Management - Process
+1) What problem are you solving?
+2) How are you going to solve this problem?
+  - document in what way your solution connects to the problem
+3) What is your plan?
+4) How do you know when you're done?
+5) How well did the project go?
+
+
+Project summary (shorter Statement of Work)
+1) Problem Statement
+   - There is a large amount of food waste.
+2) Project goals & objective
+   - Make less food waste.
+3) Gather requirements
+   - gather information, people involved (stakeholders)
+4) Deliverables
+5) Success Criteria
+
+
+Project Management Methods:
+Waterfall - top down
+- BUILDING A HOUSE. YOU KNOW WHAT YOU NEED TO DO.
+
+
+Iterative / Agile - team based, close connection
+- everyone needs to work together, regularly, to decide what's going to happen next
+- 
