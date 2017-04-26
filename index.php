@@ -1,10 +1,4 @@
-<html>
-<head>
-
-
-</head>
-
-
+<?php include 'header.php'; ?>
 <body>
 
 
@@ -12,9 +6,4 @@
 
 </body>
 
-
-<footer>
-
-
-</footer>
-</html>
+<?php include 'footer.php'; ?>
