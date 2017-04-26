@@ -12,18 +12,9 @@ function showResult(str) {
   }
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      document.getElementById("livesearch").innerHTML=this.responseText;
-      document.getElementById("livesearch").style.border="1px solid #081520";
+      $("#livesearch").load(this.responseText+'.php');
     }
   }
   xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
-}
-
-function displayDiv(str) {
-  if(str.length==0) {
-    document.getElementById("livesearch").innerHTML="";
-  } else {
-    $("#livesearch").load(str+'.php');
-  }
 }
