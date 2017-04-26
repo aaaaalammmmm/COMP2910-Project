@@ -3,11 +3,11 @@ echo
   "<div class=\"text-center\">
     <img src=\"\" alt=\"Apple\" />
     <div>
-      <h6>Storage</h6>
+      <h3>Storage</h3>
       <p>Random place holder text.</p>
     </div>
     <div>
-      <h6>Revival</h6>
+      <h3>Revival</h3>
       <p>Random place holder text.</p>
     </div>
     <div>
