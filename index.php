@@ -3,7 +3,7 @@
 //This php block will be to test connections with the Azure SQL Database
 
 //These are the lines of code to connect to our database with the credentials
-$connectionInfo = array("UID" => "comp2910@comp2910", "pwd" => "Isitcl3ar", "Database" => "comp2910", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$connectionInfo = array("UID" => getenv('SQLAZURECONNSTR_UID'), "pwd" => getenv('SQLAZURECONNSTR_pwd'), "Database" => getenv('SQLAZURECONNSTR_database'), "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
 $serverName = getenv('SQLAZURECONNSTR_serverName');
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
