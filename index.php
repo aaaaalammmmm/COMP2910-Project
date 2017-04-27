@@ -1,10 +1,10 @@
 <?php include 'header.php'; ?>
-<?php 
+<?php
 //This php block will be to test connections with the Azure SQL Database
 
 //These are the lines of code to connect to our database with the credentials
 $connectionInfo = array("UID" => "comp2910@comp2910", "pwd" => "Isitcl3ar", "Database" => "comp2910", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:comp2910.database.windows.net,1433";
+$serverName = getenv('SQLAZURECONNSTR_serverName');
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 
 //Error handling, if connection fails.
