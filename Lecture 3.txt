@@ -1,0 +1,185 @@
+Lecture 3
+
+It's D'arcy
+
+Scrum!
+
+The methodology we'll be using to manage ourselves.
+
+The point of the course is to learn how to manage projects
+
+THE AGILE MANIFESTO.
+Scrum is a form of agile development
+
+Individuals and Interactions over processes and tools
+Working software over comprehensive documentation
+  - Working things over talking about things
+Customer collaboration over contract negotiation
+  -
+Responding to change over following a plan
+  - Don't blindly follow plan
+
+SCRUM
+- Framework for implementing Agile
+- Team-based approach
+- Work together towards a goal
+- High priority on interactions between team members
+- Ideally team is 7 people (no more)
+
+TERMS
+Team: Who does the work
+Backlog: The tasks to get done
+Milestones: What work gets done in a time period
+  - what we want to get done within that time period
+Iterations: How long between milestone
+  - Sprints
+  - unit of work to achieve a milestone
+Velocity: How much work is actually getting done
+  - 1: current interation / sprint
+  - 2: project as a whole
+
+TEAM:
+- figure out work to be done
+- does the work
+- identifies roadblocks
+- removes roadblocks
+- works with other groups to remove roadblocks outside of the team's control
+
+WORKING SOFTWARE
+- At the start of each iteration the team decides what the goal is
+- at the end of each iteration the team should have a completely working software that achieves the goal
+- the software, ideally, is something that can be shipped to a customer
+  (at the start of a project it can take a number of iterations to get to that)
+
+CUSTOMER COLLABORATION
+- The team needs to work with stakeholders to ensure that each iteration is providing a clear value
+- Typically, customer has backlog, and you do things in order of backlog
+
+RESPONDING TO CHANGE
+- plan frequently, at least at the start of each iteration
+- Do NOT try to plan the whole project at the start
+- "no battle plan ever survives contact with the enemy" - Helmuth von Moltke the Elder (1861)
+- Track how to plan is going
+  - what?
+  - track how the plan is going
+- Deviate from the plan if necessary
+
+WORKFLOW
+- Pick an iteration length
+- 1 week = 4 days
+  - 4 work days, 1/2 day planning, 1/2 day review
+- 2 weeks = 9 days
+  - two half days
+- Determine the goals (long, medium, short)
+  - Long: end of project
+  - Medium: ~3 iterations (2 for COMP2910)
+  - Short: 1 iteration (current iteration)
+- Figure out what tasks to complete for the iteration
+- Add the tasks to the backlog
+- Prioritize the tasks
+  - generally biggest bang for the buck
+- track status of tasks
+- review iteration
+
+GOALS
+- SMART (specific, measurable, actionable, realistic, time-based)
+
+TASKS
+- tasks should be short
+- no task should take more than 1 day
+- Usually a task should take no more than 1-2 hours
+  - break large tasks into small ones
+Example:
+- Create a database: NO TOO COMPLEX
+- Design DB tables
+- Create SQL scripts for creating the tables
+  - Table, A, B, C
+
+PRIORITIZE TASKS
+- Various ways to do this
+  - must / should / could
+  - planning poker
+- How important is it to the project?
+- How long will it take to implement?
+- Generally speaking we want to start with the things that are most valuable
+  that make the least amount of time.
+
+TRACK STATUS
+4 States:
+  1) Not started
+  2) In progress
+  3) In testing
+  4) Done
+- How does your team define done? Put that in your team charter.
+  eg. "Done when it's completed" "When it's good enough and it works"
+
+REVIEW
+- What went well?
+- What went poorly?
+- How do you fix the things that went poorly?
+- WE DO IT AT END OF WEEK 3
+
+COMP2910 Tools
+- Just one!
+- Spreadsheet to track all of our tasks
+- Each team has a copy
+  - The instructors have access to it
+  - They'll spotcheck to make sure we're using it
+  - It's a google doc. Yei.
+  GREEN: You can edit. If it's not green, don't touch it
+  BLUE: Current iteration
+
+  STATUS: Don't edit (unless you want to add more states)
+  - Used on the backlog tab to track the current status
+  IMPORTANCE/TIME: Don't edit
+  - used to calculations
+  ITERATIONS
+  - Don't need to edit
+  - Can reuse for other courses
+  - How long the project is
+  - How many hours you plan on working a day
+  - How long each iteration is
+  - How frequently you have a review
+  TEAM
+  - EDIT THIS
+  - Who is on the team
+  - What percentage of the hours a day is each member going to work (100%)
+  - This impacts the Hours/ Iteration / Team on the Iterations tab
+  SCHEDULE: Don't edit
+  - Gives you a historical View
+  GOALS: Edit this each iteration
+  - This is where you set your long, medium, and short term goals
+  - Medium and Long term goals should be checked each iteration to see if they are still valid
+  - Medium and Long term goals should be redone after each review
+  RETROSPECTIVE
+  - Edit this whenever it makes sense, usually after a review
+  - This is where you track what you improve
+  STATISTICS: Don't edit
+  - at the moment this is not done
+  - will track team's velocity
+  BACKLOG
+  - EDIT THIS
+  - this is where our tasks go
+  - Also keeps a list of tasks that have been completed
+  - Can use Trello
+  ITERATION: don't edit
+  - picks up all of the current tasks to work on based on the iteration
+
+RETROSPECTIVE
+- SWOT Analysis
+  - Strengths
+  - Weaknesses
+  - Opportunities
+  - THREATS
+
+SWOT on what?
+- Project
+- Process (way we're working)
+- Team
+
+LOOK FOR CHAINS
+- STICKY NOTE THINGS
+- See where people agree things are strengths or weaknesses
+Issue:
+Plan:
+Health: HOW IT'S WORKING OUT.
