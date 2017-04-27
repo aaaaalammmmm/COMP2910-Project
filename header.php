@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php phpinfo(); ?>
 <html>
 <head>
   <title> Zero Food Waste </title>
