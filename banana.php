@@ -19,4 +19,10 @@
       <a href='javascript:ripenessLoad("black-banana")' style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
     </div>
   </div>
+  <script>
+  function ripenessLoad(str) {
+    document.getElementById("search-box").value="";
+    $("#livesearch").load(str+'.php');
+  }
+  </script>
 </div>
