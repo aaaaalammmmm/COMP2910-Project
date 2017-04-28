@@ -18,8 +18,3 @@ function showResult(str) {
   xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
 }
-
-function ripenessLoad(str) {
-  document.getElementById("search-box").value="";
-  $("#livesearch").load(str+'.php');
-}
