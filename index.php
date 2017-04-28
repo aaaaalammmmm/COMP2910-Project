@@ -9,18 +9,18 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 
 //Error handling, if connection fails.
 if( $conn === false ) {
-     die( print_r( sqlsrv_errors(), true));
+  die( print_r( sqlsrv_errors(), true));
 }
 
 //This stores the server info of $conn
 $server_info = sqlsrv_server_info( $conn);
 if( $server_info ) {
-	//Print out the the values of each key
-    foreach( $server_info as $key => $value) {
-       echo $key.": ".$value."<br />";
-    }
+  //Print out the the values of each key
+  foreach( $server_info as $key => $value) {
+    echo $key.": ".$value."<br />";
+  }
 } else {
-      die( print_r( sqlsrv_errors(), true));
+  die( print_r( sqlsrv_errors(), true));
 }
 
 sqlsrv_close($conn);
