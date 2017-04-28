@@ -30,7 +30,7 @@ sqlsrv_close($conn);
     <h1 class="text-center">Use-It-Up</h1>
     <div class="text-center">SearchBar Placeholder</div>
     <form class="text-center" onsubmit="return false;">
-      <input type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value)">
+      <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value)">
     </form>
     <div class="text-center">
       <br/>
