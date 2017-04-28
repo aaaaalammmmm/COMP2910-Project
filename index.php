@@ -36,9 +36,9 @@ sqlsrv_close($conn);
       <br/>
       <img src="" alt="image" />
     </div>
-    <div id="livesearch">
+    <div id="livesearch" class="col-xs-12">
     </div>
-    <div class="text-center">
+    <div class="text-center col-xs-12">
       <div class="row">
         <div class="col-xs-4">
           <a href="allFruits.php">
