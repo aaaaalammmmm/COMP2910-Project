@@ -10,13 +10,13 @@
   </div>
   <div>
     <div class="col-xs-4">
-      <span onclick="showResult(green-banana);" style="cursor: pointer;"><img src="" alt="Green Banana" /></span><div>Green Banana</div>
+      <span onclick="ripenessload(green-banana);" style="cursor: pointer;"><img src="" alt="Green Banana" /></span><div>Green Banana</div>
     </div>
     <div class="col-xs-4">
-      <span onclick="showResult(yellow-banana);" style="cursor: pointer;"><img src="" alt="Yellow/Ripe Banana" /></span><div>Yellow/Ripe Banana</div>
+      <span onclick="ripenessload(yellow-banana);" style="cursor: pointer;"><img src="" alt="Yellow/Ripe Banana" /></span><div>Yellow/Ripe Banana</div>
     </div>
     <div class="col-xs-4">
-      <span onclick="showResult(black-banana);" style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></span><div>Black/Over-ripe Banana</div>
+      <span onclick="ripenessload(black-banana);" style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></span><div>Black/Over-ripe Banana</div>
     </div>
   </div>
 </div>
