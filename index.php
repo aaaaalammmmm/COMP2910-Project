@@ -41,7 +41,7 @@ sqlsrv_close($conn);
     <div class="text-center col-xs-12">
       <div class="row">
         <div class="col-xs-4">
-          <a href="allFruits.php">
+          <a href="javascript:load('allFruits')">
             <img src="/Images/FruitMedley.jpg" alt="Fruit Medley"/>
           </a>
         </div>
