@@ -10,13 +10,13 @@
   </div>
   <div>
     <div class="col-xs-4">
-      <a href='javascript:ripenessLoad("green-banana")' style="cursor: pointer;"><img src="" alt="Green Banana" /></a><div>Green Banana</div>
+      <a href='javascript:ripenessLoad("banana-green")' style="cursor: pointer;"><img src="" alt="Green Banana" /></a><div>Green Banana</div>
     </div>
     <div class="col-xs-4">
-      <a href='javascript:ripenessLoad("yellow-banana")' style="cursor: pointer;"><img src="" alt="Yellow/Ripe Banana" /></a><div>Yellow/Ripe Banana</div>
+      <a href='javascript:ripenessLoad("banana-yellow")' style="cursor: pointer;"><img src="" alt="Yellow/Ripe Banana" /></a><div>Yellow/Ripe Banana</div>
     </div>
     <div class="col-xs-4">
-      <a href='javascript:ripenessLoad("black-banana")' style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
+      <a href='javascript:ripenessLoad("banana-black")' style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
     </div>
   </div>
   <script>
