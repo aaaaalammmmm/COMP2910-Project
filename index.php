@@ -26,7 +26,7 @@ if( $server_info ) {
 sqlsrv_close($conn);
 ?>
 <body class="bg-primary" >
-  <div class="container">
+  <div class="container col-xs-12">
     <h1 class="text-center">Use-It-Up</h1>
     <div class="text-center">SearchBar Placeholder</div>
     <form class="text-center" onsubmit="return false;">
@@ -36,18 +36,19 @@ sqlsrv_close($conn);
       <br/>
       <img src="" alt="image" />
     </div>
-    <div id="livesearch"></div>
+    <div id="livesearch">
+    </div>
     <div class="text-center">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-xs-4">
           <a href="allFruits.php">
             <img src="/Images/FruitMedley.jpg" alt="Fruit Medley"/>
           </a>
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-4">
           <img src="/Images/VeggieMedley.jpg" alt="Veggie Medley"/>
         </div>
-        <div class="col-sm-4">
+        <div class="col-xs-4">
           <img src="/Images/BreadMedley.jpg" alt="Bread Medley"/>
         </div>
       </div>

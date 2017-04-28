@@ -1,10 +1,4 @@
-<script>
-function ripenessLoad(str) {
-  document.getElementById("search-box").value=str;
-  showResult(str);
-}
-</script>
-<div class="text-center">
+<div class="text-center col-xs-12">
   <img src="" alt="Banana" />
   <div>
     <h3>Storage</h3>
@@ -16,13 +10,13 @@ function ripenessLoad(str) {
   </div>
   <div>
     <div class="col-xs-4">
-      <span onclick="ripenessload('green-banana');" style="cursor: pointer;"><img src="" alt="Green Banana" /></span><div>Green Banana</div>
+      <a href='javascript:ripenessLoad("green-banana")' style="cursor: pointer;"><img src="" alt="Green Banana" /></a><div>Green Banana</div>
     </div>
     <div class="col-xs-4">
-      <span onclick="ripenessload('yellow-banana');" style="cursor: pointer;"><img src="" alt="Yellow/Ripe Banana" /></span><div>Yellow/Ripe Banana</div>
+      <a href='javascript:ripenessLoad("yellow-banana")' style="cursor: pointer;"><img src="" alt="Yellow/Ripe Banana" /></a><div>Yellow/Ripe Banana</div>
     </div>
     <div class="col-xs-4">
-      <span onclick="ripenessload('black-banana');" style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></span><div>Black/Over-ripe Banana</div>
+      <a href='javascript:ripenessLoad("black-banana")' style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@
     <h3>Revival</h3>
     <p>Green banana revival tips (if applicable)</p>
   </div>
-  <div>
+  <div class="col-xs-12">
     <div class="col-xs-6">
       <a href="">Recipes</a>
     </div>
