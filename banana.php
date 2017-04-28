@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/scripts.js"></script>
 <div class="text-center col-xs-12">
   <img src="" alt="Banana" />
   <div>
