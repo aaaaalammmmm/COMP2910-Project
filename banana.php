@@ -10,13 +10,13 @@
   </div>
   <div>
     <div class="col-xs-4">
-      <a onclick="showResult(green-banana)"><img src="" alt="Green Banana" /></a><div>Green Banana</div>
+      <span onclick="showResult(green-banana)"><img src="" alt="Green Banana" /></span><div>Green Banana</div>
     </div>
     <div class="col-xs-4">
-      <a onclick="showResult(yellow-banana)"><img src="" alt="Yellow/Ripe Banana" /></a><div>Yellow/Ripe Banana</div>
+      <span onclick="showResult(yellow-banana)"><img src="" alt="Yellow/Ripe Banana" /></span><div>Yellow/Ripe Banana</div>
     </div>
     <div class="col-xs-4">
-      <a onclick="showResult(black-banana)"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
+      <span onclick="showResult(black-banana)"><img src="" alt="Black/Over-ripe Banana" /></span><div>Black/Over-ripe Banana</div>
     </div>
   </div>
 </div>
