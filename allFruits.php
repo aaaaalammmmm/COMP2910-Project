@@ -9,7 +9,7 @@
   </div>
   <div class="text-center">
     <a href="javascript:load('banana')">
-      <img src="" alt="Banana"/>
+      <img src="images/Banana.png" alt="Banana" />
     </a>
   </div>
   <div class="text-center">

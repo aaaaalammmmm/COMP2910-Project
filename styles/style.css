@@ -26,3 +26,9 @@
 .padding-xl {
   padding: 3em;
 }
+
+img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+}
