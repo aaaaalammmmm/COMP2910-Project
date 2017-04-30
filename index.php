@@ -27,11 +27,10 @@ sqlsrv_close($conn);
 ?>
 <body class="bg-primary" >
   <div class="container col-xs-12">
-    <div class="col-xs-12" >
+    <div class="col-xs-10 col-xs-offset-1" >
       <h1 class="text-center">Use-It-Up</h1>
-      <div class="text-center">SearchBar Placeholder</div>
-      <form class="text-center" onsubmit="return false;">
-        <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value)">
+      <form class="text-center" onsubmit="return false">
+        <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="foodLoad(this.value)">
       </form>
     </div>
     <div id="livesearch" class="col-xs-12 padding-lg">

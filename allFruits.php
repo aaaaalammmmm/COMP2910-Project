@@ -1,20 +1,17 @@
-<div class="col-xs-12">
-  <div class="text-center">
-    <br/>
-  </div>
-  <div class="text-center">
+<div class="col-xs-12 text-center">
+  <div class="col-xs-2">
     <a href="javascript:load('apple')">
-      <img src="" alt="Apple"/>
+      <img src="" alt="Apple"/><br />Apple
     </a>
   </div>
-  <div class="text-center">
+  <div class="col-xs-2">
     <a href="javascript:load('banana')">
-      <img src="images/Banana.png" alt="Banana" />
+      <img src="images/Banana.png" alt="Banana" /><br />Banana
     </a>
   </div>
-  <div class="text-center">
+  <div class="col-xs-2">
     <a href="javascript:load('orange')">
-      <img src="" alt="Orange"/>
+      <img src="" alt="Orange"/><br />Orange
     </a>
   </div>
 </div>

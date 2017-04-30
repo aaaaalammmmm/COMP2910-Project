@@ -1,6 +1,6 @@
 <br />
 <div class="text-center">
-  <img src="" alt="Yellow Banana" />
+  <img src="images/Banana.png" alt="Yellow Banana" />
   <div>
     <h3>Storage</h3>
     <p>Yellow banana storage text.</p>

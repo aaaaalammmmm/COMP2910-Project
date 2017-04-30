@@ -15,12 +15,7 @@ if (strlen($q)>0) {
     if ($y->item(0)->nodeType==1) {
       //find a link matching the search text
       if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q)) {
-        if ($hint=="") {
           $hint=$y->item(0)->childNodes->item(0)->nodeValue;
-        }else {
-          $hint=$hint . "<br />" .
-          $y->item(0)->childNodes->item(0)->nodeValue;
-        }
       }
     }
   }

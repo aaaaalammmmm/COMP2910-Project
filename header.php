@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Zero Food Waste </title>
+  <title>Use-It-Up</title>
   <meta charset="utf-8">
   <link href="styles/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="styles/style.css" rel="stylesheet" type="text/css" />

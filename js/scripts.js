@@ -20,11 +20,15 @@ function showResult(str) {
 }
 
 function load(str) {
-  document.getElementById("search-box").value="";
+  document.getElementById("search-box").value = "";
   $("#livesearch").load(str+'.php');
 }
 
-function ripenessLoad(str) {
-  document.getElementById("search-box").value="";
+function foodLoad(str) {
   $("#livesearch").load(str+'.php');
+}
+
+function submit() {
+  $("#livesearch").load($("#search-box").value +'.php');
+  return false;
 }
