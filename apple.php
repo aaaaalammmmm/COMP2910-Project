@@ -1,3 +1,4 @@
+<br />
 <div class="text-center">
   <img src="" alt="Apple" />
   <div>
@@ -20,3 +21,4 @@
     </div>
   </div>
 </div>
+<br />

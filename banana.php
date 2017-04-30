@@ -1,3 +1,4 @@
+<br />
 <div class="text-center col-xs-12">
   <img src="" alt="Banana" />
   <div>
@@ -19,10 +20,5 @@
       <a href='javascript:ripenessLoad("banana-black")' style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
     </div>
   </div>
-  <script>
-  function ripenessLoad(str) {
-    document.getElementById("search-box").value="";
-    $("#livesearch").load(str+'.php');
-  }
-  </script>
 </div>
+<br />

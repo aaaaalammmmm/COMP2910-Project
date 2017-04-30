@@ -23,3 +23,8 @@ function load(str) {
   document.getElementById("search-box").value="";
   $("#livesearch").load(str+'.php');
 }
+
+function ripenessLoad(str) {
+  document.getElementById("search-box").value="";
+  $("#livesearch").load(str+'.php');
+}

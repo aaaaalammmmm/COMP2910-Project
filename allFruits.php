@@ -2,19 +2,18 @@
   <div class="text-center">
     <br/>
   </div>
-  <div id="livesearch"></div>
   <div class="text-center">
-    <a href="apple.php">
+    <a href="javascript:load('apple')">
       <img src="" alt="Apple"/>
     </a>
   </div>
   <div class="text-center">
-    <a href="banana.php">
+    <a href="javascript:load('banana')">
       <img src="" alt="Banana"/>
     </a>
   </div>
   <div class="text-center">
-    <a href="orange.php">
+    <a href="javascript:load('orange')">
       <img src="" alt="Orange"/>
     </a>
   </div>

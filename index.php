@@ -27,29 +27,32 @@ sqlsrv_close($conn);
 ?>
 <body class="bg-primary" >
   <div class="container col-xs-12">
-    <h1 class="text-center">Use-It-Up</h1>
-    <div class="text-center">SearchBar Placeholder</div>
-    <form class="text-center" onsubmit="return false;">
-      <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value)">
-    </form>
-    <div class="text-center">
-      <br/>
-      <img src="" alt="image" />
+    <div class="col-xs-12" >
+      <h1 class="text-center">Use-It-Up</h1>
+      <div class="text-center">SearchBar Placeholder</div>
+      <form class="text-center" onsubmit="return false;">
+        <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value)">
+      </form>
     </div>
-    <div id="livesearch" class="col-xs-12">
+    <div id="livesearch" class="col-xs-12 padding-lg">
     </div>
+    <br />
     <div class="text-center col-xs-12">
       <div class="row">
         <div class="col-xs-4">
           <a href="javascript:load('allFruits')">
-            <img src="/Images/FruitMedley.jpg" alt="Fruit Medley"/>
+            <img src="/Images/FruitMedley.jpg" alt="All Fruits" /><p>All Fruits</p>
           </a>
         </div>
         <div class="col-xs-4">
-          <img src="/Images/VeggieMedley.jpg" alt="Veggie Medley"/>
+          <a href="javascript:load('allVeggies')">
+            <img src="/Images/VeggieMedley.jpg" alt="All Veggies"/><p>All Veggies</p>
+          </a>
         </div>
         <div class="col-xs-4">
-          <img src="/Images/BreadMedley.jpg" alt="Bread Medley"/>
+          <a href="javascript:load('allGrains')">
+            <img src="/Images/BreadMedley.jpg" alt="All Grains"/><p>All Grains</p>
+          </a>
         </div>
       </div>
     </div>
