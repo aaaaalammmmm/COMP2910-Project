@@ -1,12 +1,9 @@
-#heroImg {
-  display: block;
-  margin: auto;
-}
-
+/* Styling for the search bar, sets text to black */
 .inputBox {
   color:  black;
 }
 
+/* Padding styles for any element, different padding sizes if needed */
 .padding-xs {
   padding: .25em;
 }
@@ -27,6 +24,7 @@
   padding: 3em;
 }
 
+/* Styling for all images on the site, scales to 100% of parent element or 200px max */
 img {
   width: 100%;
   max-width: 200px;
