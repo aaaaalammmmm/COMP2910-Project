@@ -1,4 +1,5 @@
 <br />
+<!-- Information on a banana -->
 <div class="text-center">
   <img src="" alt="Black Banana" />
   <div>
@@ -9,6 +10,7 @@
     <h3>Revival</h3>
     <p>Black banana revival tips (if applicable)</p>
   </div>
+  <!-- Redirection for further info on food state -->
   <div>
     <div class="col-xs-6">
       <a href="">Recipes</a>
