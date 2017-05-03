@@ -43,23 +43,28 @@
     </div>
     <br />
     <!-- Redirection "buttons" for the main categories of pages -->
-    <div class="text-center col-xs-12">
-      <div class="btn-toolbar">
-        <div class="container">
-          <a href="javascript:load('allFruits')">
-            <button class="btn btn-block">All Fruits</button>
-          </a>
-        </div>
-        <div class="container">
-          <a href="javascript:load('allVeggies')">
-            <button class="btn btn-block">Veggies</button>
-          </a>
-        </div>
-        <div class="container">
-          <a href="javascript:load('allGrains')">
-            <button class="btn btn-block">All Grains</button>
-          </a>
-        </div>
+    <div class="text-center" >
+      <div class="btn-toolbar-home hidden">
+        <a href="javascript:load('allFruits')">
+          <button class="btn btn-block">Fruits</button>
+        </a>
+        <a href="javascript:load('allVeggies')">
+          <button class="btn btn-block">Veggies</button>
+        </a>
+        <a href="javascript:load('allGrains')">
+          <button class="btn btn-block">Grains</button>
+        </a>
+      </div>
+      <div class="btn-toolbar-other  btn-group">
+        <a href="javascript:load('allFruits')">
+          <button class="btn">Fruits</button>
+        </a>
+        <a href="javascript:load('allVeggies')">
+          <button class="btn ">Veggies</button>
+        </a>
+        <a href="javascript:load('allGrains')">
+          <button class="btn ">Grains</button>
+        </a>
       </div>
     </div>
   </div>

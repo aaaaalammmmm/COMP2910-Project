@@ -36,7 +36,7 @@ img {
   color: #000000;
 
 }
-.btn-toolbar .btn {
+.btn-toolbar-home .btn {
     margin-bottom: 5px;
 }
 
@@ -67,4 +67,10 @@ p, div {
 .navbar .nav > li.current-menu-item > a,
 .navbar .nav > li.current-menu-ancestor > a {
   color: black;
+}
+
+body {
+   min-height: 400px;
+   margin-bottom: 100px;
+   clear: both;
 }
