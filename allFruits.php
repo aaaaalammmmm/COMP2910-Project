@@ -6,7 +6,7 @@
     </a>
   </div>
   <div class="col-xs-4">
-    <a href="javascript:load('banana')">
+    <a href="javascript:load('banana-ripe')">
       <img src="images/Banana.png" alt="Banana" /><br />Banana
     </a>
   </div>
