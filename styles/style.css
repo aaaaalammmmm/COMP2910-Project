@@ -31,6 +31,40 @@ img {
   height: auto;
 }
 
+.btn {
+  background-color: #ff9400;
+  color: #000000;
+
+}
 .btn-toolbar .btn {
     margin-bottom: 5px;
+}
+
+.navbar-toggle, .navbar-toggle:focus,.navbar-toggle:active  {
+  background-color: #065b11 !important;
+
+}
+
+.footer {
+  color: #065b11;
+}
+
+p, div {
+  color: black;
+}
+
+
+
+.bg-primary, .navbar-header, footer, .navbar-collapse{
+  background-color: #f5f5f5;
+}
+
+#livesearch {
+  background-color: #f5f5f5;
+}
+
+.navbar .nav > li > a, .navbar .nav > li > a,
+.navbar .nav > li.current-menu-item > a,
+.navbar .nav > li.current-menu-ancestor > a {
+  color: black;
 }
