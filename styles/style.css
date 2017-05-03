@@ -30,3 +30,7 @@ img {
   max-width: 200px;
   height: auto;
 }
+
+.btn-toolbar .btn {
+    margin-bottom: 5px;
+}
