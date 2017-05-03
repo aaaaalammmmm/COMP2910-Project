@@ -1,0 +1,90 @@
+Lecture 4: Git
+
+It's a version control system
+- Command-line program
+There are GUIs available
+
+Basic functions:
+- Checking out: git clone, git pull
+- Checking in: git add, git commit, git push
+- Checking status: git status, git log
+
+1) git init
+    - creates a .git hidden folder (WHERE ALL THE MAGIC HAPPENS)
+2) git config --global user.name "NAME"
+3) git config --global user.email "email"
+4) git config --list
+
+When you create a new file, git status shows:
+UNTRACKED FILES
+
+5) git add *
+6) git commit -m "MESSAGE"
+- git status
+  - Shows the stage (index)
+- if you clone from somewhere, the default repository is where you clone from
+
+Branch: lightweight way to work ON THE SIDE
+- black out of directory. You don't want to clone the project into the project
+- git clone into a new directory
+- git branch (tells you what branches are available)
+- git branch NAME
+  - creates a branch with NAME
+- * indicates where you are
+
+GIT LOG
+- shows you all the things that has happened to the repo over time
+git log --oneline
+
+CHECKOUT
+- checkout a previous commit
+- checkout branches
+- checkout a specific file
+
+Moving from one branch to another
+- git checkout NAMEOFOTHERBRANCH
+
+Checking out previous commit
+git log --oneline
+git checkout 4b3e3c4
+git checkout master
+  - TO GET EVERYTHING
+
+HEAD: pointer to the current/last commit
+
+git revert
+- removes an entire commit from history
+git reset
+- permanent undo
+
+FORK:
+- it's not a git command.
+- it's a github command.
+- adds layer of control
+  - can't write to a cloned repo if you're not a collaborator
+  - FORK makes a complete copy onto your github, then you clone and work on it locally
+- from github, do a PULL REQUEST
+  - message from you to the person you forked from, "HEY I'VE DONE SOME COOL SHIT, WOULD YOU CONSIDER ACCEPTING IT?"
+  - wait for owner (integrator) to accept or pull your changes into the main branch.
+
+
+Workflows
+1. Centralized
+- everyone clones
+- works, then push/pull/merge/push to write
+- okay for small teams
+
+2. Feature Branch Workflow
+- one master branch
+- everyone who works on the project makes a separate branch and works on one feature
+- you only touch your own branch
+- joining main branch:
+  - pull req
+  - merge
+  - git checkout master
+  -
+
+3. Git Workflow
+- Added extra layer of protection to master production branch
+- 2 main branches: master & develop
+  - develop on development branch, no one touches master until production release

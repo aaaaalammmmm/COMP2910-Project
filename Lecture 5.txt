@@ -1,0 +1,124 @@
+Lecture 5
+
+D'arcy can't make sexy UIs.
+
+User-centered Design
+- 20% of apps get used only once
+- 60% of apps get used <12 times
+- MAKE USERS WANT TO USE YOUR APP.
+- the target audience is the USER.
+
+User Experience:
+Surface
+- Visual Design
+Skeleton
+- Interface Design
+- Navigation Design
+- Information Design
+Structure
+- Interaction Design
+- Information Architecture
+Scope
+- Functional Specs
+- content Requirements
+Strategy
+- User needs
+- Site objectives
+
+COME UP WITH YOUR OWN VISION
+WHO are you making it for?
+WHAT problem are you trying to solve?
+WHERE are you building it?
+WHY should anyone care?
+HOW will it fulfill a need?
+
+FIGURE OUT WHO YOUR USERS ARE
+- Joe Smith (FAKE USER)
+Demographics
+- 20 y/o
+- Programmer at EA
+Characteristics
+- Good with technology
+- has andriod smartphone
+- little spare time
+Goals / Pain-points
+- has trouble remembering work deadlines
+Needs
+- Something to keep track of project schedule
+
+
+Work as low fidelity as you can
+- IF YOU'RE UPSET THEN YOU'VE WORKED TOO HARD.
+
+FITURE OUT WHAT YOUR APP WILL DO
+- something your user wants to do
+  - steps to do that
+  - steps to do that
+- Joe gets notified about approaching deadlines
+- joe sets a deadline in the calendar
+- joe
+
+Decide on a screen flow
+- FLOWCHART!
+-
+
+DESIGN RULES: Things to check on EACH screen you create
+1) Create a visual language (be consistent)
+   - BUTTONS LOOK LIKE BUTTONS
+   - Only clickable things should look like that button
+   - Highlight selected items in the same way every time
+   - Don't use colour one time and an underline another
+   - Thinking is bad. (if your user has to figure things out, it's bad)
+
+HIERARCHY
+Categorization
+FRIDGE!
+Fruit & Veg
+-
+-
+-
+Dairy
+-
+-
+-
+Meat
+-
+-
+
+PROMINENCE
+- Highlight important things
+- Use colour
+- Use style
+- Use position
+
+Layout and Colour
+- decide the layout and how the screen will extend
+- Scroll/page
+- vertical/horizontal
+
+- Pick a set of matching colours and one accent colour that stands out
+
+SPECIFICALLY FOR MOBILE
+STANDARDS
+- few standards for Android
+- iOS has standards
+- COPY STUFF OTHER PEOPLE HAVE DONE.
+
+SMALL SCREEN
+- only show users what they need to see now
+- don't want users to zoom/scroll/pan
+
+GESTURES
+- don't cross gestures
+
+TEST
+
+START WITH SMALL AND THEN GO BIG
+- make sure things fit on the width
+
+USE YOUR THUMB
+
+SQUINT TEST
+- take off your glasses, can you tell what things do blurry?
+
+WITH MOBILE DESIGN YOU GET ONE CHANCE TO GRAB YOUR USER

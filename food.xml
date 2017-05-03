@@ -2,127 +2,138 @@
 <pages>
   <link>
     <name>
-      apple
+      Apple
     </name>
+    <url>
+      javascript:foodLoad("apple")
+    </url>
   </link>
   <link>
     <name>
-      apricot
+      Banana
     </name>
+    <url>
+      javascript:foodLoad("banana")
+    </url>
   </link>
   <link>
     <name>
-      banana
+      Blueberry
     </name>
+    <url>
+      javascript:foodLoad("blueberry")
+    </url>
   </link>
   <link>
     <name>
-      blackberry
+      Orange
     </name>
+    <url>
+      javascript:foodLoad("orange")
+    </url>
   </link>
   <link>
     <name>
-      blueberry
+      Strawberry
     </name>
+    <url>
+      javascript:foodLoad("strawberry")
+    </url>
   </link>
   <link>
     <name>
-      cherry
+      Lemon
     </name>
+    <url>
+      javascript:foodLoad("lemon")
+    </url>
   </link>
   <link>
     <name>
-      fig
+      Lime
     </name>
+    <url>
+      javascript:foodLoad("lime")
+    </url>
   </link>
   <link>
     <name>
-      grape
+      Potato
     </name>
+    <url>
+      javascript:foodLoad("potato")
+    </url>
   </link>
   <link>
     <name>
-      grapefruit
+      Broccoli
     </name>
+    <url>
+      javascript:foodLoad("broccoli")
+    </url>
   </link>
   <link>
     <name>
-      grape
+      Tomato
     </name>
+    <url>
+      javascript:foodLoad("tomato")
+    </url>
   </link>
   <link>
     <name>
-      kiwi
+      Carrot
     </name>
+    <url>
+      javascript:foodLoad("carrot")
+    </url>
   </link>
   <link>
     <name>
-      lemon
+      Lettuce
     </name>
+    <url>
+      javascript:foodLoad("lettuce")
+    </url>
   </link>
   <link>
     <name>
-      lime
+      Celery
     </name>
+    <url>
+      javascript:foodLoad("celery")
+    </url>
   </link>
   <link>
     <name>
-      mango
+      Bread
     </name>
+    <url>
+      javascript:foodLoad("bread")
+    </url>
   </link>
   <link>
     <name>
-      melon
+      Rice
     </name>
+    <url>
+      javascript:foodLoad("rice")
+    </url>
   </link>
   <link>
     <name>
-      nectarine
+      Quinoa
     </name>
+    <url>
+      javascript:foodLoad("quinoa")
+    </url>
   </link>
   <link>
     <name>
-      orange
+      Pasta
     </name>
-  </link>
-  <link>
-    <name>
-      payaya
-    </name>
-  </link>
-  <link>
-    <name>
-      peach
-    </name>
-  </link>
-  <link>
-    <name>
-      pear
-    </name>
-  </link>
-  <link>
-    <name>
-      pineapple
-    </name>
-  </link>
-  <link>
-    <name>
-      plum
-    </name>
-  </link>
-  <link>
-    <name>
-      pomegranate
-    </name>
-  </link>
-  <link>
-    <name>
-      strawberry
-    </name>
-  </link>
-  <link>
-    <name>
-      watermelon
-    </name>
+    <url>
+      javascript:foodLoad("pasta")
+    </url>
   </link>
 </pages>
