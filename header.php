@@ -8,18 +8,30 @@
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
+  <!--The bottom two script tags are for the firebase database to function on our app-->
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
   <!--Connects to Firebase Databse-->
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>-->
   <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
-    authDomain: "comp2910-b5e23.firebaseapp.com",
-    databaseURL: "https://comp2910-b5e23.firebaseio.com",
-    projectId: "comp2910-b5e23",
-    storageBucket: "comp2910-b5e23.appspot.com",
-    messagingSenderId: "230859715437"
-  };
-  firebase.initializeApp(config);
+	  //Configurations for the firebase initialization
+	  var config = {
+		apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
+		authDomain: "comp2910-b5e23.firebaseapp.com",
+		databaseURL: "https://comp2910-b5e23.firebaseio.com",
+		projectId: "comp2910-b5e23",
+		storageBucket: "comp2910-b5e23.appspot.com",
+		messagingSenderId: "230859715437"
+	  };
+	  //Initialize firebase application
+	  firebase.initializeApp(config);
+	  
+	  //Getting an instance of the database
+	  var database = firebase.database();
+	  //Enable logging
+	  firebase.database.enableLogging(true);
+	  
+	  //Check and print the name of the database on browser console
+	  console.log(database.name);
   </script>
 </head>
