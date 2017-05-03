@@ -1,14 +1,14 @@
 <br />
-<!-- Information on a banana -->
+<!-- Information on a lemon -->
 <div class="text-center">
-  <img src="images/Banana.png" alt="Yellow Banana" />
+  <img src="" alt="Overripe lemon" />
   <div>
     <h3>Storage</h3>
-    <p>Yellow banana storage text.</p>
+    <p>Overripe lemon storage text.</p>
   </div>
   <div>
     <h3>Revival</h3>
-    <p>Yellow banana revival tips (if applicable)</p>
+    <p>Overripe lemon revival tips (if applicable)</p>
   </div>
   <!-- Redirection for further info on food state -->
   <div>

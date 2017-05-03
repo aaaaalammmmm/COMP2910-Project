@@ -5,7 +5,7 @@
     <div class="col-xs-10 col-xs-offset-1" >
       <h1 class="text-center">Use-It-Up</h1>
       <form class="text-center" onsubmit="return false">
-        <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value)">
+        <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..." onkeyup="showResult(this.value); foodLoad(this.value)">
         <div id="search-hints"></div>
       </form>
     </div>

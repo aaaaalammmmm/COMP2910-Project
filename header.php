@@ -23,12 +23,12 @@
 	  };
 	  //Initialize firebase application
 	  firebase.initializeApp(config);
-	  
+
 	  //Getting an instance of the database
 	  var database = firebase.database();
 	  //Enable logging
 	  firebase.database.enableLogging(true);
-	  
+
 	  //Check and print the root key of the database on browser console
 	  console.log(database.ref().key);
   </script>

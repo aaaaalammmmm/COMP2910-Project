@@ -1,17 +1,17 @@
 <br />
-<!-- Information on a green banana -->
+<!-- Information on a rice -->
 <div class="text-center">
-  <img src="" alt="Green Banana" />
+  <img src="" alt="Coocked rice" />
   <div>
     <h3>Storage</h3>
-    <p>Green banana storage text.</p>
+    <p>Coocked rice storage text.</p>
   </div>
   <div>
     <h3>Revival</h3>
-    <p>Green banana revival tips (if applicable)</p>
+    <p>Coocked rice revival tips (if applicable)</p>
   </div>
   <!-- Redirection for further info on food state -->
-  <div class="col-xs-12">
+  <div>
     <div class="col-xs-6">
       <a href="">Recipes</a>
     </div>

@@ -13,13 +13,22 @@
   <!-- Redirection for further info on food state -->
   <div>
     <div class="col-xs-4">
-      <a href='javascript:foodLoad("banana-green")' style="cursor: pointer;"><img src="" alt="Green Banana" /></a><div>Green Banana</div>
+      <a href='javascript:foodLoad("banana-underripe")' style="cursor: pointer;">
+        <img src="" alt="Underripe Banana" />
+        <div>Underripe Recipes</div>
+      </a>
     </div>
     <div class="col-xs-4">
-      <a href='javascript:foodLoad("banana-yellow")' style="cursor: pointer;"><img src="images/Banana.png" alt="Yellow/Ripe Banana" /></a><div>Yellow/Ripe Banana</div>
+      <a href='javascript:foodLoad("banana-ripe")' style="cursor: pointer;">
+        <img src="images/Banana.png" alt="Ripe Banana" />
+        <div>Ripe Banana Recipes</div>
+      </a>
     </div>
     <div class="col-xs-4">
-      <a href='javascript:foodLoad("banana-black")' style="cursor: pointer;"><img src="" alt="Black/Over-ripe Banana" /></a><div>Black/Over-ripe Banana</div>
+      <a href='javascript:foodLoad("banana-overripe")' style="cursor: pointer;">
+        <img src="" alt="Overripe Banana" />
+        <div>Overripe Banana Recipes</div>
+      </a>
     </div>
   </div>
 </div>
