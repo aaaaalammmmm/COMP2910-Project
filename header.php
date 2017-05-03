@@ -11,8 +11,6 @@
   <!--The bottom two script tags are for the firebase database to function on our app-->
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
-  <!--Connects to Firebase Databse-->
-  <!--<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>-->
   <script>
 	  //Configurations for the firebase initialization
 	  var config = {
@@ -31,7 +29,7 @@
 	  //Enable logging
 	  firebase.database.enableLogging(true);
 	  
-	  //Check and print the name of the database on browser console
-	  console.log(database.name);
+	  //Check and print the root key of the database on browser console
+	  console.log(database.ref().key);
   </script>
 </head>
