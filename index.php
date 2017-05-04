@@ -44,26 +44,26 @@
     <br />
     <!-- Redirection "buttons" for the main categories of pages -->
     <div class="text-center" >
-      <div class="btn-toolbar-home hidden">
-        <a href="javascript:load('allFruits')">
+      <div id="large-btn" class="btn-toolbar-home">
+        <a href="javascript:resizeBtn('allFruits')">
           <button class="btn btn-block">Fruits</button>
         </a>
-        <a href="javascript:load('allVeggies')">
+        <a href="javascript:resizeBtn('allVeggies')">
           <button class="btn btn-block">Veggies</button>
         </a>
-        <a href="javascript:load('allGrains')">
+        <a href="javascript:resizeBtn('allGrains')">
           <button class="btn btn-block">Grains</button>
         </a>
       </div>
-      <div class="btn-toolbar-other  btn-group">
+      <div id="small-btn" class="btn-toolbar-other btn-group hidden">
         <a href="javascript:load('allFruits')">
-          <button class="btn">Fruits</button>
+          <button id="fruit-btn" class="btn">Fruits</button>
         </a>
         <a href="javascript:load('allVeggies')">
-          <button class="btn ">Veggies</button>
+          <button id="veggie-btn" class="btn ">Veggies</button>
         </a>
         <a href="javascript:load('allGrains')">
-          <button class="btn ">Grains</button>
+          <button id="grain-btn" class="btn ">Grains</button>
         </a>
       </div>
     </div>
