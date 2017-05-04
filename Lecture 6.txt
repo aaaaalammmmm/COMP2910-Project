@@ -1,0 +1,108 @@
+Lecture 6
+
+JavaScript!
+
+Jason is just gonna make a few things. It'll take ~75 minutes, something like that.
+Speak up if we have any questions. We should also pay attention to things because there'll be a quiz.
+
+<script>
+
+
+
+</script>
+- It goes in order, if you put <script> after body, then the things in previous divs are available.
+- putting script tag at bottom then everything is available
+
+Window: current window/tab
+Document: "web page" and everything in it
+  from <html> to </html>
+style: a collection of all an element's css properties
+
+<script>
+  document.images[0]
+    - reference to first image on the document
+  alert(document.images[0]);
+  window.alert(document.images[0]);
+  alert(document.getElementsByTagname('img')[0]);
+  //document.links
+  //document.forms
+
+<script defer="defer" src="****.js"></script>
+  - defer attribute makes it wait for the page to finish loading
+
+<script>
+  onload=function() {
+    document.getElementsbyTagName('img')[1].style.border="5px red solid";
+  }
+
+USING JS TO RESIZE ALL THE IMAGES
+<script>
+  onload=function() {
+    var myImages = document.getElementById('one').getElementsByTagName("img");
+
+    for (var i = 0; i < myImages.length; i++) {
+      myImages[i].width = 70;
+      myImages[i].height = 70;
+    }
+  }
+
+<script>
+  function myFunction() {
+    var myImages = document.getElementById('one').getElementsByTagName("img");
+
+    for (var i = 0; i < myImages.length; i++) {
+      myImages[i].width = 70;
+      myImages[i].height = 70;
+    }
+  }
+
+//MISTAKE: onload=myFunction()
+  - this function is called immediately
+onload=myFunction
+
+var makes a variable a local variable, otherwise it is global.
+
+myImages[i].onclick=function() {
+  myImages[i].width=70;
+}
+
+
+
+jQuery is a JS library!
+IT'S WAY BETTER THAN NORMAL JAVASCRIPT
+- IT'S LIKE JAVASCRIPT ON STEROIDS
+
+STEP 1:
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+  onload=function() {
+
+  }
+
+  $(document).ready(function() {
+    alert('hi form jquery');
+  });
+  - jQuery wrapper
+
+  $(function() {
+    $('img:first, img:last').attr('width', 50);
+    - reference to all images
+    $('img:nth-child(3)').......
+
+    $(function() {
+      $('img').click(function() {
+        ANONYMOUS FUNCTION
+        $(this).css('border-style', 'dashed')
+      });
+
+      $('img:odd').click()
+    });
+  });
+
+
+
+</script>
+
+
+JASON IS GOING TO MAKE GAMES.
+<img src="images/cat.jpg" id="c" style="position:absolute" left:10px">
