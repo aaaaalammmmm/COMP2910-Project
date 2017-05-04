@@ -8,19 +8,19 @@
   </div>
   <!-- Redirection for further info on food state -->
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-4 pull-left">
       <a href='javascript:foodLoad("banana-underripe")' style="cursor: pointer;">
         <img src="" alt="Underripe Banana" />
         <div>Underripe</div>
       </a>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-4 hidden">
       <a href='javascript:foodLoad("banana-ripe")' style="cursor: pointer;">
         <img src="images/Banana.png" alt="Ripe Banana" />
         <div>Ripe</div>
       </a>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-4 pull-right">
       <a href='javascript:foodLoad("banana-overripe")' style="cursor: pointer;">
         <img src="" alt="Overripe Banana" />
         <div>Overripe</div>
@@ -29,3 +29,6 @@
   </div>
 </div>
 <br />
+<script>
+resizeBtn("");
+</script>

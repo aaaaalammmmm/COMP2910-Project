@@ -74,3 +74,8 @@ body {
    margin-bottom: 100px;
    clear: both;
 }
+
+/* Highlights the selected button*/
+.btn-highlight {
+  background-color: #1acc22;
+}
