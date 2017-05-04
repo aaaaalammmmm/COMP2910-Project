@@ -1,30 +1,67 @@
+<?php include 'header.php'; ?>
 <br />
+<script>
+	//This stores a pointer to all info about bananas
+	var bananaInfo = rootRef.child("fruit/banana");
+	//This creates a pointer to the banana storage div
+	var bananaStorageDiv  = document.getElementById("bananaStorage");	
+	//This creates a pointer to the banana recipes div
+	var bananaRecipesDiv  = document.getElementById("bananaRecipes");
+	
+	//This function will pull the string containing information about storage
+	//and then assigns it to the storage div
+	function bananaInformation(state) {
+		//This stores the location of the banana storage
+		var bananaStateInfo;
+		//This stores the string from the database
+		var bananaStorageText;
+		//This stores the string from the database
+		var bananaRecipesText;
+		
+		//Go to the child node containing the state for the banana
+		bananaStateInfo = bananaInfo.child(state);
+		//Create a snapshot of the banana state node
+		bananaStateInfo.once("value")
+		.then(function(snapshot) {
+			//store the contents of the node as a string variable
+			bananaStorageText = snapshot.child("storage").val();
+			//store the contents of the node as a string variable
+			bananaRecipesText = snapshot.child("recipes").val();
+			//check to see if it is stored in the variable
+			console.log(bananaStorageText);
+			//check to see if it is stored in the variable
+			console.log(bananaRecipesText);
+			//Assign the string as inner html to the storage div		
+			bananaStorageDiv.innerHTML = bananaStorageText;
+			//Assign the string as inner html to the recipes div		
+			bananaRecipesDiv.innerHTML = bananaRecipesText;
+		});
+	}
+	
+	onload=bananaInformation("ripe");
+</script>
 <!-- Information on a banana -->
 <div class="text-center col-xs-12">
   <img src="images/Banana.png" alt="Banana" />
   <div>
     <h3>Storage</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae dolor dolor. Morbi dapibus risus euismod tortor vestibulum, eget bibendum nisl ultrices. Integer ornare mattis est, et maximus velit tincidunt a. Integer non dapibus enim. Suspendisse nisl urna, molestie sit amet elit a, accumsan commodo nisi. Morbi lacinia dui ipsum. Sed bibendum nisl vitae tortor convallis dapibus eu nec nunc.</p>
+	<div id="bananaStorage"></div>
+	<h3>Recipes</h3>
+	<div id="bananaRecipes"></div>
   </div>
   <!-- Redirection for further info on food state -->
   <div class="row">
     <div class="col-xs-4 pull-left">
-      <a href='javascript:foodLoad("banana-underripe")' style="cursor: pointer;">
-        <img src="" alt="Underripe Banana" />
+        <img src="images/Banana.png" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
         <div>Underripe</div>
-      </a>
     </div>
-    <div class="col-xs-4 hidden">
-      <a href='javascript:foodLoad("banana-ripe")' style="cursor: pointer;">
-        <img src="images/Banana.png" alt="Ripe Banana" />
+    <div class="col-xs-4">
+        <img src="images/Banana.png" alt="Ripe Banana" onclick="bananaInformation('ripe')"/>
         <div>Ripe</div>
-      </a>
     </div>
     <div class="col-xs-4 pull-right">
-      <a href='javascript:foodLoad("banana-overripe")' style="cursor: pointer;">
-        <img src="" alt="Overripe Banana" />
+		<img src="images/Banana.png" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
         <div>Overripe</div>
-      </a>
     </div>
   </div>
 </div>
@@ -32,3 +69,5 @@
 <script>
 resizeBtn("");
 </script>
+<?php include 'footer.php'; ?>
+
