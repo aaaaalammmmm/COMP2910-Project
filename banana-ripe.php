@@ -1,18 +1,28 @@
 <br />
 <!-- Information on a banana -->
+<script>
+	var bananaStorage = rootRef.child("fruit/banana/ripe");
+	var bananaDiv     = document.getElementById("bananaStorage");	
+	
+	var bananaStorageTextNode;
+	var bananaStorageText;
+	
+	//Create a snapshot of the ripe banana node
+	bananaStorage.once("value")
+	.then(function(snapshot) {
+		//store the contents of the node as a string variable
+		bananaStorageText = snapshot.child("storage").val();
+		//check to see if it is stored in the variable
+		console.log(bananaStorageText);
+		//Assign the string as inner html to the div		
+		bananaDiv.innerHTML = bananaStorageText;
+	});
+</script>
 <div class="text-center">
   <img src="Images/Banana.png" alt="Ripe Banana" />
   <div>
     <h3>Storage</h3>
-    <p>Store ripe bananas in the produce drawer of your fridge to slow the ripening process.
-
-Wrap the stems of individual or bunch bananas with plastic wrap to stop the ripening process. The plastic wrap stops the ethylene gas from affecting the rest of the fruit.
-
-Separating the individual bananas from the bunch and storing in separate locations, or with unripe fruit, will extend its shelf life.
-
-Remove the peel and freeze. This method is useful if you wish to use the bananas in any recipe where the banana will be mashed, such as a smoothie or banana bread. Include a small drizzle of lemon juice to avoid the fruit turning brown.
-
-Note: do not freeze bananas with the peel on. Removing peels from frozen bananas will be close to impossible, and if you peel them after they thaw the fruit will turn mushy.</p>
+	<div id="bananaStorage"></div>
   </div>
   <!-- Redirection for further info on food state -->
   <div>
