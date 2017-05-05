@@ -39,7 +39,7 @@ img {
 
 /* Margins for buttons */
 .btn-toolbar-home .btn {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 /* Colour for hamburger bun menu */
@@ -76,21 +76,21 @@ p, div {
 
 /* Sets minimum height and margin for body. Allows overlaay of other elements */
 body {
-   min-height: 400px;
-   margin-bottom: 100px;
-   clear : both;
+  min-height: 400px;
+  margin-bottom: 100px;
+  clear : both;
 }
 
 /* Hamburger Menu overlay styling */
 #hamburger-overlay {
-position:relative;
-z-index:1000;
+  position:relative;
+  z-index:1000;
 }
 
 /* Defines position on top-button class */
 .top-button {
-    position: absolute;
-    top: 0;
+  position: absolute;
+  top: 0;
 }
 
 /* Highlights the selected button*/
