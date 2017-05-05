@@ -1,12 +1,42 @@
 <?php include 'food-header.php'; ?>
 <br />
+<!-- Information on a banana -->
+<div class="text-center col-xs-12">
+  <img src="images/Banana.png" alt="Banana" />
+  <div>
+    <h3>Storage</h3>
+	<div id="bananaStorage"></div>
+	<h3>Recipes</h3>
+	<div id="bananaRecipes"></div>
+  </div>
+  <!-- Redirection for further info on food state -->
+  <div class="row">
+    <div class="col-xs-4 pull-left">
+        <img src="images/Banana.png" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
+        <div>Underripe</div>
+    </div>
+    <div class="col-xs-4">
+        <img src="images/Banana.png" alt="Ripe Banana" onclick="bananaInformation('ripe')"/>
+        <div>Ripe</div>
+    </div>
+    <div class="col-xs-4 pull-right">
+		<img src="images/Banana.png" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
+        <div>Overripe</div>
+    </div>
+  </div>
+</div>
+<br />
 <script>
 	//This stores a pointer to all info about bananas
 	var bananaInfo = rootRef.child("fruit/banana");
 	//This creates a pointer to the banana storage div
 	var bananaStorageDiv  = document.getElementById("bananaStorage");	
+	//Test variable
+	console.log(bananaStorageDiv);
 	//This creates a pointer to the banana recipes div
 	var bananaRecipesDiv  = document.getElementById("bananaRecipes");
+		//Test variable
+	console.log(bananaRecipesDiv);
 	
 	//This function will pull the string containing information about storage
 	//and then assigns it to the storage div
@@ -38,36 +68,8 @@
 		});
 	}
 	
-	onload=bananaInformation("ripe");
-</script>
-<!-- Information on a banana -->
-<div class="text-center col-xs-12">
-  <img src="images/Banana.png" alt="Banana" />
-  <div>
-    <h3>Storage</h3>
-	<div id="bananaStorage"></div>
-	<h3>Recipes</h3>
-	<div id="bananaRecipes"></div>
-  </div>
-  <!-- Redirection for further info on food state -->
-  <div class="row">
-    <div class="col-xs-4 pull-left">
-        <img src="images/Banana.png" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
-        <div>Underripe</div>
-    </div>
-    <div class="col-xs-4">
-        <img src="images/Banana.png" alt="Ripe Banana" onclick="bananaInformation('ripe')"/>
-        <div>Ripe</div>
-    </div>
-    <div class="col-xs-4 pull-right">
-		<img src="images/Banana.png" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
-        <div>Overripe</div>
-    </div>
-  </div>
-</div>
-<br />
-<script>
-resizeBtn("");
+	onload = bananaInformation("ripe");
+
 </script>
 <?php include 'footer.php'; ?>
 
