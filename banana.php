@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'food-header.php'; ?>
 <br />
 <script>
 	//This stores a pointer to all info about bananas
