@@ -81,5 +81,12 @@ function resizeBtn(str) {
   if(document.getElementById("livesearch").innerHTML != "") {
     document.getElementById("large-btn").classList.toggle("hidden");
     document.getElementById("small-btn").classList.toggle("hidden");
+  } else {
+    if (document.getElementById("large-btn").classList.contains("hidden")) {
+      document.getElementById("large-btn").classList.toggle("hidden");
+    }
+    if (!document.getElementById("small-btn").classList.contains("hidden")) {
+      document.getElementById("small-btn").classList.toggle("hidden");
+    }
   }
 }
