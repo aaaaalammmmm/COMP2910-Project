@@ -12,7 +12,7 @@
   <!-- Redirection for further info on food state -->
   <div class="row">
     <div class="col-xs-4 pull-left">
-      <img src="images/Banana.png" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
+      <img src="images/Banana-UR.png" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
       <div>Underripe</div>
     </div>
     <div class="col-xs-4">
@@ -20,7 +20,7 @@
       <div>Ripe</div>
     </div>
     <div class="col-xs-4 pull-right">
-      <img src="images/Banana.png" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
+      <img src="images/Banana-OR.png" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
       <div>Overripe</div>
     </div>
   </div>
