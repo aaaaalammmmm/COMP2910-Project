@@ -74,7 +74,7 @@ p, div {
   color: black;
 }
 
-/* Sets minimum height and margin for body. Allows overlaay of other elements */
+/* Sets minimum height and margin for body. Allows overlay of other elements */
 body {
   min-height: 400px;
   margin-bottom: 100px;
@@ -96,4 +96,14 @@ body {
 /* Highlights the selected button*/
 .btn-highlight {
   background-color: #1acc22;
+}
+
+/* Sets the button width on mobile */
+@media all and (max-width:480px) {
+    .mobile-button { width: 100%; display:block; }
+}
+
+/* Sets the button width on tablet */
+@media all and (max-width:1024px) {
+    .mobile-button { width: 30%; }
 }

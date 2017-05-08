@@ -49,25 +49,31 @@
   <!-- Redirection "buttons" for the main categories of pages -->
   <div class="text-center" >
     <div id="large-btn" class="btn-toolbar-home">
-      <a href="javascript:resizeBtn('allFruits')">
-        <button class="btn btn-block">Fruits</button>
-      </a>
-      <a href="javascript:resizeBtn('allVeggies')">
-        <button class="btn btn-block">Veggies</button>
-      </a>
-      <a href="javascript:resizeBtn('allGrains')">
-        <button class="btn btn-block">Grains</button>
-      </a>
+        <div class="col-xs-12">
+            <a href="javascript:resizeBtn('allFruits')">
+                <button type="button" class="btn btn-primary  mobile-button">Fruits</button>
+            </a>
+        </div>
+        <div class="col-xs-12">
+            <a href="javascript:resizeBtn('allVeggies')">
+                <button type="button" class="btn btn-primary mobile-button">Veggies</button>
+            </a>
+        </div>
+        <div class="col-xs-12">
+            <a href="javascript:resizeBtn('allGrains')">
+                <button type="button" class="btn btn-primary mobile-button">Grains</button>
+            </a>
+        </div>
     </div>
     <div id="small-btn" class="btn-toolbar-other btn-group hidden">
       <a href="javascript:load('allFruits')">
-        <button id="fruit-btn" class="btn">Fruits</button>
+        <button type="button" id="fruit-btn" class="btn">Fruits</button>
       </a>
       <a href="javascript:load('allVeggies')">
-        <button id="veggie-btn" class="btn ">Veggies</button>
+        <button type="button" id="veggie-btn" class="btn ">Veggies</button>
       </a>
       <a href="javascript:load('allGrains')">
-        <button id="grain-btn" class="btn ">Grains</button>
+        <button type="button" id="grain-btn" class="btn ">Grains</button>
       </a>
     </div>
   </div>
