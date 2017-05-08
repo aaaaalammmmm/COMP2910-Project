@@ -60,7 +60,7 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a class="text-black" href="index.html">Home</a></li>
+              <li><a class="text-black" href="index.php">Home</a></li>
               <li><a class="text-black" href="about.php">About Us</a></li>
               <li><a class="text-black" href="contact.php">Contact Us</a></li>
               <li><a class="text-black" href="info.php">Info</a></li>
