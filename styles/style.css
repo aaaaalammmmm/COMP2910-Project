@@ -104,6 +104,7 @@ body {
 }
 
 /* Sets the button width on tablet */
+
 @media all and (min-width: 481px) {
     .mobile-button { width: 30%; }
 }
