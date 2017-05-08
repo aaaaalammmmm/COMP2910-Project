@@ -97,3 +97,9 @@ body {
 .btn-highlight {
   background-color: #1acc22;
 }
+
+/* Resizes the logo for food pages */
+.food-size {
+  width: 100px;
+  height: auto;
+}
