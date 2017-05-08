@@ -41,7 +41,7 @@
     <div>
       <div>
         <a href="index.php" >
-          <img  class="center-block" src="Images/UseItUpBanner v2.0.png"/>
+          <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
         </a>
       </div>
     </div>
@@ -71,4 +71,5 @@
     </div>
   </div>
   <div>
+    <br />
   </div>
