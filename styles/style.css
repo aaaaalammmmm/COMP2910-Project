@@ -107,3 +107,10 @@ body {
 @media all and (max-width:1024px) {
     .mobile-button { width: 30%; }
 }
+
+/* Resizes the logo for food pages */
+.food-size {
+  width: 100px;
+  height: auto;
+}
+

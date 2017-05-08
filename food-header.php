@@ -12,39 +12,39 @@
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
   <script>
-	  //Configurations for the firebase initialization
-	  var config = {
-		apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
-		authDomain: "comp2910-b5e23.firebaseapp.com",
-		databaseURL: "https://comp2910-b5e23.firebaseio.com",
-		projectId: "comp2910-b5e23",
-		storageBucket: "comp2910-b5e23.appspot.com",
-		messagingSenderId: "230859715437"
-	  };
-	  //Initialize firebase application
-	  firebase.initializeApp(config);
+  //Configurations for the firebase initialization
+  var config = {
+    apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
+    authDomain: "comp2910-b5e23.firebaseapp.com",
+    databaseURL: "https://comp2910-b5e23.firebaseio.com",
+    projectId: "comp2910-b5e23",
+    storageBucket: "comp2910-b5e23.appspot.com",
+    messagingSenderId: "230859715437"
+  };
+  //Initialize firebase application
+  firebase.initializeApp(config);
 
-	  //Getting an instance of the database
-	  var database = firebase.database();
-	  //Enable logging
-	  firebase.database.enableLogging(true);
+  //Getting an instance of the database
+  var database = firebase.database();
+  //Enable logging
+  firebase.database.enableLogging(true);
 
-	  //Check and print the root key of the database on browser console
-	  console.log(database.ref().key);
-	  
-	  //Set to rootRef to the food node
-	  var rootRef = database.ref("food");
+  //Check and print the root key of the database on browser console
+  console.log(database.ref().key);
+
+  //Set to rootRef to the food node
+  var rootRef = database.ref("food");
   </script>
 </head>
 <body class="bg-primary" >
   <div class="container">
+    <div>
       <div>
-          <div>
-              <a href="index.php" >
-                  <img  class="center-block" src="Images/UseItUpBanner v2.0.png"/>
-              </a>
-          </div>
+        <a href="index.php" >
+          <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
+        </a>
       </div>
+    </div>
     <div class="row top-button">
       <div class="col-xs-12">
         <nav class="navbar navbar-default" role="navigation">
@@ -58,14 +58,18 @@
               <span class="icon-bar"></span>
             </button>
           </div>
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                      <li><a class="text-black" href="index.php">Long text string thing</a></li>
-                  </ul>
-              </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a class="text-black" href="index.php">Home</a></li>
+              <li><a class="text-black" href="about.php">About Us</a></li>
+              <li><a class="text-black" href="contact.php">Contact Us</a></li>
+              <li><a class="text-black" href="info.php">Info</a></li>
+            </ul>
+          </div>
         </div>
       </nav>
     </div>
   </div>
   <div>
+    <br />
   </div>
