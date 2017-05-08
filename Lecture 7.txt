@@ -1,0 +1,158 @@
+Lecture 7
+
+Apache is a web server!
+M$ IIS
+
+Apache is Open Source!
+- IF THERE'S A PROBLEM IT'LL BE FOUND AND FIXED.
+- Open Source has no lies and secrets! It's better. Says Jason.
+NOT OPEN OFFICE. OPEN OFFICE IS AWFUL.
+
+Apache only understands requests and responses.
+
+Server Side languages:
+Node.js, PHP, ASP, Java, Python, Ruby
+
+Why choose PHP?
+- There's huge support for it, documentation
+- Lots of people make fun of PHP. It was invented by accident. It's terrible.
+  - But it's OS
+
+
+You can run PHP in the command line!
+Apache doesn't understand PHP, PHP doesn't understand mySQL
+- you install them and configure them to talk to each other
+
+NOTE: 1.php
+
+<?php
+  echo 'hi';
+  print "hi";
+  $school = 'bcit';
+  echo $school;
+  echo '$school';             //$school
+  echo "$school";             //bcit
+
+
+?> (it's more efficient to leave this out)
+
+NOTE: form.html
+<form action="form.php" method="get">
+  <input type="text">
+  <input type="">
+</form>
+
+NOTE: form.php
+<$php
+
+echo $_GET['x'];
+
+$_GET
+$_POST
+$_REQUEST (post or get)
+
+NOTE: files.php
+<?php
+
+$f = fopen('books.txt', 'w') or die('error');
+
+fwrite($f, "Getting to Yes" . PHP_EOL);
+fwrite($f, "Four Hour Workweek" . PHP_EOL);
+fwrite($f, "Getting Real - 37 Signals" . PHP_EOL);
+
+fclose($f);
+
+$lines = file('books.txt');
+
+foreach($lines as $line) {
+  echo nl2br($line);
+}
+
+NOTE: regex.php
+
+<?php
+
+echo preg_match('/a/', 'bcit');
+// ^ $ + * ? . []
+/a+ - one or more of previous regular group
+(ab)+
+a* - zero or more of preceeding char
+a? - zero or 1
+. - any single character
+. * - any number of characters
+[] - character class (list or range), [aeiou]
+[a-z] - range any single character
+[a-zA-Z0-9_-] - any character in ranges, a-z, A-Z, any digit, underscore, or hyphen
+[^aeiou] - not aeiou
+
+ESCAPE: \/, \\, \]
+
+Canadian postal codes:
+/^[a-z]\d[a-z] ?\d[a-z]\d$/i
+
+
+NOTE: sessions.php
+<?php
+session_start()
+- creates / continues session
+- creates:
+  - session id
+  - server file with that name
+  - sends id to client
+- client makes another request with id, continues session
+- sessions are not secure by default in php
+- HOW DO WE MAKE SESSIONS MORE SECURE?
+- sometimes session id is stored in URL.
+- secure sessions.
+
+
+$_SESSION['username'] = 'jason';
+
+
+?>
+
+all arrays in php are associative (k, v)
+
+Jason is going to use mySQL
+
+NOTE: student.sql
+CREATE DATABASE IF NOT EXISTS bcit;
+
+USE bcit;
+
+CREATE TABLE IF NOT EXISTS student
+(studentNo VARCHAR(9) PRIMARY KEY NOT NULL
+,firstname VARCHAR(45) NOT NULL
+,lastname  VARCHAR(45) NOT NULL
+,dateborn  DATE        NOT NULL
+,email     VARCHAR(100) NOT NULL
+);
+
+INSERT INTO student(studentNo,
+                    firstname,
+                    lastname,
+                    dateborn,
+                    email) VALUES ('a12341234',
+                                   'jason',
+                                   'harrison'
+                                   ...);
+UPDATE student
+SET emailaddress=".....";
+WHERE studentNo
+LIMIT 1;
+
+SELECT *
+FROM student;
+
+
+
+//find server
+
+NOTE: student.php
+<?php
+
+$db = mysqli_connect('localhost', 'com', '2910') or die(mysqli_connect_error());
+
+mysqli_select_db('db', 'bcit');
+
+mysqli_query(db, "......QUERY......");
