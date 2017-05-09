@@ -2,13 +2,14 @@
 // The hints are displayed in a div tag with id 'search-hints'
 // Calls the livesearch.php page to get the hint text to display
 function showResult(str) {
-  if (str.length==0 || str.length==1) {
+  resetBtn();
+  if (str.length==0) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     document.getElementById("livesearch").innerHTML="";
     resizeBtn("");
     searchScroll("");
-    load("");
+    foodLoad("");
     return;
   }
   if (window.XMLHttpRequest) {
@@ -24,7 +25,7 @@ function showResult(str) {
       searchScroll(str);
     }
   }
-  load(str);
+  foodLoad(str);
   xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
 }
@@ -33,7 +34,9 @@ function showResult(str) {
 // search bar with the 'search-box' id. If the page to load is one of the all<food>
 /// pages, highlights the correct button.
 function load(str) {
-  //document.getElementById("search-box").value = "";
+  document.getElementById("search-box").value = "";
+  document.getElementById("search-hints").value = "";
+  document.getElementById("search-hints").style.border = "0px";
   $("#livesearch").load(str+'.php');
   // Ignored by most requests
   if (str == "allFruits") {
@@ -109,5 +112,22 @@ function searchScroll(str) {
     scrollTo(0,0);
   } else {
     document.getElementById("ajax-search").scrollIntoView(true);
+  }
+}
+
+// Resets the category buttons upon searching
+function resetBtn() {
+  if (document.getElementById("large-btn").classList.contains("hidden")) {
+    document.getElementById("large-btn").classList.toggle("hidden");
+    document.getElementById("small-btn").classList.toggle("hidden");
+    if(document.getElementById("fruit-btn").classList.contains("btn-highlight")) {
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    if(document.getElementById("veggie-btn").classList.contains("btn-highlight")) {
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    if(document.getElementById("grain-btn").classList.contains("btn-highlight")) {
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
   }
 }
