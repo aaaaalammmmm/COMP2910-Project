@@ -20,7 +20,7 @@ function showResult(str) {
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
     }
   }
-  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.open("POST","livesearch.php?q="+str,true);
   xmlhttp.send();
 }
 
@@ -89,4 +89,9 @@ function resizeBtn(str) {
       document.getElementById("small-btn").classList.toggle("hidden");
     }
   }
+}
+
+// Loads a food page with header and footer. AKA a stand alone page
+function pageLoad(str) {
+  location.href = str + ".php?l=";
 }
