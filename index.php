@@ -87,9 +87,9 @@ if (isset($_GET['f'])) {
   if ($food == 'f') {
     echo "<script type='text/javascript'>resizeBtn('allFruits');</script>";
   } else if ($food == 'v') {
-    resizeBtn("allVeggies");
+    echo "<script type='text/javascript'>resizeBtn('allVeggies');</script>";
   } else if ($food == 'g') {
-    resizeBtn("allGrains");
+    echo "<script type='text/javascript'>resizeBtn('allGrains');</script>";
   }
 }
 
