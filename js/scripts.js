@@ -2,7 +2,7 @@
 // The hints are displayed in a div tag with id 'search-hints'
 // Calls the livesearch.php page to get the hint text to display
 function showResult(str) {
-  if (str.length==0) {
+  if (str.length==0 || str.length==1) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     resizeBtn("");
@@ -19,6 +19,7 @@ function showResult(str) {
     if (this.readyState==4 && this.status==200) {
       document.getElementById("search-hints").innerHTML=this.responseText;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
+      searchScroll(str);
     }
   }
   load(str);
@@ -32,8 +33,6 @@ function showResult(str) {
 function load(str) {
   //document.getElementById("search-box").value = "";
   $("#livesearch").load(str+'.php');
-  // Auto scrolls search bar
-  searchScroll(str);
   // Ignored by most requests
   if (str == "allFruits") {
     if (!document.getElementById("fruit-btn").classList.contains("btn-highlight")){
@@ -71,11 +70,11 @@ function load(str) {
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
 function foodLoad(str) {
+  searchScroll(str);
   $("#livesearch").load(str+'.php');
   document.getElementById("search-box").value=str;
   document.getElementById("search-hints").innerHTML="";
   document.getElementById("search-hints").style.border="0px";
-  searchScroll(str);
 }
 
 // Dinamically resizes all<food> buttons to proper size
@@ -103,7 +102,7 @@ function pageLoad(str) {
 
 // Autoscrolls when using livesearch bar
 function searchScroll(str) {
-  if (str.length < 0) {
+  if (str.length <= 0) {
     scrollTo(0,0);
   } else {
     document.getElementById("ajax-search").scrollIntoView(true);
