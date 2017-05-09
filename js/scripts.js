@@ -2,10 +2,14 @@
 // The hints are displayed in a div tag with id 'search-hints'
 // Calls the livesearch.php page to get the hint text to display
 function showResult(str) {
+  resetBtn();
   if (str.length==0) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
+    document.getElementById("livesearch").innerHTML="";
     resizeBtn("");
+    searchScroll("");
+    foodLoad("");
     return;
   }
   if (window.XMLHttpRequest) {
@@ -18,8 +22,10 @@ function showResult(str) {
     if (this.readyState==4 && this.status==200) {
       document.getElementById("search-hints").innerHTML=this.responseText;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
+      searchScroll(str);
     }
   }
+  foodLoad(str);
   xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
 }
@@ -29,6 +35,8 @@ function showResult(str) {
 /// pages, highlights the correct button.
 function load(str) {
   document.getElementById("search-box").value = "";
+  document.getElementById("search-hints").value = "";
+  document.getElementById("search-hints").style.border = "0px";
   $("#livesearch").load(str+'.php');
   // Ignored by most requests
   if (str == "allFruits") {
@@ -67,6 +75,7 @@ function load(str) {
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
 function foodLoad(str) {
+  searchScroll(str);
   $("#livesearch").load(str+'.php');
   document.getElementById("search-box").value=str;
   document.getElementById("search-hints").innerHTML="";
@@ -75,18 +84,50 @@ function foodLoad(str) {
 
 // Dinamically resizes all<food> buttons to proper size
 function resizeBtn(str) {
-  if(str.length>0){
+  if(str.length>1){
     load(str);
+
+    if(document.getElementById("livesearch").innerHTML != "") {
+      document.getElementById("large-btn").classList.toggle("hidden");
+      document.getElementById("small-btn").classList.toggle("hidden");
+    } else {
+      if (document.getElementById("large-btn").classList.contains("hidden")) {
+        document.getElementById("large-btn").classList.toggle("hidden");
+      }
+      if (!document.getElementById("small-btn").classList.contains("hidden")) {
+        document.getElementById("small-btn").classList.toggle("hidden");
+      }
+    }
   }
-  if(document.getElementById("livesearch").innerHTML != "") {
+}
+
+// Loads a food page with header and footer. AKA a stand alone page
+function pageLoad(str) {
+  location.href = str + ".php?l=";
+}
+
+// Autoscrolls when using livesearch bar
+function searchScroll(str) {
+  if (str.length <=1) {
+    scrollTo(0,0);
+  } else {
+    document.getElementById("ajax-search").scrollIntoView(true);
+  }
+}
+
+// Resets the category buttons upon searching
+function resetBtn() {
+  if (document.getElementById("large-btn").classList.contains("hidden")) {
     document.getElementById("large-btn").classList.toggle("hidden");
     document.getElementById("small-btn").classList.toggle("hidden");
-  } else {
-    if (document.getElementById("large-btn").classList.contains("hidden")) {
-      document.getElementById("large-btn").classList.toggle("hidden");
+    if(document.getElementById("fruit-btn").classList.contains("btn-highlight")) {
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
     }
-    if (!document.getElementById("small-btn").classList.contains("hidden")) {
-      document.getElementById("small-btn").classList.toggle("hidden");
+    if(document.getElementById("veggie-btn").classList.contains("btn-highlight")) {
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    if(document.getElementById("grain-btn").classList.contains("btn-highlight")) {
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
     }
   }
 }

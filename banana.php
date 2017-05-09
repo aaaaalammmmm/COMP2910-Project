@@ -1,4 +1,9 @@
-<?php include 'food-header.php'; ?>
+<?php
+if (isset($_GET["l"])) {
+  include 'food-header.php';
+}
+
+?>
 <br />
 <!-- Information on a banana -->
 <div class="text-center col-xs-12">

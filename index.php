@@ -34,12 +34,12 @@
     </div>
     <div>
     </div>
-    <div class="container col-xs-12">
+    <div id="ajax-search" class="container col-xs-12">
         <br>
         <!-- Main Div tag for the search bar and hints -->
         <form class="text-center" onsubmit="return false">
             <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..."
-                   onkeyup="showResult(this.value); foodLoad(this.value)">
+                   onkeyup="showResult(this.value)">
             <div id="search-hints"></div>
         </form>
     </div>
