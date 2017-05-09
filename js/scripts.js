@@ -102,8 +102,8 @@ function resizeBtn(str) {
 }
 
 // Loads a food page with header and footer. AKA a stand alone page
-function pageLoad(str) {
-  location.href = str + ".php?l=";
+function pageLoad(food,type) {
+  location.href = "food.php?l=&f=" + food + "&t=" + type;
 }
 
 // Autoscrolls when using livesearch bar
