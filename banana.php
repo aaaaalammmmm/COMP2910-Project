@@ -6,20 +6,15 @@ if (isset($_GET["l"])) {
 ?>
 <!-- Padding for propper alignment of content -->
 <div class="padding-xl"></div>
-<!-- Horizontal rule for content break -->
-<div class="col-xs-12 my-hr"></div>
 <!-- Back button -->
-<div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
-  <button type="button" class="btn mobile-button" onclick="goBack('fruit')">
-    Back
-  </button>
-</div>
+
 <br>
-<!-- Horizontal rule for content break -->
-<div class="col-xs-12 my-hr "></div>
+<span onclick="goBack('fruit')" class="glyphicon glyphicon-menu-left "></span>
 <!-- Information on a banana -->
 <div class="text-center col-xs-12">
-  <img src="images/Banana.png" class="single-food-imagesize" alt="Banana" />
+    <div id="back-button" class="center-block">
+        <img src="images/Banana.png" class="single-food-imagesize" alt="Banana" />
+    </div>
   <div>
     <h3>Storage</h3>
     <div id="bananaStorage"></div>
