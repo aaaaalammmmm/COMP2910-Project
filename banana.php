@@ -2,7 +2,7 @@
 <br />
 <!-- Information on a banana -->
 <div class="text-center col-xs-12">
-  <img src="images/Banana.png" alt="Banana" />
+  <img src="images/Banana.png" class="single-food-imagesize" alt="Banana" />
   <div>
     <h3>Storage</h3>
     <div id="bananaStorage"></div>
@@ -12,15 +12,15 @@
   <!-- Redirection for further info on food state -->
   <div class="row">
     <div class="col-xs-4 pull-left">
-      <img src="images/Banana-UR.png" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
+      <img src="images/Banana-UR.png" class="single-food-imagesize" alt="Underripe Banana" onclick="bananaInformation('underripe')"/>
       <div>Underripe</div>
     </div>
     <div class="col-xs-4">
-      <img src="images/Banana.png" alt="Ripe Banana" onclick="bananaInformation('ripe')"/>
+      <img src="images/Banana.png" class="single-food-imagesize" alt="Ripe Banana" onclick="bananaInformation('ripe')"/>
       <div>Ripe</div>
     </div>
     <div class="col-xs-4 pull-right">
-      <img src="images/Banana-OR.png" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
+      <img src="images/Banana-OR.png" class="single-food-imagesize" alt="Overripe Banana" onclick="bananaInformation('overripe')"/>
       <div>Overripe</div>
     </div>
   </div>
