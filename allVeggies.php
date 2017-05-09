@@ -3,7 +3,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('broccoli')">
         <figure>
-            <img src="" alt="Broccoli"/>
+            <img src="Images/Broccoli.png" alt="Broccoli"/>
             <figcaption>Broccoli</figcaption>
         </figure>
     </a>
@@ -11,7 +11,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('carrot')">
         <figure>
-            <img src="" alt="Carrot"/>
+            <img src="Images/Carrot.png" alt="Carrot"/>
             <figcaption>Carrot</figcaption>
         </figure>
     </a>
@@ -19,7 +19,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('celery')">
         <figure>
-            <img src="" alt="Celery"/>
+            <img src="Images/Celery.png" alt="Celery"/>
             <figcaption>Celery</figcaption>
         </figure>
     </a>
