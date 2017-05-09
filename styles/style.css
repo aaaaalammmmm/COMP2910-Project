@@ -126,3 +126,9 @@ body {
   max-width: 100px;
 }
 
+/* Horizontal rule */
+.my-hr {
+  background:#ff9400;
+  border:0;
+  height:2px;
+}

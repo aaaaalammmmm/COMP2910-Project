@@ -81,4 +81,16 @@
 </div>
 </body>
 
-<?php include 'footer.php'; ?>
+<?php
+if (isset($_GET['f'])) {
+  $food = $_GET['f'];
+  if ($food == 'f') {
+    echo "<script type='text/javascript'>resizeBtn('allFruits');</script>";
+  } else if ($food == 'v') {
+    echo "<script type='text/javascript'>resizeBtn('allVeggies');</script>";
+  } else if ($food == 'g') {
+    echo "<script type='text/javascript'>resizeBtn('allGrains');</script>";
+  }
+}
+
+include 'footer.php'; ?>

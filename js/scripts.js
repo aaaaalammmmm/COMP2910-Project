@@ -131,3 +131,14 @@ function resetBtn() {
     }
   }
 }
+
+// Goes back to the all<food> page from a stand alone food page
+function goBack(str) {
+  if (str == "fruit"){
+    location.href ="index.php?f=f" ;
+  } else if (str == "veggie") {
+    location.href ="index.php?f=v";
+  } else if (str == "grain") {
+    location.href ="index.php?f=g";
+  }
+}
