@@ -5,8 +5,10 @@ function showResult(str) {
   if (str.length==0 || str.length==1) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
+    document.getElementById("livesearch").innerHTML="";
     resizeBtn("");
     searchScroll("");
+    load("");
     return;
   }
   if (window.XMLHttpRequest) {
@@ -79,18 +81,19 @@ function foodLoad(str) {
 
 // Dinamically resizes all<food> buttons to proper size
 function resizeBtn(str) {
-  if(str.length>0){
+  if(str.length>1){
     load(str);
-  }
-  if(document.getElementById("livesearch").innerHTML != "") {
-    document.getElementById("large-btn").classList.toggle("hidden");
-    document.getElementById("small-btn").classList.toggle("hidden");
-  } else {
-    if (document.getElementById("large-btn").classList.contains("hidden")) {
+
+    if(document.getElementById("livesearch").innerHTML != "") {
       document.getElementById("large-btn").classList.toggle("hidden");
-    }
-    if (!document.getElementById("small-btn").classList.contains("hidden")) {
       document.getElementById("small-btn").classList.toggle("hidden");
+    } else {
+      if (document.getElementById("large-btn").classList.contains("hidden")) {
+        document.getElementById("large-btn").classList.toggle("hidden");
+      }
+      if (!document.getElementById("small-btn").classList.contains("hidden")) {
+        document.getElementById("small-btn").classList.toggle("hidden");
+      }
     }
   }
 }
@@ -102,7 +105,7 @@ function pageLoad(str) {
 
 // Autoscrolls when using livesearch bar
 function searchScroll(str) {
-  if (str.length <= 0) {
+  if (str.length <=1) {
     scrollTo(0,0);
   } else {
     document.getElementById("ajax-search").scrollIntoView(true);
