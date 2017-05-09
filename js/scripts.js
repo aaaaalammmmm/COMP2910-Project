@@ -6,6 +6,7 @@ function showResult(str) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     resizeBtn("");
+    searchScroll("");
     return;
   }
   if (window.XMLHttpRequest) {
@@ -20,7 +21,8 @@ function showResult(str) {
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
     }
   }
-  xmlhttp.open("POST","livesearch.php?q="+str,true);
+  load(str);
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
 }
 
@@ -28,8 +30,10 @@ function showResult(str) {
 // search bar with the 'search-box' id. If the page to load is one of the all<food>
 /// pages, highlights the correct button.
 function load(str) {
-  document.getElementById("search-box").value = "";
+  //document.getElementById("search-box").value = "";
   $("#livesearch").load(str+'.php');
+  // Auto scrolls search bar
+  searchScroll(str);
   // Ignored by most requests
   if (str == "allFruits") {
     if (!document.getElementById("fruit-btn").classList.contains("btn-highlight")){
@@ -71,6 +75,7 @@ function foodLoad(str) {
   document.getElementById("search-box").value=str;
   document.getElementById("search-hints").innerHTML="";
   document.getElementById("search-hints").style.border="0px";
+  searchScroll(str);
 }
 
 // Dinamically resizes all<food> buttons to proper size
@@ -94,4 +99,13 @@ function resizeBtn(str) {
 // Loads a food page with header and footer. AKA a stand alone page
 function pageLoad(str) {
   location.href = str + ".php?l=";
+}
+
+// Autoscrolls when using livesearch bar
+function searchScroll(str) {
+  if (str.length < 0) {
+    scrollTo(0,0);
+  } else {
+    document.getElementById("ajax-search").scrollIntoView(true);
+  }
 }
