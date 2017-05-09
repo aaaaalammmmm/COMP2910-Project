@@ -1,43 +1,59 @@
 <!-- This page loads all the fruits  -->
-<div class="row text-center">
-  <div class="col-xs-4">
+<div class="row text-center center-block">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:load('apple')">
-      <img src="Images/Apple.png" alt="Apple"/><br />Apple
+        <figure>
+            <img src="Images/Apple.png" alt="Apple" class="image-size-limit"/>
+            <figcaption>Apple</figcaption>
+        </figure>
     </a>
   </div>
-  <div class="col-xs-4">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="banana.php">
-      <img src="images/Banana.png" alt="Banana" /><br />Banana
+        <figure>
+            <img src="images/Banana.png" alt="Banana" class="image-size-limit"/>
+            <figcaption>Banana</figcaption>
+        </figure>
     </a>
   </div>
-  <div class="col-xs-4">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:load('blueberry')">
-      <img src="Images/Blueberry.png" alt="Blueberry" /><br />Blueberry
+        <figure>
+            <img src="Images/Blueberry.png" alt="Blueberry" class="image-size-limit"/>
+            <figcaption>Blueberry</figcaption>
+        </figure>
     </a>
   </div>
-</div>
-<div class="row text-center">
-  <div class="col-xs-4">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:load('lemon')">
-      <img src="images/Banana.png" alt="Lemon" /><br />Lemon
+        <figure>
+            <img src="images/Banana.png" alt="Lemon" class="image-size-limit"/>
+            <figcaption>Lemon</figcaption>
+        </figure>
     </a>
   </div>
-  <div class="col-xs-4">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:load('lime')">
-      <img src="images/Banana.png" alt="Lime" /><br />Lime
+        <figure>
+            <img src="images/Banana.png" alt="Lime" class="image-size-limit"/>
+            <figcaption>Lime</figcaption>
+        </figure>
     </a>
   </div>
-  <div class="col-xs-4">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:load('orange')">
-      <img src="Images/Orange.png" alt="Orange"/><br />Orange
+        <figure>
+            <img src="Images/Orange.png" alt="Orange" class="image-size-limit"/>
+            <figcaption>Orange</figcaption>
+        </figure>
     </a>
   </div>
-
-</div>
-<div class="row text-center">
-  <div class="col-xs-4">
+  <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:load('strawberry')">
-      <img src="Images/Strawberry.png" alt="Strawberry" /><br />Strawberry
+        <figure>
+            <img src="Images/Strawberry.png" alt="Strawberry" class="image-size-limit"/>
+            <figcaption>Strawberry</figcaption>
+        </figure>
     </a>
   </div>
 </div>

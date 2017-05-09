@@ -115,3 +115,14 @@ body {
   height: auto;
 }
 
+/* Limits maximum image size */
+.image-size-limit, figure, figcaption {
+
+  max-width: 100px;
+}
+
+/* Limits maxiumum image size on individual food pages */
+.single-food-imagesize {
+  max-width: 100px;
+}
+
