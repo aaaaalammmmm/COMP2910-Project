@@ -4,7 +4,19 @@ if (isset($_GET["l"])) {
 }
 
 ?>
-<br />
+<!-- Padding for propper alignment of content -->
+<div class="padding-xl"></div>
+<!-- Horizontal rule for content break -->
+<div class="col-xs-12 my-hr"></div>
+<!-- Back button -->
+<div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
+  <button type="button" class="btn mobile-button" onclick="goBack('fruit')">
+    Back
+  </button>
+</div>
+<br>
+<!-- Horizontal rule for content break -->
+<div class="col-xs-12 my-hr "></div>
 <!-- Information on a banana -->
 <div class="text-center col-xs-12">
   <img src="images/Banana.png" class="single-food-imagesize" alt="Banana" />
