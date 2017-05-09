@@ -1,7 +1,7 @@
 <!-- This page loads all the grains  -->
 <div class="row text-center block-center">
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('bread')">
+    <a href="javascript:pageLoad('bread','grain')">
         <figure>
             <img src="" alt="Bread"/>
             <figcaption>Bread</figcaption>
@@ -10,7 +10,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('pasta')">
+    <a href="javascript:pageLoad('pasta','grain')">
         <figure>
             <img src="" alt="Pasta"/>
             <figcaption>Pasta</figcaption>
@@ -19,7 +19,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('quinoa')">
+    <a href="javascript:pageLoad('quinoa','grain')">
         <figure>
             <img src="" alt="Quinoa"/>
             <figcaption>Quinoa</figcaption>
@@ -28,7 +28,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('rice')">
+    <a href="javascript:pageLoad('rice','grain')">
         <figure>
             <img src="" alt="Rice"/>
             <figcaption>Rice</figcaption>

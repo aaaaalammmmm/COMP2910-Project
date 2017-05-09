@@ -1,4 +1,5 @@
 <?php
+// This condition checks for livesearch or stand alone page
 if (isset($_GET["l"])) {
   include 'food-header.php';
 }
