@@ -28,13 +28,13 @@ $type = $_GET['t'];
   <div class="row">
     <div class="col-xs-4 pull-left">
       <?php if($food === "bread") {
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh '" . $food . " onclick='" . "foodInformation('fresh')'/>";
+        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/>";
         echo "<div>Fresh</div>";
       } else if($type === "grain"){
-        echo "<img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw '" . $food . " onclick='" . "foodInformation('raw')'/>";
+        echo "<img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/>";
         echo "<div>Raw</div>";
       } else {
-        echo "<img src='" . "images/" . $food . "-UR.png'" . "class='single-food-imagesize' alt='Underripe '" . $food . " onclick='" . "foodInformation('underripe')'/>";
+        echo "<img src='" . "images/" . $food . "-UR.png'" . "class='single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/>";
         echo "<div>Underripe</div>";
       }?>
     </div>
@@ -42,19 +42,19 @@ $type = $_GET['t'];
       <?php if($type === "grain") {
         echo "<div></div>";
       }else{
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe '" . $food . " onclick='" . "foodInformation('ripe')'/>";
+        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/>";
         echo "<div>Ripe</div>";
       }?>
-    </div>
+	</div>
     <div class="col-xs-4 pull-right">
       <?php if($food === "bread") {
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Stale '" . $food . " onclick='" . "foodInformation('stale')'/>";
+        echo "<img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/>";
         echo "<div>Stale</div>";
       } else if($type === "grain"){
-        echo "<img src='" . "images/" . $food . "-C.png'" . "class='single-food-imagesize' alt='Cooked '" . $food . " onclick='" . "foodInformation('cooked')'/>";
+        echo "<img src='" . "images/" . $food . "-C.png'" . " class='single-food-imagesize' alt='Cooked " . $food . "' onclick='" . "foodInformation(\"cooked\")'/>";
         echo "<div>Cooked</div>";
       }else{
-        echo "<img src='" . "images/" . $food . "-OR.png'" . "class='single-food-imagesize' alt='Overripe '" . $food . " onclick='" . "foodInformation('overripe')'/>";
+        echo "<img src='" . "images/" . $food . "-OR.png'" . " class='single-food-imagesize' alt='Overripe " . $food . "' onclick='" . "foodInformation(\"overripe\")'/>";
         echo "<div>Overripe</div>";
       }?>
     </div>
