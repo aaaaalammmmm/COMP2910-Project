@@ -1,5 +1,4 @@
 <?php include 'header.php'; ?>
-<body class="bg-primary">
 <div class="container">
     <div>
         <div class="container-fluid">
@@ -78,7 +77,6 @@
         </div>
     </div>
 </div>
-</body>
 
 <?php
 if (isset($_GET['f'])) {
