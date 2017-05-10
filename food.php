@@ -10,17 +10,11 @@ $type = $_GET['t'];
 ?>
 <!-- Padding for propper alignment of content -->
 <div class="padding-xl"></div>
-<!-- Horizontal rule for content break -->
-<div class="col-xs-12 my-hr"></div>
 <!-- Back button -->
 <div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
-  <button type="button" class="btn mobile-button" onclick="goBack('<?php echo $type ?>')">
-    Back
-  </button>
+  <span  class="glyphicon glyphicon-menu-left" onclick="goBack('<?php echo $type ?>')"/>
 </div>
 <br>
-<!-- Horizontal rule for content break -->
-<div class="col-xs-12 my-hr "></div>
 <!-- Information on a food item -->
 <div class="text-center col-xs-12">
   <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
