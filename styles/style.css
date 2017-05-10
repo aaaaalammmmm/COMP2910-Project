@@ -82,16 +82,17 @@ body {
 }
 
 /* Hamburger Menu overlay styling */
-#hamburger-overlay {
+/*#hamburger-overlay {
   position:relative;
   z-index:1000;
-}
+}*/
 
 /* Defines position on top-button class */
+/*
 .top-button {
   position: absolute;
   top: 0;
-}
+}*/
 
 /* Highlights the selected button*/
 .btn-highlight {

@@ -8,8 +8,7 @@ $food = $_GET['f'];
 $type = $_GET['t'];
 
 ?>
-<!-- Padding for propper alignment of content -->
-<div class="padding-xl"></div>
+<div class="container">
 <!-- Back button -->
 <div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
   <span  class="glyphicon glyphicon-menu-left" onclick="goBack('<?php echo $type ?>')"/>
@@ -61,6 +60,7 @@ $type = $_GET['t'];
   </div>
 </div>
 <br />
+</div>
 <script>
 var food = "<?php echo $food; ?>";
 //This stores a pointer to all info about bananas
@@ -95,6 +95,7 @@ function foodInformation(state) {
     recipesDiv.innerHTML = recipesText;
   });
 }
+
 // Loads ripe food item as default
 onload = foodInformation("ripe");
 
