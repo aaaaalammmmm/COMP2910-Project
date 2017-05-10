@@ -2,14 +2,7 @@
 <body class="bg-primary">
 <div class="container">
     <div>
-        <div>
-            <a href="index.php">
-                <img class="center-block" src="Images/UseItUpBanner v2.0.png"/>
-            </a>
-        </div>
-    </div>
-    <div class="row top-button">
-        <div class="col-xs-12">
+        <div class="container-fluid">
             <nav class="navbar navbar-default" role="navigation">
                 <div>
                     <div class="navbar-header">
@@ -28,8 +21,14 @@
                             <li><a class="text-black" href="info.php">Info</a></li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
+        </div>
+        <div>
+            <a href="index.php">
+                <img class="center-block" src="Images/UseItUpBanner v2.0.png"/>
+            </a>
         </div>
     </div>
     <div>
