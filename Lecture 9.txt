@@ -1,0 +1,128 @@
+Debugging lecture!
+
+Testing Axioms
+- testing can't show bugs that don't exist
+- a bug is a bug only if it's observed
+- we can't fix all the bugs in a software application
+- it is virtually impossible to find subtle bugs in a program while it still contains major bugs
+- specifications and requirements are a moving target; features will be added, removed, or changed during development
+
+Testing Fundamentals
+  Start with basics
+    - Format and organize your code
+    - Document your code
+    - Use JSLint and JSHint
+
+Static vs. Dynamic testing
+Static: reviewing documentation
+Dynamic: J U N I T T E S T S .
+
+Fundamentals:
+1) Understand what the test subject should do - its contract - and look for violations
+2) Positive and Negative tests
+  - correct input (positive)
+  - incorrect input (negative)
+3) Test boundaries
+  - zero, one, full
+  - max/min
+  - just inside / just outside boundaries
+  - typical values
+  - error values
+
+Disjointed Equivalence Partitions
+Coverage: every conceivable family of values
+            - Identify what types of inputs are going to be processed in a similar way (equivalent behaviour)
+Disjointedness: Each groups of inputs is a partition
+Representation: Each test should exercise one and only one equivalence partition
+
+ECP Example:
+Function will correctly process a number between 100 and 999
+Equivalence:
+<100
+100 < n < 999
+>999
+Choose 3-5 tests
+
+Testing Tactics:
+Functional - blackbox
+- don't look at code
+- test it with values
+
+Structural - whitebox
+- tests based on code
+- examines system internals
+
+Kinds of testing
+1. Assertions
+2. Unit tests
+  - exercises a very small, specific area of functionality applied to one of the functions being tested
+  - GOAL: isolate important parts of program and show they are free of certain faults
+  - UNIT: smallest testable part of an application
+  Assemble - starting state
+  Act - inputs
+  Assert - examine end results
+3. Regression tests
+4.
+
+
+JS Unit Testing Frameworks
+-JSTestDriver
+-QUnit
+-Mocha
+-Karma (Node.js)
+-Buster
+-Jasmine
+
+Test Automation
+- BUILD A TEST SUITE
+- REGRESSION TESTING
+  - DON'T BREAK THINGS WHEN FIXING THINGS.
+-
+
+Integration Testing
+- When individual modules are combined and tested as a group
+- follows unit testing
+- test individual modules of code before integrating with other parts of the app
+- shows that major subsystems that make up the project work well together
+- exposes faults in the interaction between integrated units
+Bottom-up Integration
+- start with unit testing
+- put 2 modules together, make sure it works
+- repeat until things work.
+
+System Testing
+Testing the entire app or large parts
+Recovery testing - how easily can the application recover from a mistake?
+Security testing - verifies that software is safe
+Stress testing - executes the system in a manner that demands resources in abnormal quantity, frequency, or volume
+Capacity testing - upper limit of some operation parameter, ie. max number of users
+Usability testing - determines if the chosen design is correct for the desired task - ie. GUI ease of use
+  - learnability - how easy is it to learn to use
+  - efficiency - how fast can users accomplish tasks
+  - memorability
+  - errors
+  - satisfaction
+Performance testing - determines the run-time performance of the app - ie. response time
+
+A/B testing
+- compare two versions of a something
+
+Database Testing
+- CRUD operations
+- CREATE REMOVE UPDATE DELETE
+
+ACCEPTANCE TESTING
+- Have the contractual obligations been met?
+Typically incremental
+- alpha test as production site
+- beta test at users' site
+
+TDD - Test Driven Development
+- write tests before writing code
+
+Strategy: Logging events
+- WRITE THINGS TO A LOG FILE
+Simplify (1/2)
+- find simplest test input that provokes a but
+- take advantage of modularity and modular reasoning
+- use binary search FOR THE SPEED.
