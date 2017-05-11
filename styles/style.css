@@ -137,3 +137,28 @@ body {
   color: #ff9400;
   font-size: 50px;
 }
+
+/*Default Style for about.php page text*/
+.aboutText {
+  margin: auto;
+  font-size: 80%;
+}
+
+/*Size, font, and width for small devices*/
+@media screen and (min-width: 700px) {
+  .aboutText {width: 60%;}
+  .aboutText {font-size: 20px;}
+
+}
+/*Size, font, and width for medium devices*/
+@media screen and (min-width: 700px) {
+  .aboutText {width: 80%;}
+  h4 {font-size: 32px;}
+  .aboutText {font-size: 16px;}
+}
+
+/*Size, font, and width for large devices*/
+@media screen and (min-width: 1024px) {
+  .aboutText {width: 60%;}
+  .aboutText {font-size: 16px;}
+}
