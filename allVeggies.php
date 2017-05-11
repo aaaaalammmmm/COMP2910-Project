@@ -1,7 +1,7 @@
 <!-- This page loads all the veggies  -->
 <div class="row text-center center-block">
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('broccoli','veggie')">
+    <a href="javascript:pageLoad('broccoli','vegetable')">
         <figure>
             <img src="Images/Broccoli.png" alt="Broccoli"/>
             <figcaption>Broccoli</figcaption>
@@ -9,7 +9,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('carrot','veggie')">
+    <a href="javascript:pageLoad('carrot','vegetable')">
         <figure>
             <img src="Images/Carrot.png" alt="Carrot"/>
             <figcaption>Carrot</figcaption>
@@ -17,7 +17,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('celery','veggie')">
+    <a href="javascript:pageLoad('celery','vegetable')">
         <figure>
             <img src="Images/Celery.png" alt="Celery"/>
             <figcaption>Celery</figcaption>
@@ -25,7 +25,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('lettuce','veggie')">
+    <a href="javascript:pageLoad('lettuce','vegetable')">
         <figure>
             <img src="Images/Lettuce.png" alt="Lettuce"/>
             <figcaption>Lettuce</figcaption>
@@ -33,7 +33,7 @@
     </a>
   </div>
   <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('tomato','veggie')">
+    <a href="javascript:pageLoad('tomato','vegetable')">
       <figure>
           <img src="Images/Tomato.png" alt="Tomato"/>
           <figcaption>Tomato</figcaption>
@@ -41,7 +41,7 @@
   </a>
   </div>
     <div class="col-lg-2 col-md-3 col-xs-4">
-    <a href="javascript:pageLoad('potato','veggie')">
+    <a href="javascript:pageLoad('potato','vegetable')">
         <figure>
             <img src="Images/Potato.png" alt="Potato"/>
             <figcaption>Potato</figcaption>

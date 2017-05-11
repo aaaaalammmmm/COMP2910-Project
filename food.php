@@ -30,7 +30,7 @@ $type = $_GET['t'];
       <?php if($food === "bread") {
         echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/>";
         echo "<div>Fresh</div>";
-      } else if($type === "grain"){
+      } else if($type === "grains"){
         echo "<img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/>";
         echo "<div>Raw</div>";
       } else {
@@ -39,7 +39,7 @@ $type = $_GET['t'];
       }?>
     </div>
     <div class="col-xs-4">
-      <?php if($type === "grain") {
+      <?php if($type === "grains") {
         echo "<div></div>";
       }else{
         echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/>";
@@ -50,7 +50,7 @@ $type = $_GET['t'];
       <?php if($food === "bread") {
         echo "<img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/>";
         echo "<div>Stale</div>";
-      } else if($type === "grain"){
+      } else if($type === "grains"){
         echo "<img src='" . "images/" . $food . "-C.png'" . " class='single-food-imagesize' alt='Cooked " . $food . "' onclick='" . "foodInformation(\"cooked\")'/>";
         echo "<div>Cooked</div>";
       }else{
@@ -63,8 +63,10 @@ $type = $_GET['t'];
 <br />
 <script>
 var food = "<?php echo $food; ?>";
+var type = "<?php echo $type; ?>";
+console.log(food, type);
 //This stores a pointer to all info about bananas
-var foodInfo = rootRef.child("fruit/"+ food);
+var foodInfo = rootRef.child(type + "/" + food);
 //This creates a pointer to the food item storage div
 var storageDiv  = document.getElementById("storage");
 //This creates a pointer to the food item recipes div
@@ -95,8 +97,13 @@ function foodInformation(state) {
     recipesDiv.innerHTML = recipesText;
   });
 }
-// Loads ripe food item as default
-onload = foodInformation("ripe");
 
+if (food === "bread") {
+	onload = foodInformation("fresh");
+} else if (type === "grains") {
+	onload = foodInformation("raw");
+} else {
+	onload = foodInformation("ripe");
+}
 </script>
 <?php include 'footer.php'; ?>

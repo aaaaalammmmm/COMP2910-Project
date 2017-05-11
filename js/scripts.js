@@ -102,7 +102,7 @@ function resizeBtn(str) {
 }
 
 // Loads a food page with header and footer. AKA a stand alone page
-function pageLoad(food,type) {
+function pageLoad(food, type) {
   location.href = "food.php?l=&f=" + food + "&t=" + type;
 }
 
@@ -136,9 +136,9 @@ function resetBtn() {
 function goBack(str) {
   if (str == "fruit"){
     location.href ="index.php?f=f" ;
-  } else if (str == "veggie") {
+  } else if (str == "vegetable") {
     location.href ="index.php?f=v";
-  } else if (str == "grain") {
+  } else if (str == "grains") {
     location.href ="index.php?f=g";
   }
 }
