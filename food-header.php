@@ -83,4 +83,6 @@
     $type = $_GET['t'];
   }
   ?>
-  <span onclick="goBack('<?php echo $type ?>')" class="glyphicon glyphicon-menu-left "></span>
+  <div class="container">
+    <span onclick="goBack('<?php echo $type ?>')" class="glyphicon glyphicon-menu-left "></span>
+  </div>

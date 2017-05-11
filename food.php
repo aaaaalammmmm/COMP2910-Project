@@ -9,6 +9,7 @@ if (!isset($type)) {
 $food = $_GET['f'];
 ?>
     <br>
+<div class="container">
   <!-- Information on a food item -->
   <div class="text-center col-xs-12">
     <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
