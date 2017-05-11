@@ -76,8 +76,6 @@
         </div>
     </div>
   </div>
-  <!-- Padding for propper alignment of content -->
-  <div class="padding-xl"></div>
   <!-- Back button -->
   <br>
   <?php
