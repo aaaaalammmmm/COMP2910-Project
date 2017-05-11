@@ -1,19 +1,12 @@
 <?php include 'header.php'; ?>
 <body class="bg-primary">
-  <div class="container">
-    <div>
-      <div>
-        <a href="index.php">
-          <img class="center-block" src="Images/UseItUpBanner v2.0.png"/>
-        </a>
-      </div>
-    </div>
-    <div class="row top-button">
-      <div class="col-xs-12">
-        <nav class="navbar navbar-default" role="navigation">
-          <div>
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed pull-left border-0"
+<div class="container">
+  <div>
+    <div class="container-fluid">
+      <nav class="navbar navbar-default" role="navigation">
+        <div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left border-0"
               data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle Navigation</span>
               <span class="icon-bar"></span>
@@ -31,6 +24,11 @@
         </div>
       </nav>
     </div>
+    <div class="center-block text-center">
+      <a href="index.php">
+        <img src="Images/UseItUpBanner v2.0.png"/>
+      </a>
+    </div>
   </div>
   <div>
   </div>
@@ -38,8 +36,8 @@
     <br>
     <!-- Main Div tag for the search bar and hints -->
     <form class="text-center" onsubmit="return false">
-      <input id="search-box" type="text" class="inputBox text-center" size="30" placeholder="Search Foods..."
-      onkeyup="showResult(this.value)">
+      <input id="search-box" type="text" class="inputBox home-search text-center" size="30" placeholder="Search Foods..."
+             onkeyup="showResult(this.value)">
       <div id="search-hints"></div>
     </form>
   </div>
@@ -50,22 +48,38 @@
   <!-- Redirection "buttons" for the main categories of pages -->
   <div class="text-center">
     <div id="large-btn" class="btn-toolbar-home">
-      <div class="col-xs-12">
+      <div class="hidden-lg col-xs-12">
         <a href="javascript:resizeBtn('allFruits')">
           <button type="button" class="btn mobile-button">Fruits</button>
         </a>
       </div>
-      <div class="col-xs-12">
+      <div class="hidden-lg col-xs-12">
         <a href="javascript:resizeBtn('allVeggies')">
           <button type="button" class="btn mobile-button">Veggies</button>
         </a>
       </div>
-      <div class="col-xs-12">
+      <div class="hidden-lg col-xs-12">
+
         <a href="javascript:resizeBtn('allGrains')">
           <button type="button" class="btn mobile-button">Grains</button>
         </a>
       </div>
+    <div class="visible-lg-block col-lg-4 padding-md">
+      <a href="javascript:resizeBtn('allFruits')">
+        <img src="Images/FruitMedley.jpg" alt="Fruit Medley"/><br/>Fruits
+      </a>
     </div>
+    <div class="visible-lg-block col-lg-4 padding-md">
+      <a href="javascript:resizeBtn('allVeggies')">
+       <img src="Images/VeggieMedley.jpg" alt="Vegetable Medley" /><br/>Vegetables
+      </a>
+    </div>
+    <div class="visible-lg-block col-lg-4 padding-md">
+      <a href="javascript:resizeBtn('allGrains')">
+        <img src="Images/BreadMedley.jpg" alt="Grain Medley"/><br/>Grains
+      </a>
+    </div>
+  </div>
     <div id="small-btn" class="btn-toolbar-other btn-group hidden">
       <a href="javascript:load('allFruits')">
         <button type="button" id="fruit-btn" class="btn">Fruits</button>
@@ -79,7 +93,6 @@
     </div>
   </div>
 </div>
-</body>
 
 <?php
 if (isset($_GET['f'])) {

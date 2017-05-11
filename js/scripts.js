@@ -236,9 +236,9 @@ function goBack(str) {
   // Liveloads an all<food> page depending on the parameter passed in
   if (str == "fruit"){
     location.href ="index.php?f=f" ;
-  } else if (str == "veggie") {
+  } else if (str == "vegetable") {
     location.href ="index.php?f=v";
-  } else if (str == "grain") {
+  } else if (str == "grains") {
     location.href ="index.php?f=g";
   }
 }
