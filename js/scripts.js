@@ -26,9 +26,8 @@ function showResult(food) {
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  //   - Creates variables for future function calls for dynamic food loading
+  //   - Creates variables to store the type of the food
   var type = "";
-  var canLoad = false;
   //   - Calls anonimous function everytime a key is released
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
@@ -48,20 +47,8 @@ function showResult(food) {
       } else if(response.includes("grain")) {
         type = "grain";
       }
-      //   - Checks if the passed 'food' parameter matches a substring of the response text
-      //   - Sets the canLoad variable to true -> allows food item to dynamically load
-      //        within the 'livesearch' div
-      if (response.match(new RegExp(food, "i"))) {
-        canLoad = true;
-      }
-      //   - If type has been set and canLoad is true
-      if(type != "" && canLoad){
-        if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          newhttpreq=new XMLHttpRequest();
-        }
-        foodLoad(food,type);
-      }
+      // Live loads the 'food' with the 'type'
+      foodLoad_dynamic(food,type);
     }
   }
   //   - Sends 'food' parameter to livesearch.php via GET['q']
@@ -155,6 +142,27 @@ function foodLoad(food,type) {
     //  - Sets search hitns to empty and removes the border
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
+  // If both parameters are empty:
+  //   - Set 'livesearch' div to empty
+  } else {
+    $("#livesearch").innerHTML = "";
+  }
+}
+
+// NOTE: Pretty much a clone of the foodLoad function. Does NOT reset hints
+//       or search bar
+// Live loads a php page in the element with the 'livesearch' id and replaces the
+// search bar text with id 'search-box' to the passed string. Removes hint suggestions.
+function foodLoad_dynamic(food,type) {
+  //alert(food);
+  //alert(type);
+  // If parameters 'food' and 'type' are not empty do the following:
+  if (food != "" && type != "") {
+    //  - Scroll 'livesearch' to top for max readability
+    searchScroll(food);
+    //  - Dynamically loads the food item from dynamically created food.php page
+    //    (uses parameter passed in as guidelines on which food page to create)
+    $("#livesearch").load("food.php?f=" + food + "&t=" + type);
   // If both parameters are empty:
   //   - Set 'livesearch' div to empty
   } else {
