@@ -5,7 +5,7 @@
       Apple
     </name>
     <url>
-      javascript:foodLoad("apple")
+      javascript:foodLoad("apple","fruit")
     </url>
   </link>
   <link>
@@ -13,7 +13,7 @@
       Banana
     </name>
     <url>
-      javascript:foodLoad("banana")
+      javascript:foodLoad("banana","fruit")
     </url>
   </link>
   <link>
@@ -21,7 +21,7 @@
       Blueberry
     </name>
     <url>
-      javascript:foodLoad("blueberry")
+      javascript:foodLoad("blueberry","fruit")
     </url>
   </link>
   <link>
@@ -29,7 +29,7 @@
       Orange
     </name>
     <url>
-      javascript:foodLoad("orange")
+      javascript:foodLoad("orange","fruit")
     </url>
   </link>
   <link>
@@ -37,7 +37,7 @@
       Strawberry
     </name>
     <url>
-      javascript:foodLoad("strawberry")
+      javascript:foodLoad("strawberry","fruit")
     </url>
   </link>
   <link>
@@ -45,7 +45,7 @@
       Lemon
     </name>
     <url>
-      javascript:foodLoad("lemon")
+      javascript:foodLoad("lemon","fruit")
     </url>
   </link>
   <link>
@@ -53,7 +53,7 @@
       Lime
     </name>
     <url>
-      javascript:foodLoad("lime")
+      javascript:foodLoad("lime","fruit")
     </url>
   </link>
   <link>
@@ -61,7 +61,7 @@
       Potato
     </name>
     <url>
-      javascript:foodLoad("potato")
+      javascript:foodLoad("potato","veggie")
     </url>
   </link>
   <link>
@@ -69,7 +69,7 @@
       Broccoli
     </name>
     <url>
-      javascript:foodLoad("broccoli")
+      javascript:foodLoad("broccoli","veggie")
     </url>
   </link>
   <link>
@@ -77,7 +77,7 @@
       Tomato
     </name>
     <url>
-      javascript:foodLoad("tomato")
+      javascript:foodLoad("tomato","veggie")
     </url>
   </link>
   <link>
@@ -85,7 +85,7 @@
       Carrot
     </name>
     <url>
-      javascript:foodLoad("carrot")
+      javascript:foodLoad("carrot","veggie")
     </url>
   </link>
   <link>
@@ -93,7 +93,7 @@
       Lettuce
     </name>
     <url>
-      javascript:foodLoad("lettuce")
+      javascript:foodLoad("lettuce","veggie")
     </url>
   </link>
   <link>
@@ -101,7 +101,7 @@
       Celery
     </name>
     <url>
-      javascript:foodLoad("celery")
+      javascript:foodLoad("celery","veggie")
     </url>
   </link>
   <link>
@@ -109,7 +109,7 @@
       Bread
     </name>
     <url>
-      javascript:foodLoad("bread")
+      javascript:foodLoad("bread","grain")
     </url>
   </link>
   <link>
@@ -117,7 +117,7 @@
       Rice
     </name>
     <url>
-      javascript:foodLoad("rice")
+      javascript:foodLoad("rice","grain")
     </url>
   </link>
   <link>
@@ -125,7 +125,7 @@
       Quinoa
     </name>
     <url>
-      javascript:foodLoad("quinoa")
+      javascript:foodLoad("quinoa","grain")
     </url>
   </link>
   <link>
@@ -133,7 +133,7 @@
       Pasta
     </name>
     <url>
-      javascript:foodLoad("pasta")
+      javascript:foodLoad("pasta","grain")
     </url>
   </link>
 </pages>

@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<body class="bg-primary">
 <div class="container">
   <div>
     <div class="container-fluid">
@@ -59,6 +60,7 @@
         </a>
       </div>
       <div class="hidden-lg col-xs-12">
+
         <a href="javascript:resizeBtn('allGrains')">
           <button type="button" class="btn mobile-button">Grains</button>
         </a>

@@ -3,16 +3,11 @@
 if (isset($_GET["l"])) {
   include 'food-header.php';
 }
-
+if (!isset($type)) {
+  $type = $_GET['t'];
+}
 $food = $_GET['f'];
-$type = $_GET['t'];
-
 ?>
-<div class="container">
-  <!-- Back button -->
-  <div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
-    <span  class="glyphicon glyphicon-menu-left" onclick="goBack('<?php echo $type ?>')"/>
-  </div>
     <br>
   <!-- Information on a food item -->
   <div class="text-center col-xs-12">
@@ -106,4 +101,5 @@ if (food === "bread") {
 	onload = foodInformation("ripe");
 }
 </script>
+</div>
 <?php include 'footer.php'; ?>
