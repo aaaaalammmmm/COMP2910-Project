@@ -1,12 +1,6 @@
 <?php include 'header.php'; ?>
 <body class="bg-primary" >
   <div class="container">
-      <!--Header code-->
-      <div>
-        <a href="index.php" >
-          <img  class="center-block" src="Images/UseItUpBanner v2.0.png"/>
-        </a>
-      </div>
       <!--Navigation-->
     <div class="row top-button">
       <div class="col-xs-12">
@@ -24,13 +18,20 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a class="text-black" href="about.php">About Us</a></li>
-              <li><a class="text-black" href="contact.php">Contact Us</a></li>
               <li><a class="text-black" href="info.php">Info</a></li>
+              <li><a class="text-black" href="affiliates.php">Partners</a></li>
+              <li><a class="text-black" href="contact.php">Contact Us</a></li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
+      <!--Header code-->
+      <div>
+        <a href="index.php" >
+          <img  class="center-block" src="Images/UseItUpBanner v2.0.png"/>
+        </a>
+      </div>
   </div>
 </div>
 <!--Contains about text-->

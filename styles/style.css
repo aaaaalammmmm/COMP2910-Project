@@ -114,6 +114,11 @@ body {
   max-width: 100px;
 }
 
+/* Limits the image size for the affiliate logos */
+.affiliate-size {
+  max-width: 175px;
+}
+
 /* Horizontal rule */
 .my-hr {
   background:#ff9400;
