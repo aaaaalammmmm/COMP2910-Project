@@ -12,7 +12,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('pasta','grains')">
         <figure>
-            <img src="" alt="Pasta"/>
+            <img src="images/pasta.png" alt="Pasta"/>
             <figcaption>Pasta</figcaption>
         </figure>
 
@@ -21,7 +21,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('quinoa','grains')">
         <figure>
-            <img src="" alt="Quinoa"/>
+            <img src="images/quinoa.png" alt="Quinoa"/>
             <figcaption>Quinoa</figcaption>
         </figure>
 
@@ -30,7 +30,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('rice','grains')">
         <figure>
-            <img src="" alt="Rice"/>
+            <img src="images/rice.png" alt="Rice"/>
             <figcaption>Rice</figcaption>
         </figure>
     </a>
