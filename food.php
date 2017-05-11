@@ -8,22 +8,21 @@ $food = $_GET['f'];
 $type = $_GET['t'];
 
 ?>
-<!-- Padding for propper alignment of content -->
-<div class="padding-xl"></div>
-<!-- Back button -->
-<div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
-  <span  class="glyphicon glyphicon-menu-left" onclick="goBack('<?php echo $type ?>')"/>
-</div>
-<br>
-<!-- Information on a food item -->
-<div class="text-center col-xs-12">
-  <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-  <div>
-    <h3>Storage</h3>
-    <div id="storage"></div>
-    <h3>Recipes</h3>
-    <div id="recipes"></div>
+<div class="container">
+  <!-- Back button -->
+  <div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
+    <span  class="glyphicon glyphicon-menu-left" onclick="goBack('<?php echo $type ?>')"/>
   </div>
+    <br>
+  <!-- Information on a food item -->
+  <div class="text-center col-xs-12">
+    <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
+    <div>
+      <h3>Storage</h3>
+      <div id="storage"></div>
+      <h3>Recipes</h3>
+      <div id="recipes"></div>
+    </div>
   <!-- Redirection for further info on food state -->
   <div class="row">
     <div class="col-xs-4 pull-left">
@@ -59,9 +58,10 @@ $type = $_GET['t'];
       }?>
     </div>
   </div>
+  <br />
 </div>
-<br />
 <script>
+  
 var food = "<?php echo $food; ?>";
 var type = "<?php echo $type; ?>";
 console.log(food, type);
@@ -72,15 +72,15 @@ var storageDiv  = document.getElementById("storage");
 //This creates a pointer to the food item recipes div
 var recipesDiv  = document.getElementById("recipes");
 
-//This function will pull the string containing information about storage
-//and then assigns it to the storage div
-function foodInformation(state) {
-  //This stores the location of the banana storage
-  var stateInfo;
-  //This stores the string from the database
-  var storageText;
-  //This stores the string from the database
-  var recipesText;
+  //This function will pull the string containing information about storage
+  //and then assigns it to the storage div
+  function foodInformation(state) {
+    //This stores the location of the banana storage
+    var stateInfo;
+    //This stores the string from the database
+    var storageText;
+    //This stores the string from the database
+    var recipesText;
 
   //Go to the child node containing the state for the banana
   stateInfo = foodInfo.child(state);
