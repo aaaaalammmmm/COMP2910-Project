@@ -70,3 +70,13 @@
       </nav>
     </div>
   </div>
+  <!-- Padding for propper alignment of content -->
+  <div class="padding-xl"></div>
+  <!-- Back button -->
+  <br>
+  <?php
+  if (!isset($type)) {
+    $type = $_GET['t'];
+  }
+  ?>
+  <span onclick="goBack('<?php echo $type ?>')" class="glyphicon glyphicon-menu-left "></span>

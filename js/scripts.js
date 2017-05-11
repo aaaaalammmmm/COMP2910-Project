@@ -25,7 +25,7 @@ function showResult(food) {
       searchScroll(food);
     }
   }
-  foodLoad(food,type);
+  foodLoad(food);
   xmlhttp.open("GET","livesearch.php?q="+food,true);
   xmlhttp.send();
 }

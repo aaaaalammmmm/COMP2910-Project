@@ -3,24 +3,12 @@
 if (isset($_GET["l"])) {
   include 'food-header.php';
 }
-
+if (!isset($type)) {
+  $type = $_GET['t'];
+}
 $food = $_GET['f'];
-$type = $_GET['t'];
-
 ?>
-<!-- Padding for propper alignment of content -->
-<div class="padding-xl"></div>
-<!-- Horizontal rule for content break -->
-<div class="col-xs-12 my-hr"></div>
-<!-- Back button -->
-<div id="back-button" class="col-xs-12 padding-sm" style="z-index:1">
-  <button type="button" class="btn mobile-button" onclick="goBack('<?php echo $type ?>')">
-    Back
-  </button>
-</div>
-<br>
-<!-- Horizontal rule for content break -->
-<div class="col-xs-12 my-hr "></div>
+
 <!-- Information on a food item -->
 <div class="text-center col-xs-12">
   <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
@@ -34,35 +22,35 @@ $type = $_GET['t'];
   <div class="row">
     <div class="col-xs-4 pull-left">
       <?php if($food === "bread") {
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh '" . $food . " onclick='" . "foodInformation('fresh')'/>";
+        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/>";
         echo "<div>Fresh</div>";
-      } else if($type === "grain"){
-        echo "<img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw '" . $food . " onclick='" . "foodInformation('raw')'/>";
+      }else if($type === "grain"){
+        echo "<img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/>";
         echo "<div>Raw</div>";
-      } else {
-        echo "<img src='" . "images/" . $food . "-UR.png'" . "class='single-food-imagesize' alt='Underripe '" . $food . " onclick='" . "foodInformation('underripe')'/>";
+      }else {
+        echo "<img src='" . "images/" . $food . "-UR.png'" . "class='single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/>";
         echo "<div>Underripe</div>";
-      }?>
+      } ?>
     </div>
     <div class="col-xs-4">
-      <?php if($type === "grain") {
-        echo "<div></div>";
-      }else{
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe '" . $food . " onclick='" . "foodInformation('ripe')'/>";
+      <?php if($type === "grain"){
+        ;
+      }else {
+        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/>";
         echo "<div>Ripe</div>";
-      }?>
+      } ?>
     </div>
     <div class="col-xs-4 pull-right">
       <?php if($food === "bread") {
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Stale '" . $food . " onclick='" . "foodInformation('stale')'/>";
+        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/>";
         echo "<div>Stale</div>";
       } else if($type === "grain"){
-        echo "<img src='" . "images/" . $food . "-C.png'" . "class='single-food-imagesize' alt='Cooked '" . $food . " onclick='" . "foodInformation('cooked')'/>";
+        echo "<img src='" . "images/" . $food . "-C.png'" . "class='single-food-imagesize' alt='Cooked " . $food . "' onclick='" . "foodInformation(\"cooked\")'/>";
         echo "<div>Cooked</div>";
       }else{
-        echo "<img src='" . "images/" . $food . "-OR.png'" . "class='single-food-imagesize' alt='Overripe '" . $food . " onclick='" . "foodInformation('overripe')'/>";
+        echo "<img src='" . "images/" . $food . "-OR.png'" . "class='single-food-imagesize' alt='Overripe " . $food . "' onclick='" . "foodInformation(\"overripe\")'/>";
         echo "<div>Overripe</div>";
-      }?>
+      } ?>
     </div>
   </div>
 </div>
@@ -105,4 +93,5 @@ function foodInformation(state) {
 onload = foodInformation("ripe");
 
 </script>
+</div>
 <?php include 'footer.php'; ?>
