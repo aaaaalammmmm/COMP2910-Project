@@ -81,18 +81,6 @@ body {
   clear : both;
 }
 
-/* Hamburger Menu overlay styling */
-#hamburger-overlay {
-  position:relative;
-  z-index:1000;
-}
-
-/* Defines position on top-button class */
-.top-button {
-  position: absolute;
-  top: 0;
-}
-
 /* Highlights the selected button*/
 .btn-highlight {
   background-color: #1acc22;
@@ -100,13 +88,13 @@ body {
 
 /* Sets the button width on mobile */
 @media all and (max-width:480px) {
-    .mobile-button { width: 100%; display:block; }
+  .mobile-button { width: 100%; display:block; }
 }
 
 /* Sets the button width on tablet */
 
 @media all and (min-width: 481px) {
-    .mobile-button { width: 30%; }
+  .mobile-button { width: 30%; }
 }
 
 /* Resizes the logo for food pages */
@@ -133,11 +121,11 @@ body {
   height:2px;
 }
 
+/* Back button icon color and size */
 .glyphicon-menu-left {
   color: #ff9400;
   font-size: 50px;
 }
-
 /*Default Style for about.php page text*/
 .aboutText {
   margin: auto;
@@ -162,3 +150,5 @@ body {
   .aboutText {width: 60%;}
   .aboutText {font-size: 16px;}
 }
+/* Widens the search bar on large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .home-search { width: 800px; } }

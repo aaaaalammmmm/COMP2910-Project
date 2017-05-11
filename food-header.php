@@ -38,35 +38,40 @@
 </head>
 <body class="bg-primary" >
   <div class="container">
-    <div>
-      <div>
-        <a href="index.php" >
-          <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
-        </a>
-      </div>
-    </div>
     <div class="row top-button">
-      <div class="col-xs-12">
-        <nav class="navbar navbar-default" role="navigation">
-          <div>
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed pull-left border-0"
-              data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle Navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a class="text-black" href="index.php">Home</a></li>
-              <li><a class="text-black" href="about.php">About Us</a></li>
-              <li><a class="text-black" href="contact.php">Contact Us</a></li>
-              <li><a class="text-black" href="info.php">Info</a></li>
-            </ul>
-          </div>
+        <div class="container-fluid">
+            <nav class="navbar navbar-default" role="navigation">
+                <div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed pull-left border-0"
+                                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="visible-xs-block">
+                            <a href="index.php" >
+                                <img  class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a class="text-black" href="about.php">About Us</a></li>
+                            <li><a class="text-black" href="contact.php">Contact Us</a></li>
+                            <li><a class="text-black" href="info.php">Info</a></li>
+                        </ul>
+                        <div>
+                            <div class="hidden-xs">
+                                <a href="index.php" >
+                                    <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </nav>
     </div>
   </div>

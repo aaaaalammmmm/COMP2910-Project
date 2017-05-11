@@ -36,3 +36,5 @@
   var rootRef = database.ref("food");
   </script>
 </head>
+<body class="bg-primary">
+
