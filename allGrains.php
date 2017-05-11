@@ -3,7 +3,7 @@
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('bread','grains')">
         <figure>
-            <img src="" alt="Bread"/>
+            <img src="images/bread.png" alt="Bread"/>
             <figcaption>Bread</figcaption>
         </figure>
 
