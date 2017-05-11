@@ -50,7 +50,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <div class="visible-xs">
+                        <div class="visible-xs-block">
                             <a href="index.php" >
                                 <img  class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
                             </a>
