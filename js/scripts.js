@@ -1,9 +1,9 @@
 // Displays hints, clickable and navigatable, below the search bar with id 'search-box'
 // The hints are displayed in a div tag with id 'search-hints'
 // Calls the livesearch.php page to get the hint text to display
-function showResult(str) {
+function showResult(food) {
   resetBtn();
-  if (str.length==0) {
+  if (food.length==0) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     document.getElementById("livesearch").innerHTML="";
@@ -22,11 +22,11 @@ function showResult(str) {
     if (this.readyState==4 && this.status==200) {
       document.getElementById("search-hints").innerHTML=this.responseText;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
-      searchScroll(str);
+      searchScroll(food);
     }
   }
-  foodLoad(str);
-  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  foodLoad(food,type);
+  xmlhttp.open("GET","livesearch.php?q="+food,true);
   xmlhttp.send();
 }
 
@@ -74,10 +74,10 @@ function load(str) {
 
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
-function foodLoad(str) {
-  searchScroll(str);
-  $("#livesearch").load(str+'.php');
-  document.getElementById("search-box").value=str;
+function foodLoad(food,type) {
+  searchScroll(food);
+  $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+  document.getElementById("search-box").value=food;
   document.getElementById("search-hints").innerHTML="";
   document.getElementById("search-hints").style.border="0px";
 }
