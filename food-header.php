@@ -77,7 +77,6 @@
     </div>
   </div>
   <!-- Back button -->
-  <br>
   <?php
   if (!isset($type)) {
     $type = $_GET['t'];
