@@ -13,11 +13,13 @@ $food = $_GET['f'];
   <!-- Information on a food item -->
   <div class="text-center col-xs-12">
     <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-    <div>
-      <h3>Storage</h3>
-      <div id="storage"></div>
-      <h3>Recipes</h3>
-      <div id="recipes"></div>
+    <div class="padding-sm">
+      <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
+      <div id="storage" class="collapse"></div>
+    </div>
+    <div class="padding-sm">
+      <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
+      <div id="recipes" class="collapse"></div>
     </div>
   <!-- Redirection for further info on food state -->
   <div class="row">
