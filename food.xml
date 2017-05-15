@@ -109,7 +109,7 @@
       Bread
     </name>
     <url>
-      javascript:foodLoad("bread","grain")
+      javascript:foodLoad("bread","grains")
     </url>
   </link>
   <link>
@@ -117,7 +117,7 @@
       Rice
     </name>
     <url>
-      javascript:foodLoad("rice","grain")
+      javascript:foodLoad("rice","grains")
     </url>
   </link>
   <link>
@@ -125,7 +125,7 @@
       Quinoa
     </name>
     <url>
-      javascript:foodLoad("quinoa","grain")
+      javascript:foodLoad("quinoa","grains")
     </url>
   </link>
   <link>
@@ -133,7 +133,7 @@
       Pasta
     </name>
     <url>
-      javascript:foodLoad("pasta","grain")
+      javascript:foodLoad("pasta","grains")
     </url>
   </link>
 </pages>

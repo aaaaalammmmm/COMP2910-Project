@@ -44,8 +44,8 @@ function showResult(food) {
         type = "fruit";
       } else if(response.includes("veggie")) {
         type = "veggie";
-      } else if(response.includes("grain")) {
-        type = "grain";
+      } else if(response.includes("grains")) {
+        type = "grains";
       }
       // Live loads the 'food' with the 'type'
       foodLoad_dynamic(food,type);
@@ -207,7 +207,7 @@ function pageLoad(food,type) {
 // Autoscrolls when using livesearch bar
 function searchScroll(str) {
   //  - If 'str' is less than 2 characters, scroll to top
-  if (str.length <=1) {
+  if (str.length <1) {
     scrollTo(0,0);
   //  - Scrolls the 'ajax-search' element to the top
   } else {
