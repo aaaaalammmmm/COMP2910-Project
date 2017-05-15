@@ -8,19 +8,19 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-    <br>
-<div class="container">
-  <!-- Information on a food item -->
-  <div class="text-center col-xs-12">
-    <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-    <div class="padding-sm">
-      <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
-      <div id="storage" class="collapse"></div>
-    </div>
-    <div class="padding-sm">
-      <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
-      <div id="recipes" class="collapse"></div>
-    </div>
+<!-- Information on a food item -->
+<div class="text-center col-xs-12">
+  <h3><?php echo ucfirst($food);?></h3>
+  
+  <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
+  <div class="padding-sm">
+    <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
+    <div id="storage" class="collapse"></div>
+  </div>
+  <div class="padding-sm">
+    <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <div id="recipes" class="collapse"></div>
+  </div>
   <!-- Redirection for further info on food state -->
   <div class="row">
     <div class="col-xs-4 pull-left">
@@ -42,7 +42,7 @@ $food = $_GET['f'];
         echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/>";
         echo "<div>Ripe</div>";
       }?>
-	</div>
+    </div>
     <div class="col-xs-4 pull-right">
       <?php if($food === "bread") {
         echo "<img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/>";
@@ -56,53 +56,44 @@ $food = $_GET['f'];
       }?>
     </div>
   </div>
-  <br />
-</div>
-<script>
-  
-var food = "<?php echo $food; ?>";
-var type = "<?php echo $type; ?>";
-console.log(food, type);
-//This stores a pointer to all info about bananas
-var foodInfo = rootRef.child(type + "/" + food);
-//This creates a pointer to the food item storage div
-var storageDiv  = document.getElementById("storage");
-//This creates a pointer to the food item recipes div
-var recipesDiv  = document.getElementById("recipes");
+  <script>
+    //Assign the food and type php variables to Javascript variables
+    var food = "<?php echo $food; ?>";
+    var type = "<?php echo $type; ?>";
+    //Checks to assign if they have been assigned
+    console.log(food, type);
+    //This stores a pointer to all info about bananas
+    var foodInfo = rootRef.child(type + "/" + food);
+    //This creates a pointer to the food item storage div
+    var storageDiv  = document.getElementById("storage");
+    //This creates a pointer to the food item recipes div
+    var recipesDiv  = document.getElementById("recipes");
 
-  //This function will pull the string containing information about storage
-  //and then assigns it to the storage div
-  function foodInformation(state) {
-    //This stores the location of the banana storage
-    var stateInfo;
-    //This stores the string from the database
-    var storageText;
-    //This stores the string from the database
-    var recipesText;
+    //This function will pull the string containing information about storage
+    //and then assigns it to the storage div
+    function foodInformation(state) {
+      //This stores the location of the banana storage
+      var stateInfo;
 
-  //Go to the child node containing the state for the banana
-  stateInfo = foodInfo.child(state);
-  //Create a snapshot of the banana state node
-  stateInfo.once("value")
-  .then(function(snapshot) {
-    //store the contents of the node as a string variable
-    storageText = snapshot.child("storage").val();
-    //store the contents of the node as a string variable
-    recipesText = snapshot.child("recipes").val();
-    //Assign the string as inner html to the storage div
-    storageDiv.innerHTML = storageText;
-    //Assign the string as inner html to the recipes div
-    recipesDiv.innerHTML = recipesText;
-  });
-}
+      //Go to the child node containing the state for the banana
+      stateInfo = foodInfo.child(state);
+      //Create a snapshot of the banana state node
+      stateInfo.once("value")
+      .then(function(snapshot) {
+        //Assign the string as inner html to the storage div
+        storageDiv.innerHTML = snapshot.child("storage").val();
+        //Assign the string as inner html to the recipes div
+        recipesDiv.innerHTML = snapshot.child("recipes").val();
+      });
+    }
 
-if (food === "bread") {
-	onload = foodInformation("fresh");
-} else if (type === "grains") {
-	onload = foodInformation("raw");
-} else {
-	onload = foodInformation("ripe");
-}
-</script>
+    if (food === "bread") {
+      onload = foodInformation("fresh");
+    } else if (type === "grains") {
+      onload = foodInformation("raw");
+    } else {
+      onload = foodInformation("ripe");
+    }
+  </script>
 </div>
 <?php include 'footer.php'; ?>
