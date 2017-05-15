@@ -8,10 +8,8 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-<!-- Information on a food item -->
 <div class="text-center col-xs-12">
   <h3><?php echo ucfirst($food);?></h3>
-  
   <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
@@ -22,37 +20,30 @@ $food = $_GET['f'];
     <div id="recipes" class="collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
-  <div class="row">
+  <div class="row btn-group btn-group-justified">
     <div class="col-xs-4 pull-left">
       <?php if($food === "bread") {
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/>";
-        echo "<div>Fresh</div>";
+      echo "<button type='button' class='btn-link' id='fresh'><img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/><p>Fresh</p></button>";
       } else if($type === "grains"){
-        echo "<img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/>";
-        echo "<div>Raw</div>";
+      echo "<button type='button' class='btn-link' id='raw'><img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/><p>Raw</p></button>";
       } else {
-        echo "<img src='" . "images/" . $food . "-UR.png'" . "class='single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/>";
-        echo "<div>Underripe</div>";
+      echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-UR.png'" . "class='single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/><p>Underripe</p></button>";
       }?>
     </div>
     <div class="col-xs-4">
       <?php if($type === "grains") {
-        echo "<div></div>";
+      echo "<div></div>";
       }else{
-        echo "<img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/>";
-        echo "<div>Ripe</div>";
+      echo "<button type='button' class='btn-link' id='ripe'><img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/><p>Ripe</p></button>";
       }?>
     </div>
     <div class="col-xs-4 pull-right">
       <?php if($food === "bread") {
-        echo "<img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/>";
-        echo "<div>Stale</div>";
+      echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/><p>Stale</p></button>";
       } else if($type === "grains"){
-        echo "<img src='" . "images/" . $food . "-C.png'" . " class='single-food-imagesize' alt='Cooked " . $food . "' onclick='" . "foodInformation(\"cooked\")'/>";
-        echo "<div>Cooked</div>";
+      echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-C.png'" . " class='single-food-imagesize' alt='Cooked " . $food . "' onclick='" . "foodInformation(\"cooked\")'/><p>Cooked</p></button>";
       }else{
-        echo "<img src='" . "images/" . $food . "-OR.png'" . " class='single-food-imagesize' alt='Overripe " . $food . "' onclick='" . "foodInformation(\"overripe\")'/>";
-        echo "<div>Overripe</div>";
+      echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-OR.png'" . " class='single-food-imagesize' alt='Overripe " . $food . "' onclick='" . "foodInformation(\"overripe\")'/><p>Overripe</p></button>";
       }?>
     </div>
   </div>
