@@ -37,7 +37,7 @@
 <!--Contains about text-->
 <div class="container">
   <div class="text-center">
-    <h4>Why food waste matters</h4>
+    <h4>About Us</h4>
   </div>
   <div>
     <div class="aboutText">

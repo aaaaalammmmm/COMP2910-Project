@@ -8,9 +8,8 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-<br>
-<!-- Information on a food item -->
 <div class="text-center col-xs-12">
+  <h3><?php echo ucfirst($food);?></h3>
   <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
@@ -48,61 +47,44 @@ $food = $_GET['f'];
       }?>
     </div>
   </div>
-  <br />
-	<script>
-		//Stores the food and type variables from the url as a Javascript string
-		var food = "<?php echo $food; ?>";
-		var type = "<?php echo $type; ?>";
-		//Check if they have successfully been assigned
-		console.log(food, type);
-		//This stores a pointer to all info about bananas
-		var foodInfo = rootRef.child(type + "/" + food);
-		//This creates a pointer to the food item storage div
-		var storageDiv = document.getElementById("storage");
-		//This creates a pointer to the food item recipes div
-		var recipesDiv = document.getElementById("recipes");
+  <script>
+    //Assign the food and type php variables to Javascript variables
+    var food = "<?php echo $food; ?>";
+    var type = "<?php echo $type; ?>";
+    //Checks to assign if they have been assigned
+    console.log(food, type);
+    //This stores a pointer to all info about bananas
+    var foodInfo = rootRef.child(type + "/" + food);
+    //This creates a pointer to the food item storage div
+    var storageDiv  = document.getElementById("storage");
+    //This creates a pointer to the food item recipes div
+    var recipesDiv  = document.getElementById("recipes");
 
-		//This function will pull the string containing information about storage
-		//and then assigns it to the storage div
-		function foodInformation(state) {
-		    //This stores the location of the banana storage
-			var stateInfo;
+    //This function will pull the string containing information about storage
+    //and then assigns it to the storage div
+    function foodInformation(state) {
+      //This stores the location of the banana storage
+      var stateInfo;
 
-			//Go to the child node containing the state for the banana
-			stateInfo = foodInfo.child(state);
-			//Create a snapshot of the banana state node
-			stateInfo.once("value")
-			.then(function(snapshot) {
-				//Assign the string of html code from the database as inner html to the storage div
-				storageDiv.innerHTML = snapshot.child("storage").val();
-				//Assign the string of html code from the database as inner html to the recipes div
-				recipesDiv.innerHTML = snapshot.child("recipes").val();
-			});
-		  
-			//When a food state button is clicked, remove all current btn-outline css, reapply btn-link,
-			//and then remove btn-link and reapply btn-outline for the specific state button clicked.
-			$("div.btn-group button").click(function(){
-				$("div.btn-group").find("button").removeClass("btn-outline");
-				$("div.btn-group").find("button").addClass("btn-link");
-				$(this).removeClass("btn-link");
-				$(this).addClass("btn-outline");
-			});  
-		}
-		
-		//This loads a default state according the food item selected
-		if (food === "bread") {
-			onload = foodInformation("fresh");
-			$("#fresh").removeClass("btn-link");
-			$("#fresh").addClass("btn-outline");
-		} else if (type === "grains") {
-			onload = foodInformation("raw");
-			$("#raw").removeClass("btn-link");
-			$("#raw").addClass("btn-outline");
-		} else {
-			onload = foodInformation("ripe");
-			$("#ripe").removeClass("btn-link");
-			$("#ripe").addClass("btn-outline");
-		}
-	</script>
+      //Go to the child node containing the state for the banana
+      stateInfo = foodInfo.child(state);
+      //Create a snapshot of the banana state node
+      stateInfo.once("value")
+      .then(function(snapshot) {
+        //Assign the string as inner html to the storage div
+        storageDiv.innerHTML = snapshot.child("storage").val();
+        //Assign the string as inner html to the recipes div
+        recipesDiv.innerHTML = snapshot.child("recipes").val();
+      });
+    }
+
+    if (food === "bread") {
+      onload = foodInformation("fresh");
+    } else if (type === "grains") {
+      onload = foodInformation("raw");
+    } else {
+      onload = foodInformation("ripe");
+    }
+  </script>
 </div>
 <?php include 'footer.php'; ?>
