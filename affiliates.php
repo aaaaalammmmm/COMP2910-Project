@@ -51,24 +51,19 @@
   <h1 class="text-center">Our Partners</h1>
   <div class="row text-center">
     <div class="col-md-4 padding-md"><img src="Images/PlentyOfThymeLogo.png" class="padding-md affiliate-size" alt="Plenty of Thyme Logo"/>
-      <p><br/>Plenty of Thyme is a web based grocery application that will keep track of the items in your fridge as well as their expiry dates.
-
-        Under the weekly view, a bi-weekly calendar will display the items expiring in the next two weeks, which acts as a convenient reminder. You are able to input the grocery item, its price, and its given expiry date-- if a date is not given you are able to refer to our ‘food guide’ chart. You will have the option of deleting items manually or default it to delete itself once it has hit the expiry date. The application will take this information in for a period of time and provide a statistic of how much food and money you have wasted.</p>
-    </div>
+      <p><br/>Plenty of Thyme is a web based grocery application that will keep track of the items in your fridge and their expiry dates. You can input a grocery item, its price, and it's given expiry date. The application will provide a statistic of how much food and money you have wasted to help reduce food waste.</p></div>
     <div class="col-md-4 padding-md">
       <a href="http://foodfall.ca">
         <img src="Images/food-fall-logo.png" class="affiliate-size" alt="Food Fall Logo"/>
       </a>
-      <p><br/>Food Fall is a JavaScript based game educating users on the effects of food waste - and to have fun too!</p>
+      <p><br/>Food Fall is a JavaScript based game educating users on the effects of food waste in a fun and interactive environment. See how much produce you can catch without losing, and learn about how to mitigate food waste while having fun.</p>
     </div>
     <div class="col-md-4 padding-md">
       <a href="https://greendeals.me/">
         <img src="Images/GreenDealsLogo.png" class="affiliate-size" alt ="Green Deals Logo"/>
       </a>
-      <p><br/>Green Deals is a new platform that allows grocers to easily sell food products that
-        are expiring soon. Green Deals endeavours to reduce food waste by ensuring that
-        all food carried by grocery stores is sold to consumers by the best before date. This
-        will reduce food waste at the ground level and provide great deals to consumers.</p>
+      <p><br/>Green Deals is a platform that allows grocers to easily sell food products that are expiring soon. Green Deals endeavours to reduce food waste by ensuring that all food carried by grocery stores is sold to consumers by the best before date. This will reduce food waste at the ground level and provide great deals to consumers.
+      </p>
     </div>
   </div>
 </div>
