@@ -1,34 +1,24 @@
 <?php include 'header.php'; ?>
-<body class="bg-primary">
+<body class="bg-primary" id="main">
 <div class="container">
+  <div class="text-center center-block">
+  <a href="index.php">
+    <img src="Images/UseItUpBanner v2.0.png"/>
+  </a>
+  </div>
   <div>
-    <div class="container-fluid">
-      <nav class="navbar navbar-default" role="navigation">
-        <div>
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed pull-left border-0"
-              data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle Navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a class="text-black" href="about.php">About Us</a></li>
-              <li><a class="text-black" href="info.php">Info</a></li>
-              <li><a class="text-black" href="affiliates.php">Partners</a></li>
-              <li><a class="text-black" href="contact.php">Contact Us</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <div class="hamburger">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
     </div>
-    <div class="center-block text-center">
-      <a href="index.php">
-        <img src="Images/UseItUpBanner v2.0.png"/>
-      </a>
+
+  </div>
+  <div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a class="text-black" href="about.php">About Us</a>
+      <a class="text-black" href="info.php">Info</a>
+      <a class="text-black" href="affiliates.php">Partners</a>
+      <a class="text-black" href="contact.php">Contact Us</a>
     </div>
   </div>
   <div>
