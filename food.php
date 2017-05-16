@@ -8,6 +8,8 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
+<div class="container">
+  <!-- Information on a food item -->
 <div class="text-center col-xs-12">
   <h3><?php echo ucfirst($food);?></h3>
   <img src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
@@ -45,27 +47,37 @@ $food = $_GET['f'];
       }else{
         echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-OR.png'" . " class='single-food-imagesize' alt='Overripe " . $food . "' onclick='" . "foodInformation(\"overripe\")'/><p>Overripe</p></button>";
       }?>
+      </div>
     </div>
+    <br />
   </div>
   <script>
+
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
-  //Checks to assign if they have been assigned
-  console.log(food, type);
   //This stores a pointer to all info about bananas
   var foodInfo = rootRef.child(type + "/" + food);
-  //This creates a pointer to the food item storage div
-  var storageDiv  = document.getElementById("storage");
-  //This creates a pointer to the food item recipes div
-  var recipesDiv  = document.getElementById("recipes");
-
+//This creates a pointer to main image element
+  var image      = document.getElementById("image");
+  //This function will pull the string containing information about storage
+  //and then assigns it to the storage div
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
+    if (state === "ripe" || state === "fresh" || state === "stale") {
+      image.src = "<?php echo "images/".$food.".png"; ?>";
+    } else if (state === "raw") {
+      image.src = "<?php echo "images/".$food."-R.png"; ?>";
+    } else if (state === "cooked") {
+      image.src = "<?php echo "images/".$food."-C.png"; ?>";
+    } else if (state === "underripe") {
+      image.src = "<?php echo "images/".$food."-UR.png"; ?>";
+    } else if (state === "overripe") {
+      image.src = "<?php echo "images/".$food."-OR.png"; ?>";
+    }
     //This stores the location of the banana storage
     var stateInfo;
-
     //Go to the child node containing the state for the banana
     stateInfo = foodInfo.child(state);
     //Create a snapshot of the banana state node
@@ -75,6 +87,14 @@ $food = $_GET['f'];
       storageDiv.innerHTML = snapshot.child("storage").val();
       //Assign the string as inner html to the recipes div
       recipesDiv.innerHTML = snapshot.child("recipes").val();
+    });
+    //This highlights and de-highlight the states depending on which
+    //state is focused
+    $("div.btn-group button").click(function(){
+      $("div.btn-group").find("button").removeClass("btn-outline");
+      $("div.btn-group").find("button").addClass("btn-link");
+      $(this).removeClass("btn-link");
+      $(this).addClass("btn-outline");
     });
   }
 
@@ -92,6 +112,7 @@ $food = $_GET['f'];
     $("#ripe").addClass("btn-outline");
     $("#ripe").removeClass("btn-link");
   }
+
   </script>
 </div>
 <?php include 'footer.php'; ?>
