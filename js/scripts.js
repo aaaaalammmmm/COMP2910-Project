@@ -36,8 +36,7 @@ function showResult(food) {
       //   - Sets the hits to the received code and gives it a slight border
       document.getElementById("search-hints").innerHTML=response;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
-      //   - Autoscrolls livesearch to display as much text as possible
-      searchScroll(food);
+
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {
@@ -164,18 +163,19 @@ function foodLoad_dynamic(food,type) {
       xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
     // Variable to track if livesearch should load or not
-    canLoad = false;
+    canLoad = "false";
 
     xmlhttp.onreadystatechange=function() {
-      canLoad = this.responseText;
-    }
-
-    if(canLoad) {
-      //  - Scroll 'livesearch' to top for max readability
-      searchScroll(food);
-      //  - Dynamically loads the food item from dynamically created food.php page
-      //    (uses parameter passed in as guidelines on which food page to create)
-      $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+      if (this.readyState == 4 && this.status == 200) {
+        canLoad = this.responseText;
+        if(canLoad == "true") {
+          //  - Scroll 'livesearch' to top for max readability
+          searchScroll(food);
+          //  - Dynamically loads the food item from dynamically created food.php page
+          //    (uses parameter passed in as guidelines on which food page to create)
+          $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+        }
+      }
     }
     //   - Sends 'food' parameter to liveload.php via GET['q']
     //   - Receives data from liveload.php
