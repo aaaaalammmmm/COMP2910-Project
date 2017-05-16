@@ -1,137 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages>
   <link>
-    <name>
-      Apple
-    </name>
+    <name>Apple</name>
     <url>
       javascript:foodLoad("apple","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Banana
-    </name>
+    <name>Banana</name>
     <url>
       javascript:foodLoad("banana","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Blueberry
-    </name>
+    <name>Blueberry</name>
     <url>
       javascript:foodLoad("blueberry","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Orange
-    </name>
+    <name>Orange</name>
     <url>
       javascript:foodLoad("orange","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Strawberry
-    </name>
+    <name>Strawberry</name>
     <url>
       javascript:foodLoad("strawberry","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Lemon
-    </name>
+    <name>Lemon</name>
     <url>
       javascript:foodLoad("lemon","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Lime
-    </name>
+    <name>Lime</name>
     <url>
       javascript:foodLoad("lime","fruit")
     </url>
   </link>
   <link>
-    <name>
-      Potato
-    </name>
+    <name>Potato</name>
     <url>
       javascript:foodLoad("potato","veggie")
     </url>
   </link>
   <link>
-    <name>
-      Broccoli
-    </name>
+    <name>Broccoli</name>
     <url>
       javascript:foodLoad("broccoli","veggie")
     </url>
   </link>
   <link>
-    <name>
-      Tomato
-    </name>
+    <name>Tomato</name>
     <url>
       javascript:foodLoad("tomato","veggie")
     </url>
   </link>
   <link>
-    <name>
-      Carrot
-    </name>
+    <name>Carrot</name>
     <url>
       javascript:foodLoad("carrot","veggie")
     </url>
   </link>
   <link>
-    <name>
-      Lettuce
-    </name>
+    <name>Lettuce</name>
     <url>
       javascript:foodLoad("lettuce","veggie")
     </url>
   </link>
   <link>
-    <name>
-      Celery
-    </name>
+    <name>Celery</name>
     <url>
       javascript:foodLoad("celery","veggie")
     </url>
   </link>
   <link>
-    <name>
-      Bread
-    </name>
+    <name>Bread</name>
     <url>
       javascript:foodLoad("bread","grains")
     </url>
   </link>
   <link>
-    <name>
-      Rice
-    </name>
+    <name>Rice</name>
     <url>
       javascript:foodLoad("rice","grains")
     </url>
   </link>
   <link>
-    <name>
-      Quinoa
-    </name>
+    <name>Quinoa</name>
     <url>
       javascript:foodLoad("quinoa","grains")
     </url>
   </link>
   <link>
-    <name>
-      Pasta
-    </name>
+    <name>Pasta</name>
     <url>
       javascript:foodLoad("pasta","grains")
     </url>

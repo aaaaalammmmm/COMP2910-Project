@@ -36,8 +36,7 @@ function showResult(food) {
       //   - Sets the hits to the received code and gives it a slight border
       document.getElementById("search-hints").innerHTML=response;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
-      //   - Autoscrolls livesearch to display as much text as possible
-      searchScroll(food);
+
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {
@@ -88,7 +87,7 @@ function load(str) {
     if (document.getElementById("grain-btn").classList.contains("btn-highlight")){
       document.getElementById("grain-btn").classList.toggle("btn-highlight");
     }
-  //  - If veggie
+    //  - If veggie
   } else if (str == "allVeggies") {
     //  - If Fruits button is highlighted -> toggle highlight class
     //       (makes sure button is NOT highlighted)
@@ -105,7 +104,7 @@ function load(str) {
     if (document.getElementById("grain-btn").classList.contains("btn-highlight")){
       document.getElementById("grain-btn").classList.toggle("btn-highlight");
     }
-  //  - If grain
+    //  - If grain
   } else if (str == "allGrains") {
     //  - If Fruits button is highlighted -> toggle highlight class
     //       (makes sure button is NOT highlighted)
@@ -128,8 +127,6 @@ function load(str) {
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
 function foodLoad(food,type) {
-  //alert(food);
-  //alert(type);
   // If parameters 'food' and 'type' are not empty do the following:
   if (food != "" && type != "") {
     //  - Scroll 'livesearch' to top for max readability
@@ -142,29 +139,51 @@ function foodLoad(food,type) {
     //  - Sets search hitns to empty and removes the border
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
-  // If both parameters are empty:
-  //   - Set 'livesearch' div to empty
+
+    // If both parameters are empty:
+    //   - Set 'livesearch' div to empty
   } else {
     $("#livesearch").innerHTML = "";
   }
 }
+
 
 // NOTE: Pretty much a clone of the foodLoad function. Does NOT reset hints
 //       or search bar
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
 function foodLoad_dynamic(food,type) {
-  //alert(food);
-  //alert(type);
   // If parameters 'food' and 'type' are not empty do the following:
   if (food != "" && type != "") {
-    //  - Scroll 'livesearch' to top for max readability
-    searchScroll(food);
-    //  - Dynamically loads the food item from dynamically created food.php page
-    //    (uses parameter passed in as guidelines on which food page to create)
-    $("#livesearch").load("food.php?f=" + food + "&t=" + type);
-  // If both parameters are empty:
-  //   - Set 'livesearch' div to empty
+    //   - Creates an XMLHttpRequest to receive data from a file
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    } else {  // code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    // Variable to track if livesearch should load or not
+    canLoad = "false";
+
+    xmlhttp.onreadystatechange=function() {
+      if (this.readyState == 4 && this.status == 200) {
+        canLoad = this.responseText;
+        if(canLoad == "true") {
+          //  - Scroll 'livesearch' to top for max readability
+          searchScroll(food);
+          //  - Dynamically loads the food item from dynamically created food.php page
+          //    (uses parameter passed in as guidelines on which food page to create)
+          $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+        }
+      }
+    }
+    //   - Sends 'food' parameter to liveload.php via GET['q']
+    //   - Receives data from liveload.php
+    xmlhttp.open("GET","liveload.php?q="+food,true);
+    xmlhttp.send();
+
+    // If both parameters are empty:
+    //   - Set 'livesearch' div to empty
   } else {
     $("#livesearch").innerHTML = "";
   }
@@ -182,7 +201,7 @@ function resizeBtn(str) {
       document.getElementById("large-btn").classList.toggle("hidden");
       //  - Shows the small buttons (three accross the bottom)
       document.getElementById("small-btn").classList.toggle("hidden");
-    // If 'livesearch' div IS EMPTY
+      // If 'livesearch' div IS EMPTY
     } else {
       //  - If large buttons are hidden, make them visible
       if (document.getElementById("large-btn").classList.contains("hidden")) {
@@ -209,7 +228,7 @@ function searchScroll(str) {
   //  - If 'str' is less than 2 characters, scroll to top
   if (str.length <1) {
     scrollTo(0,0);
-  //  - Scrolls the 'ajax-search' element to the top
+    //  - Scrolls the 'ajax-search' element to the top
   } else {
     document.getElementById("ajax-search").scrollIntoView(true);
   }
