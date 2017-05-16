@@ -13,7 +13,7 @@ $food = $_GET['f'];
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
-    <div id="storage" class="collapse"></div>
+    <div id="storage" class="text-left collapse"></div>
   </div>
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
@@ -27,7 +27,7 @@ $food = $_GET['f'];
       } else if($type === "grains"){
         echo "<button type='button' class='btn-link' id='raw'><img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/><p>Raw</p></button>";
       } else {
-        echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-UR.png'" . "class='img-responsive single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/><p>Underripe</p></button>";
+        echo "<button type='button' class='btn-link '><img src='" . "images/" . $food . "-UR.png'" . "class='img-responsive single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/><p>Underripe</p></button>";
       }?>
     </div>
     <div class="btn-group">
