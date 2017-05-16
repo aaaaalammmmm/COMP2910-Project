@@ -8,7 +8,6 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-<br>
 <div class="container">
   <!-- Information on a food item -->
   <div class="text-center col-xs-12">
@@ -87,34 +86,42 @@ $food = $_GET['f'];
     }
     //This stores the location of the banana storage
     var stateInfo;
-    //This stores the string from the database
-    var storageText;
-    //This stores the string from the database
-    var recipesText;
 
     //Go to the child node containing the state for the banana
     stateInfo = foodInfo.child(state);
     //Create a snapshot of the banana state node
     stateInfo.once("value")
     .then(function(snapshot) {
-      //store the contents of the node as a string variable
-      storageText = snapshot.child("storage").val();
-      //store the contents of the node as a string variable
-      recipesText = snapshot.child("recipes").val();
       //Assign the string as inner html to the storage div
-      storageDiv.innerHTML = storageText;
+      storageDiv.innerHTML = snapshot.child("storage").val();;
       //Assign the string as inner html to the recipes div
-      recipesDiv.innerHTML = recipesText;
+      recipesDiv.innerHTML = snapshot.child("recipes").val();
+    });
+    //This highlights and de-highlight the states depending on which
+    //state is focused
+    $("div.btn-group button").click(function(){
+      $("div.btn-group").find("button").removeClass("btn-outline");
+      $("div.btn-group").find("button").addClass("btn-link");
+      $(this).removeClass("btn-link");
+      $(this).addClass("btn-outline");
     });
   }
 
+  //This sets the default state
   if (food === "bread") {
     onload = foodInformation("fresh");
+    $("#fresh").addClass("btn-outline");
+    $("#fresh").removeClass("btn-link");
   } else if (type === "grains") {
     onload = foodInformation("raw");
+    $("#raw").addClass("btn-outline");
+    $("#raw").removeClass("btn-link");
   } else {
     onload = foodInformation("ripe");
+    $("#ripe").addClass("btn-outline");
+    $("#ripe").removeClass("btn-link");
   }
+
   </script>
 </div>
 <?php include 'footer.php'; ?>
