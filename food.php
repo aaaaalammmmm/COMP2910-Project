@@ -8,7 +8,7 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-<div class="text-center col-xs-12">
+<div class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
@@ -20,8 +20,8 @@ $food = $_GET['f'];
     <div id="recipes" class="collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
-  <div class="row btn-group btn-group-justified">
-    <div class="col-xs-4 pull-left">
+  <div class="row btn-group">
+    <div class="col-xs-4">
       <?php if($food === "bread") {
         echo "<button type='button' class='btn-link' id='fresh'><img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/><p>Fresh</p></button>";
       } else if($type === "grains"){
@@ -37,7 +37,7 @@ $food = $_GET['f'];
         echo "<button type='button' class='btn-link' id='ripe'><img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/><p>Ripe</p></button>";
       }?>
     </div>
-    <div class="col-xs-4 pull-right">
+    <div class="col-xs-4">
       <?php if($food === "bread") {
         echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/><p>Stale</p></button>";
       } else if($type === "grains"){

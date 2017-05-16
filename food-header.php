@@ -37,8 +37,8 @@
   </script>
 </head>
 <body class="bg-primary" >
-  <div class="container-fluid">
-    <nav class="navbar navbar-default row top-button" role="navigation">
+  <div class="container">
+    <nav class="navbar navbar-default top-button" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed pull-left border-0" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle Navigation</span>

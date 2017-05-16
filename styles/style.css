@@ -1,10 +1,3 @@
-.btn-outline {
-	background: none;
-	padding: 2px 2px;
-	border: 3px solid #85e085;
-	border-radius: 5px;
-}
-
 /* Styling for the search bar, sets text to black */
 .inputBox {
   color:  black;
@@ -172,3 +165,7 @@ body {
 
 /* Widens the search bar on large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .home-search { width: 800px; } }
+
+.btn-outline:focus {
+  outline: none;
+}
