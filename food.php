@@ -69,21 +69,21 @@ $food = $_GET['f'];
   //This creates a pointer to the food item recipes div
   var recipesDiv  = document.getElementById("recipes");
   //This creates a pointer to main image element
-  var imgage      = document.getElementById("image");
+  var image      = document.getElementById("image");
 
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
     if (state === "ripe" || state === "fresh" || state === "stale") {
-      imgage.src = <?php echo "images/".$food.".png";?>;
+      image.src = "<?php echo "images/".$food.".png"; ?>";
     } else if (state === "raw") {
-      imgage.src = <?php echo "images/".$food."-R.png";?>;
+      image.src = "<?php echo "images/".$food."-R.png"; ?>";
     } else if (state === "cooked") {
-      imgage.src = <?php echo "images/".$food."-C.png";?>;
+      image.src = "<?php echo "images/".$food."-C.png"; ?>";
     } else if (state === "underripe") {
-      imgage.src = <?php echo "images/".$food."-UR.png";?>;
+      image.src = "<?php echo "images/".$food."-UR.png"; ?>";
     } else if (state === "overripe") {
-      imgage.src = <?php echo "images/".$food."-OR.png";?>;
+      image.src = "<?php echo "images/".$food."-OR.png"; ?>";
     }
     //This stores the location of the banana storage
     var stateInfo;
