@@ -61,7 +61,7 @@ $food = $_GET['f'];
   //This creates a pointer to the storage div
   var storageDiv = document.getElementById("storage");
   //This creates a pointer to the recipes div
-  var storageDiv = document.getElementById("recipes");
+  var recipesDiv = document.getElementById("recipes");
   //This creates a pointer to main image element
   var image      = document.getElementById("image");
   //This function will pull the string containing information about storage
