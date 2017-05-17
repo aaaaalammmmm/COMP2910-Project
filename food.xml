@@ -102,4 +102,10 @@
       javascript:foodLoad("pasta","grains")
     </url>
   </link>
+  <link>
+    <name>Soylent Green</name>
+    <url>
+      javascript:foodLoad("soylent green", "veggie")
+    </url>
+  </link>
 </pages>

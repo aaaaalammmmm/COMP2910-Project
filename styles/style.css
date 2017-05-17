@@ -220,11 +220,8 @@ body {
   top: 5px;
 }
 
-
-/* Sets the minimum and maxiumum width of the food state buttons */
-.state-button-width {
-  min-width: 87px;
-  max-width: 87px;
+.state-button {
+  border: 1px solid black;
 }
 
 /* fixes footer to bottom of screen */

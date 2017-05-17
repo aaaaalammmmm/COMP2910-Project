@@ -20,28 +20,32 @@ $food = $_GET['f'];
     <div id="recipes" class="collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
-  <div class="btn-toolbar-home button-footer">
+  <div class="btn-group-justified button-footer">
+    <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button-width' id='fresh' onclick='foodInformation(\"fresh\")'><p>Fresh</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button-width' id='raw'onclick='foodInformation(\"raw\")'><p>Raw</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='raw'onclick='foodInformation(\"raw\")'>Raw</button>";
       } else {
-        echo "<button type='button' class='btn padding-xs state-button-width' onclick='foodInformation(\"underripe\")'><p>Underripe</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"underripe\")'>Underripe</button>";
       }?>
-
+    </div>
+    <div class="btn-group">
       <?php if($type === "grains") {
-        echo "<div></div>";
+        echo "<button type='button' class='hidden'></button>";
       }else{
-        echo "<button type='button' class='btn padding-xs state-button-width' id='ripe' onclick='foodInformation(\"ripe\")'><p>Ripe</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button>";
       }?>
-
+   </div>
+    <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button-width' onclick='foodInformation(\"stale\")'><p>Stale</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button onclick='foodInformation(\"stale\")'>Stale</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button-width' onclick='foodInformation(\"cooked\")'><p>Cooked</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"cooked\")'>Cooked</button>";
       }else{
-        echo "<button type='button' class='btn padding-xs state-button-width' onclick='foodInformation(\"overripe\")'><p>Overripe</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
       }?>
+    </div>
   </div>
   <script>
 
