@@ -227,3 +227,9 @@ body {
   box-shadow: none;
   outline-color: #1acc22;
 }
+
+/* Makes background transparent */
+.transparent {
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
