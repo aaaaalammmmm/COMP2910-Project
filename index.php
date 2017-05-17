@@ -1,16 +1,30 @@
 <?php include 'header.php'; ?>
-<body class="bg-primary" id="main">
-  <div class="container">
-    <div class="text-center center-block">
-      <a href="index.php">
-        <img src="Images/UseItUpBanner v2.0.png"/>
-      </a>
-    </div>
-    <div>
-      <div class="hamburger">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <div id="ajax-search" class="container col-xs-12">
+    <br>
+    <!-- Main Div tag for the search bar and hints -->
+    <form class="text-center home-search center-block" onsubmit="return false">
+      <input id="search-box" type="text" class="inputBox home-search text-center" placeholder="Search Foods..."
+             onkeyup="showResult(this.value)" autocomplete="off">
+      <div id="search-hints"></div>
+    </form>
+  </div>
+  <!-- The div tag for livesearch page loads -->
+  <div id="livesearch" class="col-xs-12 padding-lg">
+  </div>
+  <br/>
+  <!-- Redirection "buttons" for the main categories of pages -->
+  <div class="text-center">
+    <div id="large-btn" class="btn-toolbar-home">
+      <div class="hidden-lg col-xs-12">
+        <a href="javascript:resizeBtn('allFruits')">
+          <button type="button" class="btn mobile-button">Fruits</button>
+        </a>
       </div>
-
+      <div class="hidden-lg col-xs-12">
+        <a href="javascript:resizeBtn('allVeggies')">
+          <button type="button" class="btn mobile-button">Veggies</button>
+        </a>
+      </div>
     </div>
     <div>
       <div id="mySidenav" class="sidenav">

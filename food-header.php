@@ -36,7 +36,7 @@
   var rootRef = database.ref("food");
   </script>
 </head>
-<body class="bg-primary" >
+<body class="bg-primary" id="main">
   <div class="container">
     <div>
       <div class="hamburger">
@@ -70,4 +70,3 @@
     $type = $_GET['t'];
   }
   ?>
-  <div class="container ">  <span onclick="goBack('<?php echo $type ?>')" class="glyphicon glyphicon-menu-left "></span></div>

@@ -132,11 +132,6 @@ body {
   color: #ff9400;
   font-size: 50px;
 }
-/*Default Style for about.php page text*/
-.aboutText {
-  margin: auto;
-  font-size: 80%;
-}
 
 /*Size, font, and width for small devices*/
 @media screen and (min-width: 700px) {
@@ -156,13 +151,7 @@ body {
   .aboutText {width: 60%;}
   .aboutText {font-size: 16px;}
 }
-/* Sets outline for state buttons */
-.btn-outline {
-	background: none;
-	padding: 2px 2px;
-	border: 3px solid #85e085;
-	border-radius: 5px;
-}
+
 
 /* Widens the search bar on large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .home-search { width: 800px; } }
@@ -170,10 +159,6 @@ body {
 /* Sets the search bar on mobile devices */
 @media (max-width: 1000px) { .home-search { width: 100%; } }
 
-/* Gets rid of orange button outline on food pages */
-.btn-outline:focus {
-  outline: none;
-}
 
 .sidenav {
   height: 100%;
@@ -224,7 +209,27 @@ body {
   top: 5px;
 }
 
+/* Sets the minimum and maxiumum width of the food state buttons */
+.state-button-width {
+  min-width: 87px;
+  max-width: 87px;
+}
+
+.button-footer {
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+}
+
+.btn:hover, .btn:active, .btn:active:focus {
+  background-color: #1acc22;
+  box-shadow: none;
+  outline-color: #1acc22;
+}
+
 /* Makes background transparent */
 .transparent {
   background-color: rgba(0, 0, 0, 0.0);
 }
+
