@@ -1,6 +1,7 @@
 /* Styling for the search bar, sets text to black */
 .inputBox {
   color:  black;
+  border: 5px;
 }
 
 /* Padding styles for any element, different padding sizes if needed */
@@ -165,6 +166,9 @@ body {
 
 /* Widens the search bar on large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { .home-search { width: 800px; } }
+
+/* Sets the search bar on mobile devices */
+@media (max-width: 1000px) { .home-search { width: 100%; } }
 
 .btn-outline:focus {
   outline: none;

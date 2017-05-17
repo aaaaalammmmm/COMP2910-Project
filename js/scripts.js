@@ -36,6 +36,7 @@ function showResult(food) {
       //   - Sets the hits to the received code and gives it a slight border
       document.getElementById("search-hints").innerHTML=response;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
+      //document.getElementById("search-hints").size = 30;
 
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
