@@ -58,16 +58,22 @@
       </a>
     </div>
   </div>
-  <div id="small-btn" class="btn-toolbar-other btn-group hidden">
+  <div id="small-btn" class="btn-group-justified button-footer btn-group hidden">
+    <div class="btn-group">
     <a href="javascript:load('allFruits')">
-      <button type="button" id="fruit-btn" class="btn">Fruits</button>
+      <button class="state-button btn" type="button" id="fruit-btn" class="btn">Fruits</button>
     </a>
+    </div>
+    <div class="btn-group">
     <a href="javascript:load('allVeggies')">
-      <button type="button" id="veggie-btn" class="btn">Veggies</button>
+      <button class="state-button btn" type="button" id="veggie-btn" class="btn">Veggies</button>
     </a>
+    </div>
+    <div class="btn-group">
     <a href="javascript:load('allGrains')">
-      <button type="button" id="grain-btn" class="btn">Grains</button>
+      <button class="state-button btn" type="button" id="grain-btn" class="btn">Grains</button>
     </a>
+    </div>
   </div>
 </div>
 </div>
