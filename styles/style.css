@@ -132,11 +132,6 @@ body {
   color: #ff9400;
   font-size: 50px;
 }
-/*Default Style for about.php page text*/
-.aboutText {
-  margin: auto;
-  font-size: 80%;
-}
 
 /*Size, font, and width for small devices*/
 @media screen and (min-width: 700px) {

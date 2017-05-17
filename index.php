@@ -1,28 +1,4 @@
 <?php include 'header.php'; ?>
-<body class="bg-primary" id="main">
-<div class="container">
-  <div class="text-center center-block">
-  <a href="index.php">
-    <img src="Images/UseItUpBanner v2.0.png"/>
-  </a>
-  </div>
-  <div>
-    <div class="hamburger">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    </div>
-
-  </div>
-  <div>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a class="text-black" href="about.php">About Us</a>
-      <a class="text-black" href="info.php">Info</a>
-      <a class="text-black" href="affiliates.php">Partners</a>
-      <a class="text-black" href="contact.php">Contact Us</a>
-    </div>
-  </div>
-  <div>
-  </div>
   <div id="ajax-search" class="container col-xs-12">
     <br>
     <!-- Main Div tag for the search bar and hints -->
