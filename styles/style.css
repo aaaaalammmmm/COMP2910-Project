@@ -249,4 +249,9 @@ body {
   background-color: rgba(0, 0, 0, 0.0);
 }
 
+/* disables resize for text area */
+textarea {
+  resize: none;
+  width: 100%;
+}
 
