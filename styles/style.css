@@ -223,3 +223,8 @@ body {
   position: absolute;
   top: 5px;
 }
+
+/* Makes background transparent */
+.transparent {
+  background-color: rgba(0, 0, 0, 0.0);
+}

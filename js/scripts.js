@@ -280,3 +280,11 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+// $("#search-box").on('keyup', function (e) {
+//   if (e.keyCode == 13) {
+//     var content = document.getElementById("search-hints").innerHTML;
+//     var regEx = /foodLoad(^"[a-zA-Z]+"$,^"[a-zA-Z]"$)/;
+//     location.href = regEx.exec(content);
+//   }
+// });
