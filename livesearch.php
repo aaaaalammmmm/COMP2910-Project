@@ -6,6 +6,7 @@ $foodLinks=$xmlDoc->getElementsByTagName('link');
 
 //get the q parameter from URL
 $q=$_GET["q"];
+$reg_ex = "/^" . $q . "/i";
 
 //lookup all links from the xml file if length of q > 0
 $hint="";
@@ -15,7 +16,7 @@ if (strlen($q)>0) {
     $function=$foodLinks->item($i)->getElementsByTagName('url');
     if ($name->item(0)->nodeType==1) {
       //find a link matching the search text
-      if (stristr($name->item(0)->childNodes->item(0)->nodeValue,$q)) {
+      if (preg_match($reg_ex,$name->item(0)->childNodes->item(0)->nodeValue)) {
         if ($hint=="") {
           $hint="<a href='" .
           $function->item(0)->childNodes->item(0)->nodeValue .
@@ -31,7 +32,7 @@ if (strlen($q)>0) {
     }
   }
 }
-//$type = 
+//$type =
 // Set output to "no suggestion" if no hint was found
 // or to the correct values
 if ($hint=="" || $hint==" ") {

@@ -10,7 +10,7 @@ $foodItem=$_GET["q"];
 //variable to return
 $result = "false";
 
-//lookup all links from the xml file if length of q > 0
+//lookup all links from the xml file if length of foodItem > 0
 if (strlen($foodItem)>0) {
   for($i=0; $i<($foodLinks->length); $i++) {
     $name=$foodLinks->item($i)->getElementsByTagName("name");
@@ -18,10 +18,8 @@ if (strlen($foodItem)>0) {
       //find a link matching the search text
       if (strcasecmp($name->item(0)->childNodes->item(0)->nodeValue,$foodItem)==0) {
         $result = "true";
-        // $result = $result = $name->item(0)->childNodes->item(0)->nodeValue;
         break;
       }
-      // $result = $name->item(0)->childNodes->item(0)->nodeValue;
     }
   }
 }
