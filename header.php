@@ -55,7 +55,7 @@
       <a class="text-black" href="about.php">About Us</a>
       <a class="text-black" href="info.php">Info</a>
       <a class="text-black" href="affiliates.php">Partners</a>
-      <a class="text-black" href="contact.php">Contact Us</a>
+      <a class="text-black" href="contactus.php">Contact Us</a>
     </div>
   </div>
   <div>
