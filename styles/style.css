@@ -220,6 +220,8 @@ body {
   bottom: 0;
   left:0;
   width: 100%;
+  z-index: 10000;
+  background: #f5f5f5;
 }
 
 .btn:hover, .btn:active, .btn:active:focus {
