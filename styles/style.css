@@ -159,7 +159,7 @@ body {
 /* Sets the search bar on mobile devices */
 @media (max-width: 1000px) { .home-search { width: 100%; } }
 
-
+/* styingling for sidebar */
 .sidenav {
   height: 100%;
   width: 0;
@@ -172,7 +172,7 @@ body {
   transition: 0.5s;
   padding-top: 60px;
 }
-
+/* styling for sidebar links */
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -182,10 +182,12 @@ body {
   transition: 0.3s;
 }
 
+/* styling for hovering over sidebar links */
 .sidenav a:hover, .offcanvas a:focus{
   color: #f1f1f1;
 }
 
+/* positioning for close button in sidebar */
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -194,16 +196,19 @@ body {
   margin-left: 50px;
 }
 
+/* adds transition and padding for hamburger sidebar */
 #main {
   transition: margin-left .5s;
   padding: 16px;
 }
 
+/* Adds padding and font-size for mobile sidebar */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 
+/* positions hamburger button to top left of site */
 .hamburger {
   position: absolute;
   top: 5px;
@@ -215,6 +220,7 @@ body {
   max-width: 87px;
 }
 
+/* fixes footer to bottom of screen */
 .button-footer {
   position: fixed;
   bottom: 0;
@@ -224,6 +230,7 @@ body {
   background: #f5f5f5;
 }
 
+/* highlights buttons green when selected */
 .btn:hover, .btn:active, .btn:active:focus {
   background-color: #1acc22;
   box-shadow: none;
