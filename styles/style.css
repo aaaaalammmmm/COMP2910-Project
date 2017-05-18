@@ -81,11 +81,11 @@ body {
   margin-bottom: 100px;
   clear : both;
   /* Background image */
-  background-image: url(../Images/backgroundimagev2m.png);
+  background-image: url(../Images/backgroundimage-g.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: 120%;
+  background-size: 200%;
 }
 
 /* Highlights the selected button*/
