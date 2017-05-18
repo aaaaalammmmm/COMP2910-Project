@@ -1,6 +1,6 @@
 <?php
 $xmlDoc=new DOMDocument();
-$xmlDoc->load("food.xml");
+$xmlDoc->load("canLoad.xml");
 
 $foodLinks=$xmlDoc->getElementsByTagName('link');
 

@@ -20,7 +20,7 @@
   </form>
 </div>
 <!-- The div tag for livesearch page loads -->
-<div id="livesearch" class="col-xs-12 padding-lg transparent">
+<div id="livesearch" class="col-xs-12 padding-lg">
 </div>
 <br/>
 <!-- Redirection "buttons" for the main categories of pages -->
