@@ -221,6 +221,7 @@ body {
   top: 5px;
 }
 
+/* Adds a black border to the buttons */
 .state-button {
   border: 1px solid black;
 }
@@ -235,11 +236,11 @@ body {
   background: #f5f5f5;
 }
 
-/* highlights buttons green when selected */
-.btn:hover, .btn:active, .btn:active:focus {
-  background-color: #1acc22;
-  box-shadow: none;
-  outline-color: #1acc22;
+/* Gets rid of default bootstrap hovering and focus behaviour */
+.btn:focus, btn:hover {
+  outline: none;
+  text-decoration: none;
+  color: black;
 }
 
 /* disables resize for text area */
@@ -248,7 +249,7 @@ textarea {
   width: 100%;
 }
 
-/*Centers sotarge text in tablets*/
+/* Centers sotarge text in tablets */
 @media screen and (min-height: 1024px){
 .storageText {width: 50%;}
 .storageText {margin: auto;}

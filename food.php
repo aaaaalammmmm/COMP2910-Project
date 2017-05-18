@@ -27,23 +27,19 @@ $food = $_GET['f'];
       <?php if($food === "bread") {
         echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button' id='raw'onclick='foodInformation(\"raw\")'>Raw</button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='raw' onclick='foodInformation(\"raw\")'>Raw</button>";
       } else {
-        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"underripe\")'>Underripe</button>";
+        echo "<button type='button' class='btn padding-xs state-button' id=underripe onclick='foodInformation(\"underripe\")'>Underripe</button>";
       }?>
     </div>
-    <div class="btn-group">
-      <?php if($type === "grains") {
-        echo "<button type='button' class='hidden'></button>";
-      }else{
-        echo "<button type='button' class='btn padding-xs state-button' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button>";
+      <?php if($type != "grains") {
+        echo "<div class=\"btn-group\"><button type='button' class='btn padding-xs state-button btn-highlight' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button></div>";
       }?>
-   </div>
     <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button onclick='foodInformation(\"stale\")'>Stale</button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"stale\")'>Stale</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"cooked\")'>Cooked</button>";
+        echo "<button type='button' class='btn padding-xs state-button btn-highlight' onclick='foodInformation(\"cooked\")'>Cooked</button>";
       }else{
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
       }?>
@@ -91,8 +87,8 @@ $food = $_GET['f'];
     //This highlights and de-highlight the states depending on which
     //state is focused
     $("div.btn-group button").click(function(){
-      $("div.btn-group").find("button").removeClass("btn-outline");
-      $(this).addClass("btn-outline");
+      $("div.btn-group").find("button").removeClass("btn-highlight");
+      $(this).addClass("btn-highlight");
     });
   }
 
