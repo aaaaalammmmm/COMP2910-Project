@@ -252,3 +252,13 @@ textarea {
   width: 100%;
 }
 
+/*Centers sotarge text in tablets*/
+@media screen and (min-height: 1024px){
+.storageText {width: 50%;}
+.storageText {margin: auto;}
+}
+
+@media (min-width: 1200px){
+  .storageText {width: 50%;}
+  .storageText {margin: auto;}
+}
