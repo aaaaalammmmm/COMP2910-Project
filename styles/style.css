@@ -160,10 +160,28 @@ body {
 
 
 /* Widens the search bar on large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .home-search { width: 800px; } }
+@media (min-width: 1200px) {
+  .home-search { width: 800px; }
+
+  /* disables resize for text area */
+  textarea {
+    resize: none;
+    width: 50%;
+  }
+}
 
 /* Sets the search bar on mobile devices */
-@media (max-width: 1000px) { .home-search { width: 100%; } }
+@media (max-width: 1000px) {
+  .home-search { width: 100%; }
+  textarea {
+    width: 100%;
+    resize: none;
+  }
+
+  .contact-input {
+    width: 100%;
+  }
+}
 
 /* styingling for sidebar */
 .sidenav {
@@ -242,11 +260,7 @@ body {
   color: black;
 }
 
-/* disables resize for text area */
-textarea {
-  resize: none;
-  width: 100%;
-}
+
 
 /* Centers sotarge text in tablets */
 @media screen and (min-height: 1024px){
@@ -257,4 +271,8 @@ textarea {
 @media (min-width: 1200px){
   .storageText {width: 50%;}
   .storageText {margin: auto;}
+}
+
+#message {
+  text-align: center;
 }
