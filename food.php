@@ -13,37 +13,39 @@ $food = $_GET['f'];
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
-    <div id="storage" class="text-left collapse"></div>
+    <div class="storageText">
+      <div id="storage" class="text-left collapse"></div>
+    </div>
   </div>
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
     <div id="recipes" class="collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
-  <div class="btn-group-justified">
+  <div class="btn-group-justified button-footer">
     <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn-link' id='fresh'><img src='" . "images/" . $food . ".png'" . "class='single-food-imagesize' alt='Fresh " . $food . "' onclick='" . "foodInformation(\"fresh\")'/><p>Fresh</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn-link' id='raw'><img src='" . "images/" . $food . "-R.png'" . "class='single-food-imagesize' alt='Raw " . $food . "' onclick='" . "foodInformation(\"raw\")'/><p>Raw</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='raw'onclick='foodInformation(\"raw\")'>Raw</button>";
       } else {
-        echo "<button type='button' class='btn-link '><img src='" . "images/" . $food . "-UR.png'" . "class='img-responsive single-food-imagesize' alt='Underripe " . $food . "' onclick='" . "foodInformation(\"underripe\")'/><p>Underripe</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"underripe\")'>Underripe</button>";
       }?>
     </div>
     <div class="btn-group">
       <?php if($type === "grains") {
-        echo "<div></div>";
+        echo "<button type='button' class='hidden'></button>";
       }else{
-        echo "<button type='button' class='btn-link food-button' id='ripe'><img src='" . "images/" . $food . ".png'" . "class='img-responsive single-food-imagesize' alt='Ripe " . $food . "' onclick='" . "foodInformation(\"ripe\")'/><p>Ripe</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button>";
       }?>
-    </div>
+   </div>
     <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . ".png'" . " class='single-food-imagesize' alt='Stale " . $food . "' onclick='" . "foodInformation(\"stale\")'/><p>Stale</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button onclick='foodInformation(\"stale\")'>Stale</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-C.png'" . " class='single-food-imagesize' alt='Cooked " . $food . "' onclick='" . "foodInformation(\"cooked\")'/><p>Cooked</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"cooked\")'>Cooked</button>";
       }else{
-        echo "<button type='button' class='btn-link'><img src='" . "images/" . $food . "-OR.png'" . " class='img-responsive img-responsive single-food-imagesize' alt='Overripe " . $food . "' onclick='" . "foodInformation(\"overripe\")'/><p>Overripe</p></button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
       }?>
     </div>
   </div>
@@ -90,8 +92,6 @@ $food = $_GET['f'];
     //state is focused
     $("div.btn-group button").click(function(){
       $("div.btn-group").find("button").removeClass("btn-outline");
-      $("div.btn-group").find("button").addClass("btn-link");
-      $(this).removeClass("btn-link");
       $(this).addClass("btn-outline");
     });
   }
@@ -100,15 +100,12 @@ $food = $_GET['f'];
   if (food === "bread") {
     onload = foodInformation("fresh");
     $("#fresh").addClass("btn-outline");
-    $("#fresh").removeClass("btn-link");
   } else if (type === "grains") {
     onload = foodInformation("raw");
     $("#raw").addClass("btn-outline");
-    $("#raw").removeClass("btn-link");
   } else {
     onload = foodInformation("ripe");
     $("#ripe").addClass("btn-outline");
-    $("#ripe").removeClass("btn-link");
   }
 
   </script>

@@ -9,28 +9,7 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
 </head>
-<body class="bg-primary" >
-<div class="container">
-  <div class="text-center center-block">
-    <a href="index.php">
-      <img src="Images/UseItUpBanner v2.0.png"/>
-    </a>
-  </div>
-  <div>
-    <div class="hamburger">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    </div>
-
-  </div>
-  <div>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a class="text-black" href="about.php">About Us</a>
-      <a class="text-black" href="info.php">Info</a>
-      <a class="text-black" href="affiliates.php">Partners</a>
-      <a class="text-black" href="contact.php">Contact Us</a>
-    </div>
-  </div>
+<?php include 'header.php';?>
   <h1 class="text-center">Our Partners</h1>
   <div class="row text-center">
     <div class="col-md-4 padding-md"><img src="Images/PlentyOfThymeLogo.png" class="padding-md affiliate-size" alt="Plenty of Thyme Logo"/>

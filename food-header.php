@@ -36,7 +36,7 @@
   var rootRef = database.ref("food");
   </script>
 </head>
-<body class="bg-primary" >
+<body class="bg-primary" id="main">
   <div class="container">
     <div>
       <div class="hamburger">
@@ -47,10 +47,11 @@
     <div>
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="text-black" href="index.php">Home</a>
         <a class="text-black" href="about.php">About Us</a>
         <a class="text-black" href="info.php">Info</a>
         <a class="text-black" href="affiliates.php">Partners</a>
-        <a class="text-black" href="contact.php">Contact Us</a>
+        <a class="text-black" href="contactus.php">Contact Us</a>
       </div>
     </div>
         <div class="visible-xs-block">
@@ -70,4 +71,3 @@
     $type = $_GET['t'];
   }
   ?>
-  <div class="container ">  <span onclick="goBack('<?php echo $type ?>')" class="glyphicon glyphicon-menu-left "></span></div>
