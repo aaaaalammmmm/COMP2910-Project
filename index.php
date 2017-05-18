@@ -25,6 +25,7 @@
 <br/>
 <!-- Redirection "buttons" for the main categories of pages -->
 <div class="text-center">
+
   <div id="large-btn" class="btn-toolbar-home">
     <div class="hidden-lg col-xs-12">
       <a href="javascript:resizeBtn('allFruits')">
@@ -37,22 +38,22 @@
       </a>
     </div>
     <div class="hidden-lg col-xs-12">
-
       <a href="javascript:resizeBtn('allGrains')">
         <button type="button" class="btn mobile-button">Grains</button>
       </a>
     </div>
-    <div class="visible-lg-block col-lg-4 padding-md">
+    
+    <div class="visible-lg-block col-lg-4 padding-md transition">
       <a href="javascript:resizeBtn('allFruits')">
         <img src="Images/FruitMedley.jpg" alt="Fruit Medley"/><br/>Fruits
       </a>
     </div>
-    <div class="visible-lg-block col-lg-4 padding-md">
+    <div class="visible-lg-block col-lg-4 padding-md transition">
       <a href="javascript:resizeBtn('allVeggies')">
         <img src="Images/VeggieMedley.jpg" alt="Vegetable Medley" /><br/>Vegetables
       </a>
     </div>
-    <div class="visible-lg-block col-lg-4 padding-md">
+    <div class="visible-lg-block col-lg-4 padding-md transition">
       <a href="javascript:resizeBtn('allGrains')">
         <img src="Images/BreadMedley.jpg" alt="Grain Medley"/><br/>Grains
       </a>

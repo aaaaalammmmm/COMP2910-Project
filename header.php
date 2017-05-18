@@ -35,6 +35,11 @@
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("body").fadeIn(1500);
+    });
+  </script>
 </head>
 <body class="bg-primary" id="main">
 <div class="container">

@@ -72,7 +72,7 @@ function load(str) {
   document.getElementById("search-hints").value = "";
   document.getElementById("search-hints").style.border = "0px";
   // Loads the 'str' page in the 'livesearch' div
-  $("#livesearch").load(str+'.php');
+  $("#livesearch").load(str+'.php', function() {console.log(str + '.php is loaded')});
   // Checks the 'str' parameter against pre-determined strings
   //  - If fruit
   if (str == "allFruits") {
