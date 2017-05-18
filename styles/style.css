@@ -81,11 +81,11 @@ body {
   margin-bottom: 100px;
   clear : both;
   /* Background image */
-  background-image: url(../Images/backgroundimagev2m.png);
+  background-image: url(../Images/backgroundimage-g.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: 120%;
+  background-size: 200%;
   display: none;
 }
 
@@ -161,17 +161,35 @@ body {
 
 
 /* Widens the search bar on large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { .home-search { width: 800px; } }
+@media (min-width: 1200px) {
+  .home-search { width: 800px; }
+
+  /* disables resize for text area */
+  textarea {
+    resize: none;
+    width: 50%;
+  }
+}
 
 /* Sets the search bar on mobile devices */
-@media (max-width: 1000px) { .home-search { width: 100%; } }
+@media (max-width: 1000px) {
+  .home-search { width: 100%; }
+  textarea {
+    width: 100%;
+    resize: none;
+  }
+
+  .contact-input {
+    width: 100%;
+  }
+}
 
 /* styingling for sidebar */
 .sidenav {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 9999999;
   top: 0;
   left: 0;
   background-color: #111;
@@ -243,11 +261,7 @@ body {
   color: black;
 }
 
-/* disables resize for text area */
-textarea {
-  resize: none;
-  width: 100%;
-}
+
 
 /* Centers sotarge text in tablets */
 @media screen and (min-height: 1024px){
@@ -258,4 +272,19 @@ textarea {
 @media (min-width: 1200px){
   .storageText {width: 50%;}
   .storageText {margin: auto;}
+}
+
+#message {
+  text-align: center;
+}
+
+.accordion-toggle:after {
+  font-family: 'Glyphicons Halflings';
+  content: "\e114";
+  float: right;
+  color: black;
+}
+.accordion-toggle.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\e080";
 }

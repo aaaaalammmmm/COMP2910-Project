@@ -12,13 +12,13 @@ $food = $_GET['f'];
   <h3><?php echo ucfirst($food);?></h3>
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
-    <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#storage">Storage</button>
     <div class="storageText">
-      <div id="storage" class="text-left collapse"></div>
+      <div id="storage" class="text-left collapse "></div>
     </div>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
     <div id="recipes" class="collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
@@ -72,11 +72,11 @@ $food = $_GET['f'];
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
     }
-    //This stores the location of the banana storage
+    //This stores the location of the food storage
     var stateInfo;
-    //Go to the child node containing the state for the banana
+    //Go to the child node containing the state for the food item
     stateInfo = foodInfo.child(state);
-    //Create a snapshot of the banana state node
+    //Create a snapshot of the food state node
     stateInfo.once("value")
     .then(function(snapshot) {
       //Assign the string as inner html to the storage div
