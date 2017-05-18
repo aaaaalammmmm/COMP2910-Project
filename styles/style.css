@@ -78,12 +78,11 @@ p, div {
 /* Sets minimum height and margin for body. Allows overlay of other elements */
 body {
   min-height: 400px;
-  margin-bottom: 100px;
   clear : both;
   /* Background image */
   background-image: url(../Images/backgroundimage-g.png);
   background-repeat: no-repeat;
-  background-attachment: absolute;
+  background-attachment: fixed;
   background-position: center;
   background-size: 200%;
 }
