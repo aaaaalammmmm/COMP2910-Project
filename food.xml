@@ -45,37 +45,37 @@
   <link>
     <name>Potato</name>
     <url>
-      javascript:foodLoad("potato","veggie")
+      javascript:foodLoad("potato","vegetable")
     </url>
   </link>
   <link>
     <name>Broccoli</name>
     <url>
-      javascript:foodLoad("broccoli","veggie")
+      javascript:foodLoad("broccoli","vegetable")
     </url>
   </link>
   <link>
     <name>Tomato</name>
     <url>
-      javascript:foodLoad("tomato","veggie")
+      javascript:foodLoad("tomato","vegetable")
     </url>
   </link>
   <link>
     <name>Carrot</name>
     <url>
-      javascript:foodLoad("carrot","veggie")
+      javascript:foodLoad("carrot","vegetable")
     </url>
   </link>
   <link>
     <name>Lettuce</name>
     <url>
-      javascript:foodLoad("lettuce","veggie")
+      javascript:foodLoad("lettuce","vegetable")
     </url>
   </link>
   <link>
     <name>Celery</name>
     <url>
-      javascript:foodLoad("celery","veggie")
+      javascript:foodLoad("celery","vegetable")
     </url>
   </link>
   <link>
@@ -100,12 +100,6 @@
     <name>Pasta</name>
     <url>
       javascript:foodLoad("pasta","grains")
-    </url>
-  </link>
-  <link>
-    <name>Soylent Green</name>
-    <url>
-      javascript:foodLoad("soylent","veggie")
     </url>
   </link>
 </pages>
