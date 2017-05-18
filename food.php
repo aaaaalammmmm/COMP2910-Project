@@ -11,7 +11,7 @@ $food = $_GET['f'];
 <div class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-  <div class="padding-sm storageText">
+  <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
     <div class="storageText">
       <div id="storage" class="text-left collapse"></div>
