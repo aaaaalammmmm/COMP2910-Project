@@ -105,7 +105,7 @@
   <link>
     <name>Soylent Green</name>
     <url>
-      javascript:foodLoad("soylent green", "veggie")
+      javascript:foodLoad("soylent","veggie")
     </url>
   </link>
 </pages>

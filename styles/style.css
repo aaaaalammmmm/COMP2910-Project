@@ -63,8 +63,8 @@ p, div {
 .bg-primary, .navbar-header, footer, .navbar-collapse{
   background-color: #f5f5f5;
 }
-/* Background color for livesearch */
-#livesearch {
+/* Background color for the hints div */
+#search-hints {
   background-color: #f5f5f5;
 }
 
@@ -239,11 +239,6 @@ body {
   background-color: #1acc22;
   box-shadow: none;
   outline-color: #1acc22;
-}
-
-/* Makes background transparent */
-.transparent {
-  background-color: rgba(0, 0, 0, 0.0);
 }
 
 /* disables resize for text area */

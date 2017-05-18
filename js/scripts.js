@@ -33,11 +33,6 @@ function showResult(food) {
     if (this.readyState==4 && this.status==200) {
       //   - Sets text received from php file to a variable
       var response = this.responseText;
-      //   - Sets the hits to the received code and gives it a slight border
-      document.getElementById("search-hints").innerHTML=response;
-      document.getElementById("search-hints").style.border="1px solid #A5ACB2";
-      //document.getElementById("search-hints").size = 30;
-
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {
@@ -46,7 +41,15 @@ function showResult(food) {
         type = "veggie";
       } else if(response.includes("grains")) {
         type = "grains";
+      } else if (response == "soylent") {
+        type = "veggie";
       }
+      if (response != "soylent") {
+        //   - Sets the hits to the received code and gives it a slight border
+        document.getElementById("search-hints").innerHTML=response;
+        document.getElementById("search-hints").style.border="1px solid #A5ACB2";
+      }
+
       // Live loads the 'food' with the 'type'
       foodLoad_dynamic(food,type);
     }
