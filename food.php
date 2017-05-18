@@ -13,7 +13,9 @@ $food = $_GET['f'];
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#storage">Storage</button>
-    <div id="storage" class="text-left collapse"></div>
+    <div class="storageText">
+      <div id="storage" class="text-left collapse"></div>
+    </div>
   </div>
   <div class="padding-sm">
     <button class="btn mobile-button" data-toggle="collapse" data-target="#recipes">Recipes</button>
