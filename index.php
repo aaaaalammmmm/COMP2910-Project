@@ -83,8 +83,9 @@ $(function() {
   $("#search").on("submit", function(e) {
     e.preventDefault();
     var content = document.getElementById("search-hints").innerHTML;
-    var regEx = /javascript\:foodLoad\("[a-zA-Z]+","[a-zA-Z]+"\)/;
+    var regEx = /javascript\:foodLoad\("[a-zA-Z]+-?[a-zA-Z]*","[a-zA-Z]+"\)/;
     location.href = regEx.exec(content);
+    document.getElementById("search-hints").innerHTML = "";
   });
 });
 </script>

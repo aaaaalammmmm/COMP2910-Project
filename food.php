@@ -76,11 +76,11 @@ $food = $_GET['f'];
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
     }
-    //This stores the location of the banana storage
+    //This stores the location of the food storage
     var stateInfo;
-    //Go to the child node containing the state for the banana
+    //Go to the child node containing the state for the food item
     stateInfo = foodInfo.child(state);
-    //Create a snapshot of the banana state node
+    //Create a snapshot of the food state node
     stateInfo.once("value")
     .then(function(snapshot) {
       //Assign the string as inner html to the storage div

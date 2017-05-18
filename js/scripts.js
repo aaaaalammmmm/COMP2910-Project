@@ -18,6 +18,10 @@ function showResult(food) {
     foodLoad("","");
     return;
   }
+  //For easter egg lol
+  if (food === "soylent green") {
+    foodLoad("soylent-green","vegetable");
+  }
   // If 'food' parameter has length > 1 do the following:
   //   - Creates an XMLHttpRequest to receive data from a file
   if (window.XMLHttpRequest) {
@@ -37,18 +41,14 @@ function showResult(food) {
       //       type variable accordingly
       if(response.includes("fruit")) {
         type = "fruit";
-      } else if(response.includes("veggie")) {
-        type = "veggie";
+      } else if(response.includes("vegetable")) {
+        type = "vegetable";
       } else if(response.includes("grains")) {
         type = "grains";
-      } else if (response == "soylent") {
-        type = "veggie";
       }
-      if (response != "soylent") {
-        //   - Sets the hits to the received code and gives it a slight border
-        document.getElementById("search-hints").innerHTML=response;
-        document.getElementById("search-hints").style.border="1px solid #A5ACB2";
-      }
+      //   - Sets the hits to the received code and gives it a slight border
+      document.getElementById("search-hints").innerHTML=response;
+      document.getElementById("search-hints").style.border="1px solid #A5ACB2";
 
       // Live loads the 'food' with the 'type'
       foodLoad_dynamic(food,type);
@@ -131,6 +131,7 @@ function load(str) {
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
 function foodLoad(food,type) {
+  console.log(food,type);
   // If parameters 'food' and 'type' are not empty do the following:
   if (food != "" && type != "") {
     //  - Scroll 'livesearch' to top for max readability
