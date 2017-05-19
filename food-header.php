@@ -37,12 +37,12 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $("body").fadeIn(1250);
+      $("body").fadeIn(750);
 
       $("a.transition").click(function(event){
           event.preventDefault();
           linkLocation = this.href;
-          $("body").fadeOut(1000, redirectPage);
+          $("body").fadeOut(500, redirectPage);
       });
 
       function redirectPage() {
