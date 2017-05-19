@@ -37,7 +37,7 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $("body").fadeIn(750);
+      $("body").fadeIn(500);
 
       $("a.transition").click(function(event){
           event.preventDefault();

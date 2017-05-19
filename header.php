@@ -68,7 +68,7 @@
   </script>
     <script type="text/javascript">
     $(document).ready(function() {
-      $("body").fadeIn(750);
+      $("body").fadeIn(500);
     });
   </script>
 </head>
