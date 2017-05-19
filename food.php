@@ -46,10 +46,16 @@ $food = $_GET['f'];
     </div>
   </div>
   <script>
-
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
+  //Adds the page to the ajax history
+  var foodHistory = new Object();
+  var standAlone = "<?php echo isset($_GET["l"]); ?>";
+  foodHistory.value1 = food;
+  foodHistory.value2 = type;
+  foodHistory.value3 = standAlone;
+  dhtmlHistory.add(food,foodHistory);
   //This stores a pointer to all info about bananas
   var foodInfo = rootRef.child(type + "/" + food);
   //This creates a pointer to the food item storage div

@@ -29,9 +29,6 @@
   //Enable logging
   firebase.database.enableLogging(true);
 
-  //Check and print the root key of the database on browser console
-  console.log(database.ref().key);
-
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
@@ -49,8 +46,25 @@
     }
   });
 
+  // Creates a listener for page load functions
   var yourListener = function(newLocation, historyData) {
-    alert(historyData);
+    // Checsk home value and loads main page
+    if (historyData == "home") {
+      showResult("");
+    // Checks all <food> page values and loads corresponding page
+    } else if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+      resizeBtn(historyData);
+    // If not one of these, loads appropriate food page
+    } else {
+      // Stand alone page
+      if (historyData.value3 == 1) {
+        location.href = location.href = "food.php?l=&f=" + historyData.value1 + "&t=" + historyData.value2;
+      // Livesearch page
+      } else {
+        searchScroll(food);
+        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+      }
+    }
   }
 
   window.onload = function() {
