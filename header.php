@@ -35,29 +35,44 @@
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
+  <!-- The following script tags are for the ajax history for our back button -->
+  <script type="text/javascript" src="js/json2007.js"></script>
+  <script type="text/javascript" src="js/rsh.compressed.js"></script>
+  <script type="text/javascript">
+  window.dhtmlHistory.create();
+
+  var yourListener = function(newLocation, historyData) {
+    //do something;
+  }
+
+  window.onload = function() {
+    dhtmlHistory.initialize();
+    dhtmlHistory.addListener(yourListener);
+  };
+  </script>
 </head>
 <body class="bg-primary" id="main">
-<div class="container">
-  <div class="text-center center-block">
-    <a href="index.php">
-      <img src="Images/UseItUpBanner v2.0.png"/>
-    </a>
-  </div>
-  <div>
-    <div class="hamburger">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <div class="container">
+    <div class="text-center center-block">
+      <a href="index.php">
+        <img src="Images/UseItUpBanner v2.0.png"/>
+      </a>
     </div>
+    <div>
+      <div class="hamburger">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      </div>
 
-  </div>
-  <div>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a class="text-black" href="index.php">Home</a>
-      <a class="text-black" href="about.php">About Us</a>
-      <a class="text-black" href="info.php">Info</a>
-      <a class="text-black" href="affiliates.php">Partners</a>
-      <a class="text-black" href="contactus.php">Contact Us</a>
     </div>
-  </div>
-  <div>
-  </div>
+    <div>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="text-black" href="index.php">Home</a>
+        <a class="text-black" href="about.php">About Us</a>
+        <a class="text-black" href="info.php">Info</a>
+        <a class="text-black" href="affiliates.php">Partners</a>
+        <a class="text-black" href="contactus.php">Contact Us</a>
+      </div>
+    </div>
+    <div>
+    </div>

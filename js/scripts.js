@@ -131,7 +131,6 @@ function load(str) {
 // Live loads a php page in the element with the 'livesearch' id and replaces the
 // search bar text with id 'search-box' to the passed string. Removes hint suggestions.
 function foodLoad(food,type) {
-  console.log(food,type);
   // If parameters 'food' and 'type' are not empty do the following:
   if (food != "" && type != "") {
     //  - Scroll 'livesearch' to top for max readability
