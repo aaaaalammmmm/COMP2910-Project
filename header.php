@@ -36,13 +36,21 @@
   var rootRef = database.ref("food");
   </script>
   <!-- The following script tags are for the ajax history for our back button -->
-  <script type="text/javascript" src="js/json2007.js"></script>
+  <script type="text/javascript" src="js/json2005.js"></script>
   <script type="text/javascript" src="js/rsh.compressed.js"></script>
+
   <script type="text/javascript">
-  window.dhtmlHistory.create();
+  window.dhtmlHistory.create({
+    toJSON: function(o) {
+      return JSON.stringify(o);
+    }
+    , fromJSON: function(s) {
+      return JSON.parse(s);
+    }
+  });
 
   var yourListener = function(newLocation, historyData) {
-    //do something;
+    alert(historyData);
   }
 
   window.onload = function() {

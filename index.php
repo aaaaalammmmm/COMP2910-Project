@@ -78,6 +78,7 @@
 </div>
 </div>
 <script>
+dhtmlHistory.add("#home");
 //Allows the user to press enter an live load the top hint
 $(function() {
   $("#search").on("submit", function(e) {

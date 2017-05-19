@@ -76,6 +76,8 @@ function load(str) {
   // Checks the 'str' parameter against pre-determined strings
   //  - If fruit
   if (str == "allFruits") {
+    // Adds the ajax liveload to the ajax history
+    dhtmlHistory.add("#allFruits");
     //  - If Fruits button isn't highlighted -> toggle highlight class
     //       (makes sure button IS highlighted)
     if (!document.getElementById("fruit-btn").classList.contains("btn-highlight")){
@@ -93,6 +95,8 @@ function load(str) {
     }
     //  - If veggie
   } else if (str == "allVeggies") {
+    // Adds the ajax liveload to the ajax history
+    dhtmlHistory.add("#allVeggies");
     //  - If Fruits button is highlighted -> toggle highlight class
     //       (makes sure button is NOT highlighted)
     if (document.getElementById("fruit-btn").classList.contains("btn-highlight")){
@@ -110,6 +114,8 @@ function load(str) {
     }
     //  - If grain
   } else if (str == "allGrains") {
+    // Adds the ajax liveload to the ajax history
+    dhtmlHistory.add("#allGrains");
     //  - If Fruits button is highlighted -> toggle highlight class
     //       (makes sure button is NOT highlighted)
     if (document.getElementById("fruit-btn").classList.contains("btn-highlight")){
