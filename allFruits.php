@@ -1,17 +1,21 @@
-    <script type="text/javascript">
-    $(document).ready(function() {
-      
-      $("a.transition").click(function(event){
-          event.preventDefault();
-          linkLocation = this.href;
-          $("body").fadeOut(1500, redirectPage);      
-      });
-           
-      function redirectPage() {
-          window.location = linkLocation;
-      }
-    });
-    </script>
+<script>
+// Adds the ajax liveload to the ajax history
+dhtmlHistory.add("allFruits","allFruits");
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+  
+  $("a.transition").click(function(event){
+      event.preventDefault();
+      linkLocation = this.href;
+      $("body").fadeOut(1500, redirectPage);      
+  });
+       
+  function redirectPage() {
+      window.location = linkLocation;
+  }
+});
+</script>
 <!-- This page loads all the fruits  -->
 <div class="row text-center center-block">
   <div class="col-lg-2 col-md-3 col-xs-4">

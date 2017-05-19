@@ -1,3 +1,7 @@
+<script>
+// Adds the ajax liveload to the ajax history
+dhtmlHistory.add("allVeggies","allVeggies");
+</script>
 <!-- This page loads all the veggies  -->
 <div class="row text-center center-block">
   <div class="col-lg-2 col-md-3 col-xs-4">

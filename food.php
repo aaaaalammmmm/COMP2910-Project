@@ -32,9 +32,9 @@ $food = $_GET['f'];
         echo "<button type='button' class='btn padding-xs state-button' id=underripe onclick='foodInformation(\"underripe\")'>Underripe</button>";
       }?>
     </div>
-      <?php if($type != "grains") {
-        echo "<div class=\"btn-group\"><button type='button' class='btn padding-xs state-button btn-highlight' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button></div>";
-      }?>
+    <?php if($type != "grains") {
+      echo "<div class=\"btn-group\"><button type='button' class='btn padding-xs state-button btn-highlight' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button></div>";
+    }?>
     <div class="btn-group">
       <?php if($food === "bread") {
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"stale\")'>Stale</button>";
@@ -46,10 +46,23 @@ $food = $_GET['f'];
     </div>
   </div>
   <script>
-
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
+
+  //Creates a food item to be added to the ajax history. Added below with the proper state
+  //  - Creates complex object for food item
+  var foodHistory = new Object();
+  //  - Checks if standAlone page or livesearch
+  var standAlone = "<?php echo isset($_GET["l"]); ?>";
+  //  - Assigns the food to the complex food item variable
+  foodHistory.value1 = food;
+  //  - Assigns the type to the complex food item variable
+  foodHistory.value2 = type;
+  //  - Assigns the standAlone condition to the complex food item variable
+  foodHistory.value3 = standAlone;
+  dhtmlHistory.add(food,foodHistory);
+
   //This stores a pointer to all info about bananas
   var foodInfo = rootRef.child(type + "/" + food);
   //This creates a pointer to the food item storage div
@@ -90,6 +103,10 @@ $food = $_GET['f'];
       $("div.btn-group").find("button").removeClass("btn-highlight");
       $(this).addClass("btn-highlight");
     });
+    //Adds the state to the foodHistory object
+    foodHistory.value4 = state;
+    //Adds the foodHistory to the ajax history data
+    dhtmlHistory.add(food,foodHistory);
   }
 
   //This sets the default state

@@ -29,11 +29,42 @@
   //Enable logging
   firebase.database.enableLogging(true);
 
-  //Check and print the root key of the database on browser console
-  console.log(database.ref().key);
-
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
+  </script>
+  <!-- The following script tags are for the ajax history for our back button -->
+  <script type="text/javascript" src="js/json2005.js"></script>
+  <script type="text/javascript" src="js/rsh.compressed.js"></script>
+
+  <script type="text/javascript">
+  window.dhtmlHistory.create({
+    toJSON: function(o) {
+      return JSON.stringify(o);
+    }
+    , fromJSON: function(s) {
+      return JSON.parse(s);
+    }
+  });
+
+  // Creates a listener for page load functions
+  var yourListener = function(newLocation, historyData) {
+    // Checks all <food> page values and loads corresponding page
+    if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+      resizeBtn(historyData);
+      // Checks null value and loads main page
+    } else if (historyData == null) {
+      showResult("");
+      // If not one of these, loads appropriate food page
+    } else {
+      searchScroll(historyData.value1);
+      $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+    }
+  }
+
+  window.onload = function() {
+    dhtmlHistory.initialize();
+    dhtmlHistory.addListener(yourListener);
+  };
   </script>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -42,27 +73,27 @@
   </script>
 </head>
 <body class="bg-primary" id="main">
-<div class="container">
-  <div class="text-center center-block">
-    <a href="index.php">
-      <img src="Images/UseItUpBanner v2.0.png"/>
-    </a>
-  </div>
-  <div>
-    <div class="hamburger">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  <div class="container">
+    <div class="text-center center-block">
+      <a href="index.php">
+        <img src="Images/UseItUpBanner v2.0.png"/>
+      </a>
     </div>
+    <div>
+      <div class="hamburger">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      </div>
 
-  </div>
-  <div>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a class="text-black" href="index.php">Home</a>
-      <a class="text-black" href="about.php">About Us</a>
-      <a class="text-black" href="info.php">Info</a>
-      <a class="text-black" href="affiliates.php">Partners</a>
-      <a class="text-black" href="contactus.php">Contact Us</a>
     </div>
-  </div>
-  <div>
-  </div>
+    <div>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="text-black" href="index.php">Home</a>
+        <a class="text-black" href="about.php">About Us</a>
+        <a class="text-black" href="info.php">Info</a>
+        <a class="text-black" href="affiliates.php">Partners</a>
+        <a class="text-black" href="contactus.php">Contact Us</a>
+      </div>
+    </div>
+    <div>
+    </div>

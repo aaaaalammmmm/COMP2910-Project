@@ -61,33 +61,43 @@
   </div>
   <div id="small-btn" class="btn-group-justified button-footer btn-group hidden">
     <div class="btn-group">
-    <a href="javascript:load('allFruits')">
-      <button class="state-button btn" type="button" id="fruit-btn" class="btn">Fruits
-      </button>
-    </a>
+      <a href="javascript:load('allFruits')">
+        <button class="state-button btn" type="button" id="fruit-btn" class="btn">Fruits</button>
+      </a>
     </div>
     <div class="btn-group">
-    <a href="javascript:load('allVeggies')">
-      <button class="state-button btn" type="button" id="veggie-btn" class="btn">Veggies</button>
-    </a>
+      <a href="javascript:load('allVeggies')">
+        <button class="state-button btn" type="button" id="veggie-btn" class="btn">Veggies</button>
+      </a>
     </div>
     <div class="btn-group">
-    <a href="javascript:load('allGrains')">
-      <button class="state-button btn" type="button" id="grain-btn" class="btn">Grains</button>
-    </a>
+      <a href="javascript:load('allGrains')">
+        <button class="state-button btn" type="button" id="grain-btn" class="btn">Grains</button>
+      </a>
     </div>
   </div>
 </div>
 </div>
 <script>
+//Function to check if element is empty
+function isEmpty( el ){
+  return !$.trim(el.html())
+}
+// //Adds home page to history if not loading an all<food> page
+// if (isEmpty($('#livesearch')) && dhtmlHistory.historyData != "home") {
+//   dhtmlHistory.add("home", "home");
+// }
+
 //Allows the user to press enter an live load the top hint
 $(function() {
   $("#search").on("submit", function(e) {
     e.preventDefault();
     var content = document.getElementById("search-hints").innerHTML;
-    var regEx = /javascript\:foodLoad\("[a-zA-Z]+-?[a-zA-Z]*","[a-zA-Z]+"\)/;
-    location.href = regEx.exec(content);
-    document.getElementById("search-hints").innerHTML = "";
+    if (content != "no suggestion") {
+      var regEx = /javascript\:foodLoad\("[a-zA-Z]+-?[a-zA-Z]*","[a-zA-Z]+"\)/;
+      location.href = regEx.exec(content);
+      document.getElementById("search-hints").innerHTML = "";
+    }
   });
 });
 </script>
