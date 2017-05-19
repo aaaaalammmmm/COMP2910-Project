@@ -141,22 +141,31 @@ body {
 }
 
 /*Size, font, and width for small devices*/
-@media screen and (min-width: 700px) {
-  .aboutText {width: 60%;}
-  .aboutText {font-size: 20px;}
+@media screen and (min-width: 300px) {
+  .aboutText {width: 100%;}
+  .aboutText {font-size: 12px;}
+  .aboutText {margin: auto;}
+  .aboutText {text-align: justify;}
+  .aboutText {font-family: "Trebuchet MS", Helvetica, sans-serif;}
 
 }
 /*Size, font, and width for medium devices*/
 @media screen and (min-width: 700px) {
   .aboutText {width: 80%;}
   h4 {font-size: 32px;}
+  .aboutText {text-align: justify;}
+  .aboutText {margin: auto;}
+  .aboutText {font-family: "Trebuchet MS", Helvetica, sans-serif;}
   .aboutText {font-size: 16px;}
 }
 
 /*Size, font, and width for large devices*/
 @media screen and (min-width: 1024px) {
-  .aboutText {width: 60%;}
-  .aboutText {font-size: 16px;}
+  .aboutText {width: 90%;}
+  .aboutText {font-size: 20px;}
+  .aboutText {margin: auto;}
+  .aboutText {text-align: justify;}
+  .aboutText {font-family: "Trebuchet MS", Helvetica, sans-serif;}
 }
 
 
