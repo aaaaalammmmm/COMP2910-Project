@@ -32,6 +32,7 @@
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
+
   <!-- The following script tags are for the ajax history for our back button -->
   <script type="text/javascript" src="js/json2005.js"></script>
   <script type="text/javascript" src="js/rsh.compressed.js"></script>
@@ -66,6 +67,22 @@
     dhtmlHistory.initialize();
     dhtmlHistory.addListener(yourListener);
   };
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("body").fadeIn(2500);
+            
+      $("a.transition").click(function(event){
+          event.preventDefault();
+          linkLocation = this.href;
+          $("body").fadeOut(2000, redirectPage);      
+      });
+           
+      function redirectPage() {
+          window.location = linkLocation;
+      }
+    });
+
   </script>
 </head>
 <body class="bg-primary" id="main">
@@ -87,12 +104,12 @@
       </div>
     </div>
     <div class="visible-xs-block">
-      <a href="index.php" >
+      <a href="index.php" class="transition">
         <img class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
       </a>
     </div>
     <div class="hidden-xs">
-      <a href="index.php" >
+      <a href="index.php"  class="transition">
         <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
       </a>
     </div>
