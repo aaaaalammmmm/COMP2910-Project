@@ -48,20 +48,20 @@
 
   // Creates a listener for page load functions
   var yourListener = function(newLocation, historyData) {
-    // Checsk home value and loads main page
-    if (historyData == "home") {
-      showResult("");
     // Checks all <food> page values and loads corresponding page
-    } else if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+    if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
       resizeBtn(historyData);
-    // If not one of these, loads appropriate food page
+      // Checsk home value and loads main page
+    } else if (historyData == "home") {
+      showResult("");
+      // If not one of these, loads appropriate food page
     } else {
       // Stand alone page
       if (historyData.value3 == 1) {
         location.href = location.href = "food.php?l=&f=" + historyData.value1 + "&t=" + historyData.value2;
-      // Livesearch page
+        // Livesearch page
       } else {
-        searchScroll(food);
+        searchScroll(historyData.value1);
         $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
       }
     }

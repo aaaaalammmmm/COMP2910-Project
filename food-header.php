@@ -60,7 +60,7 @@
         location.href = location.href = "food.php?l=&f=" + historyData.value1 + "&t=" + historyData.value2;
       // Livesearch page
       } else {
-        searchScroll(food);
+        searchScroll(historyData.value1s);
         $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
       }
     }

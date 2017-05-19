@@ -1,6 +1,6 @@
 <script>
 // Adds the ajax liveload to the ajax history
-dhtmlHistory.add("allGrains","allGrains");
+dhtmlHistory.add("allFruits","allFruits");
 </script>
 <!-- This page loads all the fruits  -->
 <div class="row text-center center-block">
