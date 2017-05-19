@@ -42,7 +42,7 @@
         <button type="button" class="btn mobile-button">Grains</button>
       </a>
     </div>
-    
+
     <div class="visible-lg-block col-lg-4 padding-md transition">
       <a href="javascript:resizeBtn('allFruits')">
         <img src="Images/FruitMedley.jpg" alt="Fruit Medley"/><br/>Fruits
@@ -62,7 +62,8 @@
   <div id="small-btn" class="btn-group-justified button-footer btn-group hidden">
     <div class="btn-group">
     <a href="javascript:load('allFruits')">
-      <button class="state-button btn" type="button" id="fruit-btn" class="btn">Fruits</button>
+      <button class="state-button btn" type="button" id="fruit-btn" class="btn">Fruits
+      </button>
     </a>
     </div>
     <div class="btn-group">
