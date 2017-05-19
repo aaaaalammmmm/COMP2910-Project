@@ -51,10 +51,10 @@
     // Checsk home value and loads main page
     if (historyData == "home") {
       showResult("");
-    // Checks all <food> page values and loads corresponding page
+      // Checks all <food> page values and loads corresponding page
     } else if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
       resizeBtn(historyData);
-    // If not one of these, loads appropriate food page
+      // If not one of these, loads appropriate food page
     } else {
       // Stand alone page
       if (historyData.value3 == 1) {
@@ -67,21 +67,21 @@
     dhtmlHistory.initialize();
     dhtmlHistory.addListener(yourListener);
   };
-
+  </script>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $("body").fadeIn(2500);
-            
-      $("a.transition").click(function(event){
-          event.preventDefault();
-          linkLocation = this.href;
-          $("body").fadeOut(2000, redirectPage);      
-      });
-           
-      function redirectPage() {
-          window.location = linkLocation;
-      }
+  $(document).ready(function() {
+    $("body").fadeIn(2500);
+
+    $("a.transition").click(function(event){
+      event.preventDefault();
+      linkLocation = this.href;
+      $("body").fadeOut(2000, redirectPage);
     });
+
+    function redirectPage() {
+      window.location = linkLocation;
+    }
+  });
 
   </script>
 </head>
