@@ -78,10 +78,15 @@
 </div>
 </div>
 <script>
-//Adds home page to history if not loading an all<food> page
-if (dhtmlHistory.historyData != "allFruits" && dhtmlHistory.historyData != "allVeggies" && dhtmlHistory.historyData != "allGrains") {
-  dhtmlHistory.add("home", "home");
+//Function to check if element is empty
+function isEmpty( el ){
+  return !$.trim(el.html())
 }
+// //Adds home page to history if not loading an all<food> page
+// if (isEmpty($('#livesearch')) && dhtmlHistory.historyData != "home") {
+//   dhtmlHistory.add("home", "home");
+// }
+
 //Allows the user to press enter an live load the top hint
 $(function() {
   $("#search").on("submit", function(e) {

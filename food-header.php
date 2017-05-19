@@ -58,10 +58,6 @@
       // Stand alone page
       if (historyData.value3 == 1) {
         location.href = location.href = "food.php?l=&f=" + historyData.value1 + "&t=" + historyData.value2;
-      // Livesearch page
-      } else {
-        searchScroll(historyData.value1s);
-        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
       }
     }
   }
