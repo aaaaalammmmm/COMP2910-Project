@@ -146,19 +146,20 @@ body.textPages {
   font-size: 50px;
 }
 
+/*Text formatting for about, info, and affiliates page*/
 .aboutText {
   font-size: 12px;
   text-align: justify;
   margin: auto;
 }
 
-/*Size, font, and width for small devices*/
+/*Size and width of text for small devices*/
 @media screen and (min-width: 300px) {
   .aboutText {width: 100%;}
   .aboutText {font-size: 12px;}
 }
 
-/*Size, font, and width for medium devices*/
+/*Size and width of text for medium devices*/
 @media screen and (min-width: 700px) {
   .aboutText {width: 80%;}
   h4 {font-size: 32px;}
@@ -167,10 +168,14 @@ body.textPages {
   .affiliatesPage {width: 80%; margin: auto;}
 }
 
-/*Size, font, and width for large devices*/
+/*Size and width of text for large devices*/
 @media screen and (min-width: 1024px) {
   .aboutText {width: 90%;}
   .aboutText {font-size: 20px;}
+  .aboutUs {
+    width: 80%;
+    margin: auto;
+  }
 }
 
 
@@ -250,7 +255,7 @@ body.textPages {
 /* positions hamburger button to top left of site */
 .hamburger {
   position: absolute;
-  top: 40px;
+  top: 30px;
   left: 30px;
 }
 
@@ -302,6 +307,7 @@ body.textPages {
   content: "\e080";
 }
 
+/*images and infograph sizing and position for medium devices*/
 @media screen and (min-width: 370px) {
   .infograph {
     float: right;
@@ -319,11 +325,13 @@ body.textPages {
   }
 }
 
+/*Container padding*/
 .container-fluid {
   padding-left: 10px;
   padding-right: 10px;
 }
 
+/*Color, width, and margin for horizontal rule used in affiliates*/
 hr {
   border: none;
   margin: auto;
@@ -331,10 +339,12 @@ hr {
   background-color: #777777;
 }
 
+/*Used to manage the floats*/
 .clearfix {
     *zoom:1
 }
 
+/*setting headings to the same font as body*/
 h1, h2, h3, h4, h5 {
   font-family: 'Philosopher', sans-serif;
   font-weight: bold;
