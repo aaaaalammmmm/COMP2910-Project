@@ -81,12 +81,18 @@ body {
   margin-bottom: 100px;
   clear : both;
   /* Background image */
-  background-image: url(../Images/backgroundimage-g.png);
+  background-image: url(../Images/Background-darker.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: 200%;
   display: none;
+  margin: auto;
+  font-family: 'Philosopher', sans-serif;
+}
+
+body.textPages {
+  background-image: url(../Images/backgroundimage-g.png);
 }
 
 /* Highlights the selected button*/
@@ -140,32 +146,31 @@ body {
   font-size: 50px;
 }
 
+.aboutText {
+  font-size: 12px;
+  text-align: justify;
+  margin: auto;
+}
+
 /*Size, font, and width for small devices*/
 @media screen and (min-width: 300px) {
   .aboutText {width: 100%;}
   .aboutText {font-size: 12px;}
-  .aboutText {margin: auto;}
-  .aboutText {text-align: justify;}
-  .aboutText {font-family: "Trebuchet MS", Helvetica, sans-serif;}
-
 }
+
 /*Size, font, and width for medium devices*/
 @media screen and (min-width: 700px) {
   .aboutText {width: 80%;}
   h4 {font-size: 32px;}
-  .aboutText {text-align: justify;}
-  .aboutText {margin: auto;}
-  .aboutText {font-family: "Trebuchet MS", Helvetica, sans-serif;}
+  h5 {font-size: 25px;}
   .aboutText {font-size: 16px;}
+  .affiliatesPage {width: 80%; margin: auto;}
 }
 
 /*Size, font, and width for large devices*/
 @media screen and (min-width: 1024px) {
   .aboutText {width: 90%;}
   .aboutText {font-size: 20px;}
-  .aboutText {margin: auto;}
-  .aboutText {text-align: justify;}
-  .aboutText {font-family: "Trebuchet MS", Helvetica, sans-serif;}
 }
 
 
@@ -245,7 +250,8 @@ body {
 /* positions hamburger button to top left of site */
 .hamburger {
   position: absolute;
-  top: 5px;
+  top: 40px;
+  left: 30px;
 }
 
 /* Adds a black border to the buttons */
@@ -270,12 +276,10 @@ body {
   color: black;
 }
 
-
-
 /* Centers sotarge text in tablets */
 @media screen and (min-height: 1024px){
-.storageText {width: 50%;}
-.storageText {margin: auto;}
+  .storageText {width: 50%;}
+  .storageText {margin: auto;}
 }
 
 @media (min-width: 1200px){
@@ -296,4 +300,42 @@ body {
 .accordion-toggle.collapsed:after {
   /* symbol for "collapsed" panels */
   content: "\e080";
+}
+
+@media screen and (min-width: 370px) {
+  .infograph {
+    float: right;
+    margin: 0 0 10px 10px;
+  }
+
+  .affiliateImgLg {
+    min-height: 200px;
+    float: right;
+  }
+
+  .affiliateImgMd {
+    min-height: 150px;
+    float: right;
+  }
+}
+
+.container-fluid {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+hr {
+  border: none;
+  margin: auto;
+  height: 2px;
+  background-color: #777777;
+}
+
+.clearfix {
+    *zoom:1
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Philosopher', sans-serif;
+  font-weight: bold;
 }
