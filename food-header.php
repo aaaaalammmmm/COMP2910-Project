@@ -46,6 +46,7 @@
       window.location = linkLocation;
     }
   });
+
   </script>
   <!-- The following script tags are for the ajax history for our back button -->
   <script type="text/javascript" src="js/json2005.js"></script>
@@ -79,6 +80,7 @@
     dhtmlHistory.initialize();
     dhtmlHistory.addListener(yourListener);
   };
+    
   </script>
 </head>
 <body class="bg-primary" id="main">

@@ -1,6 +1,8 @@
 <?php include 'general-header.php'; ?>
 <div class="affiliatesPage">
-  <h3 class="text-center" style="color:black"><b>Our Partners</b></h3>
+  <div class="text-center">
+    <h3 class="title">Our Partners</h3>
+  </div>
   <div class="flex-container">
     <div class="col-lg-4 padding-sm">
       <div class="clearfix affiliateDiv">
