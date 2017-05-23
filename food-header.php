@@ -29,9 +29,6 @@
   //Enable logging
   firebase.database.enableLogging(true);
 
-  //Check and print the root key of the database on browser console
-  console.log(database.ref().key);
-
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
