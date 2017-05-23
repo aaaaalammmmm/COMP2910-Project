@@ -14,13 +14,13 @@ $food = $_GET['f'];
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food.".png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#storage">Storage</button>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage">Storage</button>
     <div class="storageText">
       <div id="storage" class="text-left collapse "></div>
     </div>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#recipes" data-target="#recipes">Recipes</button>
     <div id="recipes" class="text-left collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
