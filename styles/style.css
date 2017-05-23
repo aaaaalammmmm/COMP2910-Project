@@ -113,7 +113,7 @@ body.textPages {
 
 /* Resizes the logo for food pages */
 .food-size {
-  width: 100px;
+  width: 70px;
   height: auto;
 }
 
@@ -155,23 +155,30 @@ body.textPages {
 
 /*Size and width of text for small devices*/
 @media screen and (min-width: 300px) {
-  .aboutText {width: 100%;}
-  .aboutText {font-size: 12px;}
+  .aboutText {
+    width: 100%;
+    font-size: 12px;
+  }
 }
 
 /*Size and width of text for medium devices*/
 @media screen and (min-width: 700px) {
-  .aboutText {width: 80%;}
+  .aboutText {
+    width: 80%;
+    font-size: 16px;
+    vertical-align: middle;
+  }
   h4 {font-size: 32px;}
   h5 {font-size: 25px;}
-  .aboutText {font-size: 16px;}
   .affiliatesPage {width: 80%; margin: auto;}
 }
 
 /*Size and width of text for large devices*/
 @media screen and (min-width: 1024px) {
-  .aboutText {width: 90%;}
-  .aboutText {font-size: 20px;}
+  .aboutText {
+    width: 90%;
+    font-size: 20px;
+  }
   .aboutUs {
     width: 80%;
     margin: auto;
@@ -348,4 +355,9 @@ hr {
 h1, h2, h3, h4, h5 {
   font-family: 'Philosopher', sans-serif;
   font-weight: bold;
+}
+
+.title {
+  margin-top: auto;
+  margin-bottom: 2px;
 }

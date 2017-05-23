@@ -36,19 +36,19 @@
   var rootRef = database.ref("food");
   </script>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $("body").fadeIn(500);
+  $(document).ready(function() {
+    $("body").fadeIn(500);
 
-      $("a.transition").click(function(event){
-          event.preventDefault();
-          linkLocation = this.href;
-          $("body").fadeOut(500, redirectPage);
-      });
-
-      function redirectPage() {
-          window.location = linkLocation;
-      }
+    $("a.transition").click(function(event){
+      event.preventDefault();
+      linkLocation = this.href;
+      $("body").fadeOut(500, redirectPage);
     });
+
+    function redirectPage() {
+      window.location = linkLocation;
+    }
+  });
   </script>
 </head>
 <body class="bg-primary" id="main">
@@ -69,16 +69,16 @@
         <a class="text-black" href="contactus.php">Contact Us</a>
       </div>
     </div>
-        <div class="visible-xs-block">
-          <a href="index.php" class="transition">
-            <img class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
-          </a>
-        </div>
-        <div class="hidden-xs">
-          <a href="index.php"  class="transition">
-            <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
-          </a>
-        </div>
+    <div class="visible-xs-block">
+      <a href="index.php" class="transition">
+        <img class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
+      </a>
+    </div>
+    <div class="hidden-xs">
+      <a href="index.php"  class="transition">
+        <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
+      </a>
+    </div>
   </div>
   <!-- Back button -->
   <?php
