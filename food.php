@@ -22,7 +22,7 @@ $food = $_GET['f'];
     <div id="recipes" class="collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
-  <div class="btn-group-justified button-footer">
+  <div id="ripeness" class="btn-group-justified">
     <div class="btn-group">
       <?php if($food === "bread") {
         echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
@@ -121,6 +121,14 @@ $food = $_GET['f'];
     $("#ripe").addClass("btn-outline");
   }
 
+  //Tests for a standAlone page; if true, makes ripeness buttons into a footer
+  var standAloneTest = <?php if (isset($_GET['l'])) { echo "1"; } else { echo "0"; } ?>;
+  if (standAloneTest == 1){
+    //If doesn't have buttons footer class, give it button footer class
+    if (!document.getElementById("ripeness").classList.contains("button-footer")){
+      document.getElementById("ripeness").classList.toggle("button-footer");
+    }
+  }
   </script>
 </div>
 <?php include 'footer.php'; ?>
