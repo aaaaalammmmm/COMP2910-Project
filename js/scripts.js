@@ -178,6 +178,8 @@ function foodLoad_dynamic(food,type) {
           //  - Dynamically loads the food item from dynamically created food.php page
           //    (uses parameter passed in as guidelines on which food page to create)
           $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+          //Resizes the buttons to the footer version
+          resizeBtn(food);
         }
       }
     }
@@ -197,8 +199,10 @@ function foodLoad_dynamic(food,type) {
 function resizeBtn(str) {
   // If 'str' is less than 2 characters ignore function
   if(str.length>1){
-    // Calls function to load 'str'
-    load(str);
+    // Calls function to load 'str' if 'str' is an all<food> page
+    if (str == "allGrains" || str == "allFruits" || str == "allVeggies") {
+      load(str);
+    }
     // Checks if the 'livesearch' div is NOT EMPTY
     if(document.getElementById("livesearch").innerHTML != "") {
       //  - Hides the large buttons (entire screen width)

@@ -45,6 +45,7 @@ $food = $_GET['f'];
       }?>
     </div>
   </div>
+  <div class="padding-sm"></div>
   <script>
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
