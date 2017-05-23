@@ -10,7 +10,9 @@ $food = $_GET['f'];
 ?>
 <div class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
+  <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
   <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
+  <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#storage">Storage</button>
     <div class="storageText">
@@ -19,7 +21,7 @@ $food = $_GET['f'];
   </div>
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
-    <div id="recipes" class="collapse"></div>
+    <div id="recipes" class="text-left collapse"></div>
   </div>
   <!-- Redirection for further info on food state -->
   <div id="ripeness" class="btn-group-justified">
@@ -50,7 +52,9 @@ $food = $_GET['f'];
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
-
+  //Stores the child keys of the food node
+  var foodArray = foodKeyArray();
+  console.log(foodArray);
   //Creates a food item to be added to the ajax history. Added below with the proper state
   //  - Creates complex object for food item
   var foodHistory = new Object();
@@ -67,14 +71,16 @@ $food = $_GET['f'];
   //This stores a pointer to all info about bananas
   var foodInfo = rootRef.child(type + "/" + food);
   //This creates a pointer to the food item storage div
-  var storageDiv  = document.getElementById("storage");
+  var storageDiv = document.getElementById("storage");
   //This creates a pointer to the food item recipes div
-  var recipesDiv  = document.getElementById("recipes");
+  var recipesDiv = document.getElementById("recipes");
   //This creates a pointer to main image element
-  var image      = document.getElementById("image");
+  var image = document.getElementById("image");
+  
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
+    //This changes the main image icon
     if (state === "ripe" || state === "fresh" || state === "stale") {
       image.src = "<?php echo "images/".$food.".png"; ?>";
     } else if (state === "raw") {
@@ -86,10 +92,10 @@ $food = $_GET['f'];
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
     }
-    //This stores the location of the food storage
-    var stateInfo;
+    
     //Go to the child node containing the state for the food item
-    stateInfo = foodInfo.child(state);
+    var stateInfo = foodInfo.child(state);
+    
     //Create a snapshot of the food state node
     stateInfo.once("value")
     .then(function(snapshot) {
@@ -110,6 +116,47 @@ $food = $_GET['f'];
     dhtmlHistory.add(food,foodHistory);
   }
 
+  //This creates a node in foods, and then uses a for each to find each key
+  //of the parent node and then assigns them to an array.
+  function foodKeyArray() {
+    var foodArray = new Array();    
+    var food      = rootRef.child(type);
+    
+    food.once("value")
+      .then(function(snapshot) {
+        //the forEach function enumerates and iterates
+        //through all the child nodes of the parent
+        snapshot.forEach(function(childSnapshot) {
+          //Add to foodArray
+          foodArray.push(childSnapshot.key);
+      });
+    });
+    
+    return foodArray;
+  }
+  
+  //Navigate to the next food item
+  function nextFood() {
+    for(let i = 0; i < foodArray.length; i++) {
+      if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
+        pageLoad(foodArray[0], type);
+      } else if (foodArray[i] === food) {
+        pageLoad(foodArray[i + 1], type);
+      }
+    }
+  }
+  
+  //Navigate to the previous food item
+  function prevFood() {
+    for(let i = 0; i < foodArray.length; i++) {
+      if ((foodArray[i] === food) && (i == 0)) {
+        pageLoad(foodArray[foodArray.length - 1], type);
+      } else if (foodArray[i] === food) {
+        pageLoad(foodArray[i - 1], type);
+      }
+    }
+  }
+  
   //This sets the default state
   if (food === "bread") {
     onload = foodInformation("fresh");
