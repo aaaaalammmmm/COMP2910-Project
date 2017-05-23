@@ -36,19 +36,52 @@
   var rootRef = database.ref("food");
   </script>
   <script type="text/javascript">
-    $(document).ready(function() {
-      $("body").fadeIn(500);
+  $(document).ready(function() {
+    $("body").fadeIn(500);
 
-      $("a.transition").click(function(event){
-          event.preventDefault();
-          linkLocation = this.href;
-          $("body").fadeOut(500, redirectPage);
-      });
-
-      function redirectPage() {
-          window.location = linkLocation;
-      }
+    $("a.transition").click(function(event){
+      event.preventDefault();
+      linkLocation = this.href;
+      $("body").fadeOut(500, redirectPage);
     });
+
+    function redirectPage() {
+      window.location = linkLocation;
+    }
+  });
+  </script>
+  <!-- The following script tags are for the ajax history for our back button -->
+  <script type="text/javascript" src="js/json2005.js"></script>
+  <script type="text/javascript" src="js/rsh.compressed.js"></script>
+  <script type="text/javascript">
+  window.dhtmlHistory.create({
+    toJSON: function(o) {
+      return JSON.stringify(o);
+    }
+    , fromJSON: function(s) {
+      return JSON.parse(s);
+    }
+  });
+
+  // Creates a listener for page load functions
+  var yourListener = function(newLocation, historyData) {
+    // Checks all <food> page values and loads corresponding page
+    if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+      resizeBtn(historyData);
+      // Checks null value and loads main page
+    } else if (historyData == null) {
+      showResult("");
+      // If not one of these, loads appropriate food page
+    } else {
+      searchScroll(historyData.value1);
+      $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+    }
+  }
+
+  window.onload = function() {
+    dhtmlHistory.initialize();
+    dhtmlHistory.addListener(yourListener);
+  };
   </script>
 </head>
 <body class="bg-primary" id="main">
@@ -69,16 +102,16 @@
         <a class="text-black" href="contactus.php">Contact Us</a>
       </div>
     </div>
-        <div class="visible-xs-block">
-          <a href="index.php" class="transition">
-            <img class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
-          </a>
-        </div>
-        <div class="hidden-xs">
-          <a href="index.php"  class="transition">
-            <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
-          </a>
-        </div>
+    <div class="visible-xs-block">
+      <a href="index.php" class="transition">
+        <img class="pull-right test food-size" src="Images/UseItUpBanner v2.0.png"/>
+      </a>
+    </div>
+    <div class="hidden-xs">
+      <a href="index.php"  class="transition">
+        <img  class="center-block pull-right food-size" src="Images/UseItUpBanner v2.0.png"/>
+      </a>
+    </div>
   </div>
   <!-- Back button -->
   <?php

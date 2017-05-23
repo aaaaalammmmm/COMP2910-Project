@@ -2,15 +2,15 @@
 // The hints are displayed in a div tag with id 'search-hints'
 // Calls the livesearch.php page to get the hint text to display
 function showResult(food) {
-  // Calls the resetBtn function
-  resetBtn();
   // If 'food' parameter has length 0 do the following:
+  //   - Calls the resetBtn function
   //   - Set hints to empty
   //   - Set livesearch div to empty
   //   - Autoscrolls back to the top of page (searchScroll function)
   //   - Forces the livesearch to reload empty (foodLoad function with empty parameters)
   //   - Returns to caller
   if (food.length==0) {
+    resetBtn();
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     document.getElementById("livesearch").innerHTML="";
@@ -49,7 +49,6 @@ function showResult(food) {
       //   - Sets the hits to the received code and gives it a slight border
       document.getElementById("search-hints").innerHTML=response;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
-
       // Live loads the 'food' with the 'type'
       foodLoad_dynamic(food,type);
     }
@@ -71,6 +70,8 @@ function load(str) {
   // Sets search hints to empty and removes the border
   document.getElementById("search-hints").value = "";
   document.getElementById("search-hints").style.border = "0px";
+  //Ensures the search bar and hints are blank
+  foodLoad("","");
   // Loads the 'str' page in the 'livesearch' div
   $("#livesearch").load(str+'.php', function() {console.log(str + '.php is loaded')});
   // Checks the 'str' parameter against pre-determined strings
@@ -148,6 +149,9 @@ function foodLoad(food,type) {
     //   - Set 'livesearch' div to empty
   } else {
     $("#livesearch").innerHTML = "";
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
   }
 }
 
@@ -178,7 +182,12 @@ function foodLoad_dynamic(food,type) {
           //  - Dynamically loads the food item from dynamically created food.php page
           //    (uses parameter passed in as guidelines on which food page to create)
           $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+          ///Makes the hints blank
+          document.getElementById("search-hints").innerHTML="";
+          document.getElementById("search-hints").style.border="0px";
         }
+        //Resizes the buttons to the footer version
+        resizeBtn(food);
       }
     }
     //   - Sends 'food' parameter to liveload.php via GET['q']
@@ -197,14 +206,22 @@ function foodLoad_dynamic(food,type) {
 function resizeBtn(str) {
   // If 'str' is less than 2 characters ignore function
   if(str.length>1){
-    // Calls function to load 'str'
-    load(str);
+    // Calls function to load 'str' if 'str' is an all<food> page
+    if (str == "allGrains" || str == "allFruits" || str == "allVeggies") {
+      load(str);
+    }
     // Checks if the 'livesearch' div is NOT EMPTY
     if(document.getElementById("livesearch").innerHTML != "") {
-      //  - Hides the large buttons (entire screen width)
-      document.getElementById("large-btn").classList.toggle("hidden");
-      //  - Shows the small buttons (three accross the bottom)
-      document.getElementById("small-btn").classList.toggle("hidden");
+      // - If large buttons are NOT hidden
+      if (!document.getElementById("large-btn").classList.contains("hidden")){
+        //  - Hides the large buttons (entire screen width)
+        document.getElementById("large-btn").classList.toggle("hidden");
+      }
+      // - If small buttons ARE hidden
+      if (document.getElementById("small-btn").classList.contains("hidden")) {
+        //  - Shows the small buttons (three accross the bottom)
+        document.getElementById("small-btn").classList.toggle("hidden");
+      }
       // If 'livesearch' div IS EMPTY
     } else {
       //  - If large buttons are hidden, make them visible

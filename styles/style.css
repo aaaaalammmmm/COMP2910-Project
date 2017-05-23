@@ -349,3 +349,8 @@ h1, h2, h3, h4, h5 {
   font-family: 'Philosopher', sans-serif;
   font-weight: bold;
 }
+
+/*sets background colour of justified buttons to the background of parent item*/
+.btn-group-justified {
+  background-color: inherit;
+}
