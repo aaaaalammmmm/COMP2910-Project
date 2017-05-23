@@ -33,7 +33,7 @@
   var rootRef = database.ref("food");
   </script>
   <script type="text/javascript">
-  $(document).ready(function() {
+  $(document).ready(function() {222
     $("body").fadeIn(500);
 
     $("a.transition").click(function(event){

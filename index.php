@@ -1,4 +1,4 @@
-7<?php include 'header.php'; ?>
+<?php include 'header.php'; ?>
 <div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -20,12 +20,10 @@
   </form>
 </div>
 <!-- The div tag for livesearch page loads -->
-  <div id="livesearch" class="col-xs-12 padding-lg">
-  </div>
+  <div id="livesearch" class="col-xs-12 padding-lg"></div>
 <br/>
 <!-- Redirection "buttons" for the main categories of pages -->
 <div class="text-center">
-
   <div id="large-btn" class="btn-toolbar-home">
     <div class="hidden-lg col-xs-12">
       <a href="javascript:resizeBtn('allFruits')">
@@ -84,9 +82,8 @@ function isEmpty( el ){
   return !$.trim(el.html())
 }
 // //Adds home page to history if not loading an all<food> page
-// if (isEmpty($('#livesearch')) && dhtmlHistory.historyData != "home") {
-//   dhtmlHistory.add("home", "home");
-// }
+dhtmlHistory.add("home", "home");
+
 
 //Allows the user to press enter an live load the top hint
 $(function() {
