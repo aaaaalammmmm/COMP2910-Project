@@ -70,10 +70,10 @@
     dhtmlHistory.addListener(yourListener);
   };
   </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-      $("body").fadeIn(500);
-    });
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("body").fadeIn(500);
+  });
   </script>
 </head>
 <body class="bg-primary" id="main">

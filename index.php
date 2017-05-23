@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+7<?php include 'header.php'; ?>
 <div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -93,7 +93,7 @@ $(function() {
   $("#search").on("submit", function(e) {
     e.preventDefault();
     var content = document.getElementById("search-hints").innerHTML;
-    if (content != "no suggestion") {
+    if (content != "no suggestion" && content != "") {
       var regEx = /javascript\:foodLoad\("[a-zA-Z]+-?[a-zA-Z]*","[a-zA-Z]+"\)/;
       location.href = regEx.exec(content);
       document.getElementById("search-hints").innerHTML = "";

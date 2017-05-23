@@ -29,9 +29,6 @@
   //Enable logging
   firebase.database.enableLogging(true);
 
-  //Check and print the root key of the database on browser console
-  console.log(database.ref().key);
-
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
@@ -49,6 +46,41 @@
       window.location = linkLocation;
     }
   });
+
+  </script>
+  <!-- The following script tags are for the ajax history for our back button -->
+  <script type="text/javascript" src="js/json2005.js"></script>
+  <script type="text/javascript" src="js/rsh.compressed.js"></script>
+  <script type="text/javascript">
+  window.dhtmlHistory.create({
+    toJSON: function(o) {
+      return JSON.stringify(o);
+    }
+    , fromJSON: function(s) {
+      return JSON.parse(s);
+    }
+  });
+
+  // Creates a listener for page load functions
+  var yourListener = function(newLocation, historyData) {
+    // Checks all <food> page values and loads corresponding page
+    if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+      resizeBtn(historyData);
+      // Checks null value and loads main page
+    } else if (historyData == null) {
+      showResult("");
+      // If not one of these, loads appropriate food page
+    } else {
+      searchScroll(historyData.value1);
+      $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+    }
+  }
+
+  window.onload = function() {
+    dhtmlHistory.initialize();
+    dhtmlHistory.addListener(yourListener);
+  };
+    
   </script>
 </head>
 <body class="bg-primary" id="main">
