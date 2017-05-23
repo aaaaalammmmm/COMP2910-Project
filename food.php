@@ -11,7 +11,7 @@ $food = $_GET['f'];
 <div class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
   <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
-  <img id="image" src=<?php echo "images/".$food.".png";?> class="single-food-imagesize" alt=<?php echo $food; ?> />
+  <img id="image" src=<?php if($food == "bread"){ echo "images/".$food.".png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#storage">Storage</button>
@@ -76,7 +76,7 @@ $food = $_GET['f'];
   var recipesDiv = document.getElementById("recipes");
   //This creates a pointer to main image element
   var image = document.getElementById("image");
-  
+
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
@@ -92,10 +92,10 @@ $food = $_GET['f'];
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
     }
-    
+
     //Go to the child node containing the state for the food item
     var stateInfo = foodInfo.child(state);
-    
+
     //Create a snapshot of the food state node
     stateInfo.once("value")
     .then(function(snapshot) {
@@ -119,9 +119,9 @@ $food = $_GET['f'];
   //This creates a node in foods, and then uses a for each to find each key
   //of the parent node and then assigns them to an array.
   function foodKeyArray() {
-    var foodArray = new Array();    
+    var foodArray = new Array();
     var food      = rootRef.child(type);
-    
+
     food.once("value")
       .then(function(snapshot) {
         //the forEach function enumerates and iterates
@@ -131,10 +131,10 @@ $food = $_GET['f'];
           foodArray.push(childSnapshot.key);
       });
     });
-    
+
     return foodArray;
   }
-  
+
   //Navigate to the next food item
   function nextFood() {
     for(let i = 0; i < foodArray.length; i++) {
@@ -145,7 +145,7 @@ $food = $_GET['f'];
       }
     }
   }
-  
+
   //Navigate to the previous food item
   function prevFood() {
     for(let i = 0; i < foodArray.length; i++) {
@@ -156,7 +156,7 @@ $food = $_GET['f'];
       }
     }
   }
-  
+
   //This sets the default state
   if (food === "bread") {
     onload = foodInformation("fresh");
