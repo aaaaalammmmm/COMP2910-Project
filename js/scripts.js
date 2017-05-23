@@ -14,7 +14,7 @@ function showResult(food) {
     searchScroll("");
     foodLoad("","");
     //resizeBtn("");
-    resetBtn();
+    //resetBtn();
     return;
   }
   //For easter egg lol
