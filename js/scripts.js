@@ -23,6 +23,14 @@ function showResult(food) {
   //For easter egg lol
   if (food === "soylent green") {
     foodLoad("soylent-green","vegetable");
+  } else if (food === "slurm") {
+    foodLoad("slurm","vegetable");
+  } else if (food === "tomacco") {
+    foodLoad("tomacco","vegetable");
+  } else if (food === "krabby patty") {
+    foodLoad("krabby-patty","vegetable");
+  } else if (food === "popplers") {
+    foodLoad("popplers","vegetable");
   }
   // If 'food' parameter has length > 1 do the following:
   //   - Creates an XMLHttpRequest to receive data from a file
