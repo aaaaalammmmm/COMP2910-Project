@@ -63,18 +63,6 @@ $food = $_GET['f'];
   var type = "<?php echo $type; ?>";
   //Stores the child keys of the food node
   var foodArray = foodKeyArray();
-  //Creates a food item to be added to the ajax history. Added below with the proper state
-  //  - Creates complex object for food item
-  var foodHistory = new Object();
-  //  - Checks if standAlone page or livesearch
-  var standAlone = "<?php echo isset($_GET["l"]); ?>";
-  //  - Assigns the food to the complex food item variable
-  foodHistory.value1 = food;
-  //  - Assigns the type to the complex food item variable
-  foodHistory.value2 = type;
-  //  - Assigns the standAlone condition to the complex food item variable
-  foodHistory.value3 = standAlone;
-  dhtmlHistory.add(food,foodHistory);
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
@@ -165,11 +153,6 @@ $food = $_GET['f'];
       $("div.btn-group").find("button").removeClass("btn-highlight");
       $(this).addClass("btn-highlight");
     });
-
-    //Adds the state to the foodHistory object
-    foodHistory.value4 = state;
-    //Adds the foodHistory to the ajax history data
-    dhtmlHistory.add(food,foodHistory);
   }
 
   function getRecipes(snapshot){
