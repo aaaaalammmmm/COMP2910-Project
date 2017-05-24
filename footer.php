@@ -3,4 +3,7 @@
 </footer>
 </div>
 </body>
+<script type="text/javascript">
+  SocialShareKit.init();
+</script>
 </html>
