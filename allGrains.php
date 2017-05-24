@@ -8,7 +8,7 @@ $(document).ready(function() {
   $("a.transition").click(function(event){
       event.preventDefault();
       linkLocation = this.href;
-      $("body").fadeOut(1500, redirectPage);
+      $("body").fadeOut(500, redirectPage);
   });
 
   function redirectPage() {
