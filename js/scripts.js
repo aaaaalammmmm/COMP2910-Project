@@ -11,7 +11,7 @@ function showResult(food) {
   if (food.length==0) {
     foodLoad("","");
     searchScroll("");
-    resizeBtn("");
+    giresizeBtn("");
     resetBtn();
     return;
   }
