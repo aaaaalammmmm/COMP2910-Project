@@ -102,9 +102,11 @@ $food = $_GET['f'];
       console.log(stateArray.length);
       if (stateArray.length === 2) {
         $("#button3").remove();
+        foodInformation(stateArray[1]);
         $("#button1").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
         $("#button2").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
       } else if (stateArray.length === 3) {
+        foodInformation(stateArray[1]);
         $("#button1").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[2] + "' onclick='foodInformation(\"" + stateArray[2] + "\")'>" + stateArray[2] + "</button>"); 
         $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
         $("#button3").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
@@ -215,6 +217,7 @@ $food = $_GET['f'];
     }
   }
 
+  
   onload = setButtons();
 
   //Tests for a standAlone page; if true, makes ripeness buttons into a footer
