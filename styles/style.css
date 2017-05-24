@@ -389,6 +389,8 @@ h1, h2, h3, h4, h5 {
 
 .recModal {
   white-space: normal;
+  border: 2px solid;
+  border-color: rgb(52, 73, 94);
 }
 
 .recipeBody p {
