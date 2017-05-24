@@ -9,10 +9,6 @@ function showResult(food) {
   //   - Calls the resetBtn function
   //   - Returns to caller
   if (food.length==0) {
-<<<<<<< HEAD
-=======
-    searchScroll("");
->>>>>>> master
     foodLoad("","");
     searchScroll("");
     //resizeBtn("");
@@ -244,8 +240,6 @@ function resizeBtn(str) {
         document.getElementById("small-btn").classList.toggle("hidden");
       }
     }
-<<<<<<< HEAD
-=======
   } else {
     // Checks if the 'livesearch' div is NOT EMPTY
     if(document.getElementById("livesearch").innerHTML != "" || str== "") {
@@ -265,13 +259,11 @@ function resizeBtn(str) {
       if (document.getElementById("large-btn").classList.contains("hidden")) {
         document.getElementById("large-btn").classList.toggle("hidden");
       }
-      alert("josh");
       //  - If small buttons are NOT hidden, hide them
       if (!document.getElementById("small-btn").classList.contains("hidden")) {
         document.getElementById("small-btn").classList.toggle("hidden");
       }
     }
->>>>>>> master
   }
 }
 
