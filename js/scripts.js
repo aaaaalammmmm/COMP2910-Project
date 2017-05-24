@@ -311,3 +311,8 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
+/* Displays information about fridge shelf onto page */
+function get_fridge_info(shelf) {
+
+}
