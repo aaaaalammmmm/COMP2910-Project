@@ -119,7 +119,7 @@ body.textPages {
 
 /* Limits maximum image size */
 .image-size-limit, figure, figcaption {
-
+  color: black;
   max-width: 100px;
 }
 
@@ -148,7 +148,7 @@ body.textPages {
 
 /*Text formatting for about, info, and affiliates page*/
 .aboutText {
-  font-size: 12px;
+  font-size: 16px;
   text-align: justify;
   margin: auto;
 }
@@ -157,7 +157,7 @@ body.textPages {
 @media screen and (min-width: 300px) {
   .aboutText {
     width: 100%;
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -355,6 +355,7 @@ hr {
 h1, h2, h3, h4, h5 {
   font-family: 'Philosopher', sans-serif;
   font-weight: bold;
+  margin: auto;
 }
 
 .title {
@@ -377,7 +378,67 @@ h1, h2, h3, h4, h5 {
   font-size: 2em;
 }
 
+.recipeTitle {
+  margin: auto;
+  display:table-cell;
+ vertical-align:middle;
+}
+
+.recImg {
+  max-height: 8em;
+  width: auto;
+  float: left;
+}
+
+.recArea {
+  display:table;
+  background-color: rgba(240, 234, 214, 0.5);
+  margin: 2px;
+}
+
+.recModal {
+  white-space: normal;
+  border: 2px solid;
+  border-color: rgb(52, 73, 94);
+}
+
+.recipeBody p {
+  margin: 1em;
+}
+
+.modal-content {
+  background-color: rgb(234, 237, 237);
+}
+
+@media screen and (min-width: 700px) {
+  #recipeText{
+    width: 70%;
+    margin: auto;
+  }
+
+  .recipeTitle {
+    text-align:justify;
+  }
+
+  .recArea {
+    margin: 3px;
+  }
+
+  h4 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
 .glyphicon-chevron-right, .glyphicon-chevron-left {
   color:black;
   font-size:2em;
 }
+

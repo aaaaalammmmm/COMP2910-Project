@@ -4,6 +4,7 @@
   <div class="text-center">
     <h3 class="title">About Us</h3>
   </div>
+  <br/>
   <div class="aboutUs">
     <div class="aboutText">
       <p>Our team is comprised of five second year students at the British Columbia Institute of Technology, all currently in the Computer Systems Technology diploma. We are highly dedicated and motivated students, as well as close friends.</p>

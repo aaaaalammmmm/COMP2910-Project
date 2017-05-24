@@ -11,7 +11,7 @@ function showResult(food) {
   if (food.length==0) {
     foodLoad("","");
     searchScroll("");
-    resizeBtn("");
+    giresizeBtn("");
     resetBtn();
     return;
   }
@@ -42,6 +42,7 @@ function showResult(food) {
     if (this.readyState==4 && this.status==200) {
       //   - Sets text received from php file to a variable
       var response = this.responseText;
+      alert(response);
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {
@@ -153,7 +154,7 @@ function foodLoad(food,type) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     //Resizes the buttons to the footer version and back
-    resizeBtn(food);
+    resizeBtn_blank();
   } else {
     document.getElementById("livesearch").innerHTML="";
     //  - Sets search hitns to empty and removes the border
@@ -263,6 +264,23 @@ function resizeBtn(str) {
       if (!document.getElementById("small-btn").classList.contains("hidden")) {
         document.getElementById("small-btn").classList.toggle("hidden");
       }
+    }
+  }
+}
+
+// Dinamically resizes all<food> buttons to proper size
+function resizeBtn_blank() {
+  // Checks if the 'livesearch' div is NOT EMPTY
+  if(document.getElementById("livesearch").innerHTML == "") {
+    // - If large buttons are NOT hidden
+    if (!document.getElementById("large-btn").classList.contains("hidden")){
+      //  - Hides the large buttons (entire screen width)
+      document.getElementById("large-btn").classList.add("hidden");
+    }
+    // - If small buttons ARE hidden
+    if (document.getElementById("small-btn").classList.contains("hidden")) {
+      //  - Shows the small buttons (three accross the bottom)
+      document.getElementById("small-btn").classList.remove("hidden");
     }
   }
 }

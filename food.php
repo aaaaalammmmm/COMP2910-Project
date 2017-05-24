@@ -9,8 +9,8 @@ if (!isset($type)) {
 $food = $_GET['f'];
 ?>
 <div id="main-content" class="text-center">
-  <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <h3><?php echo ucfirst($food);?></h3>
+  <span onclick="" data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
@@ -21,8 +21,10 @@ $food = $_GET['f'];
     </div>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#recipes" data-target="#recipes">Recipes</button>
-    <div id="recipes" class="text-left collapse"></div>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <div id="recipes" class="text-left collapse">
+      <div id="recipeText"></div>
+    </div>
   </div>
   <!-- Redirection for further info on food state -->
   <div id="ripeness" class="btn-group-justified">
@@ -61,18 +63,6 @@ $food = $_GET['f'];
   var type = "<?php echo $type; ?>";
   //Stores the child keys of the food node
   var foodArray = foodKeyArray();
-  //Creates a food item to be added to the ajax history. Added below with the proper state
-  //  - Creates complex object for food item
-  var foodHistory = new Object();
-  //  - Checks if standAlone page or livesearch
-  var standAlone = "<?php echo isset($_GET["l"]); ?>";
-  //  - Assigns the food to the complex food item variable
-  foodHistory.value1 = food;
-  //  - Assigns the type to the complex food item variable
-  foodHistory.value2 = type;
-  //  - Assigns the standAlone condition to the complex food item variable
-  foodHistory.value3 = standAlone;
-  dhtmlHistory.add(food,foodHistory);
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
@@ -152,7 +142,7 @@ $food = $_GET['f'];
       //Assign the string as inner html to the storage div
       storageDiv.innerHTML = snapshot.child("storage").val();
       //Assign the string as inner html to the recipes div
-      recipesDiv.innerHTML = snapshot.child("recipes").val();
+      getRecipes(snapshot);
     });
 
 
@@ -163,14 +153,38 @@ $food = $_GET['f'];
       $("div.btn-group").find("button").removeClass("btn-highlight");
       $(this).addClass("btn-highlight");
     });
-
-    //Adds the state to the foodHistory object
-    foodHistory.value4 = state;
-    //Adds the foodHistory to the ajax history data
-    dhtmlHistory.add(food,foodHistory);
   }
 
+  function getRecipes(snapshot){
+    jsonhttp = new XMLHttpRequest();
+    var url = snapshot.child("recipes").val();
 
+    jsonhttp.open("GET", url, false);
+    jsonhttp.send();
+
+    var jsonString = jsonhttp.responseText;
+    var obj = JSON.parse(jsonString);
+
+    recipeText.innerHTML = "";
+
+    var counter;
+    for(counter = 0; counter < 4; counter++){
+
+
+      var count;
+      var string = "";
+      for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
+        string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
+      }
+
+      var recLab = JSON.stringify(obj.hits[counter].recipe.label);
+      recLab = recLab.replace(/\"/g, "");
+      recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
+
+      recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"recipeBody\">" + string+ "<\/div><\/div><\/div><\/div>";
+    }
+    recipeText.innerHTML += "<\/div>";
+  }
 
   //This creates a node in foods, and then uses a for each to find each key
   //of the parent node and then assigns them to an array.
