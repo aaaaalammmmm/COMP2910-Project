@@ -57,11 +57,11 @@
   var yourListener = function(newLocation, historyData) {
     if (historyData != null) {
       // Checks all <food> page values and loads corresponding page
-      if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
-        resizeBtn(historyData);
+      if (newLocation == "allFruits" || newLocation == "allVeggies" || newLocation == "allGrains") {
+        //load(newLocation);
         // Checks 'home' value and loads main page
       } else if (historyData == "home") {
-        showResult("");
+        //showResult("");
         // If not one of these, loads appropriate food page
       } else if (historyData.value1 != "undefined"){
         searchScroll(historyData.value1);
