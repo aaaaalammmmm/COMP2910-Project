@@ -55,16 +55,18 @@
 
   // Creates a listener for page load functions
   var yourListener = function(newLocation, historyData) {
-    // Checks all <food> page values and loads corresponding page
-    if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
-      resizeBtn(historyData);
-      // Checks 'home' value and loads main page
-    } else if (historyData == "home") {
-      showResult("");
-      // If not one of these, loads appropriate food page
-    } else if (historyData.value1 != null){
-      searchScroll(historyData.value1);
-      $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+    if (historyData != null) {
+      // Checks all <food> page values and loads corresponding page
+      if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+        resizeBtn(historyData);
+        // Checks 'home' value and loads main page
+      } else if (historyData == "home") {
+        showResult("");
+        // If not one of these, loads appropriate food page
+      } else if (historyData.value1 != "undefined"){
+        searchScroll(historyData.value1);
+        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+      }
     }
   }
 
