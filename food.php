@@ -27,9 +27,9 @@ $food = $_GET['f'];
   <div id="ripeness" class="btn-group-justified">
     <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
+        echo "<button type='button' class='btn padding-xs state-button btn-highlight' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button' id='raw' onclick='foodInformation(\"raw\")'>Raw</button>";
+        echo "<button type='button' class='btn padding-xs state-button btn-highlight' id='raw' onclick='foodInformation(\"raw\")'>Raw</button>";
       } else {
         echo "<button type='button' class='btn padding-xs state-button' id=underripe onclick='foodInformation(\"underripe\")'>Underripe</button>";
       }?>
@@ -41,7 +41,7 @@ $food = $_GET['f'];
       <?php if($food === "bread") {
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"stale\")'>Stale</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button btn-highlight' onclick='foodInformation(\"cooked\")'>Cooked</button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"cooked\")'>Cooked</button>";
       }else{
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
       }?>
@@ -84,7 +84,7 @@ $food = $_GET['f'];
     if (state === "ripe" || state === "fresh") {
       image.src = "<?php echo "images/".$food.".png"; ?>";
     } else if (state === "raw") {
-      image.src = "<?php echo "images/".$food."-R.png"; ?>";
+      image.src = "<?php echo 'images/'.$food.'-R.png'; ?>";
     } else if (state === "cooked") {
       image.src = "<?php echo "images/".$food."-C.png"; ?>";
     } else if (state === "underripe") {
