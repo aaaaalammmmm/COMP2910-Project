@@ -8,13 +8,14 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-<div class="text-center">
+<div id="main-content" class="text-center">
+  <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <h3><?php echo ucfirst($food);?></h3>
   <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
-  <img id="image" src=<?php if($food == "bread"){ echo "images/".$food.".png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
+  <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#storage">Storage</button>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage">Storage</button>
     <div class="storageText">
       <div id="storage" class="text-left collapse "></div>
     </div>
@@ -27,26 +28,33 @@ $food = $_GET['f'];
   </div>
   <!-- Redirection for further info on food state -->
   <div id="ripeness" class="btn-group-justified">
-    <div class="btn-group">
-      <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
-      } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button' id='raw' onclick='foodInformation(\"raw\")'>Raw</button>";
-      } else {
-        echo "<button type='button' class='btn padding-xs state-button' id=underripe onclick='foodInformation(\"underripe\")'>Underripe</button>";
-      }?>
+    <div id="button1" class="btn-group">
     </div>
-    <?php if($type != "grains") {
-      echo "<div class=\"btn-group\"><button type='button' class='btn padding-xs state-button btn-highlight' id='ripe' onclick='foodInformation(\"ripe\")'>Ripe</button></div>";
-    }?>
-    <div class="btn-group">
-      <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"stale\")'>Stale</button>";
-      } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button btn-highlight' onclick='foodInformation(\"cooked\")'>Cooked</button>";
-      }else{
-        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
-      }?>
+    <div id="button2" class="btn-group">
+    </div>
+    <div id="button3" class="btn-group">
+    </div>
+    <!-- Left & centered positioning -->
+  </div>
+  <div class="padding-sm"></div>
+  <div id="share" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-title">
+          <br/>
+          <p>Share with your friends!</p>
+        </div>
+      <div class="modal-body">
+        <a href="" class="ssk ssk-facebook"></a>
+        <a href="" class="ssk ssk-twitter"></a>
+        <a href="" class="ssk ssk-pinterest"></a>
+      </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
     </div>
   </div>
   <script>
@@ -55,7 +63,6 @@ $food = $_GET['f'];
   var type = "<?php echo $type; ?>";
   //Stores the child keys of the food node
   var foodArray = foodKeyArray();
-  console.log(foodArray);
   //Creates a food item to be added to the ajax history. Added below with the proper state
   //  - Creates complex object for food item
   var foodHistory = new Object();
@@ -69,6 +76,46 @@ $food = $_GET['f'];
   foodHistory.value3 = standAlone;
   dhtmlHistory.add(food,foodHistory);
 
+  //This function takes the child keys of a food item and
+  //adds to an array. The array is returned.
+  function stateKeyArray() {
+    var stateArray = new Array();
+
+    foodInfo.once("value")
+    .then(function(snapshot) {
+      //the forEach function enumerates and iterates
+      //through all the child nodes of the parent
+      snapshot.forEach(function(childSnapshot) {
+        //Add to stateArray
+        stateArray.push(childSnapshot.key);
+      });
+    });
+
+    return stateArray;
+  }
+
+  //This sets the state buttons in food.php, depending on what sort of states
+  //exists in Firebase
+  function setButtons() {
+    var stateArray = stateKeyArray();
+
+    setTimeout(function () {
+      console.log(stateArray);
+      console.log(stateArray.length);
+      if (stateArray.length === 2) {
+        $("#button3").remove();
+        foodInformation(stateArray[1]);
+        $("#button1").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
+        $("#button2").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
+      } else if (stateArray.length === 3) {
+        foodInformation(stateArray[1]);
+        $("#button1").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[2] + "' onclick='foodInformation(\"" + stateArray[2] + "\")'>" + stateArray[2] + "</button>");
+        $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
+        $("#button3").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
+      }
+    }, 2000);
+  }
+
   //This stores a pointer to all info about bananas
   var foodInfo = rootRef.child(type + "/" + food);
   //This creates a pointer to the food item storage div
@@ -78,20 +125,24 @@ $food = $_GET['f'];
   //This creates a pointer to main image element
   var image = document.getElementById("image");
 
+
+
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
     //This changes the main image icon
-    if (state === "ripe" || state === "fresh" || state === "stale") {
+    if (state === "ripe" || state === "fresh") {
       image.src = "<?php echo "images/".$food.".png"; ?>";
     } else if (state === "raw") {
-      image.src = "<?php echo "images/".$food."-R.png"; ?>";
+      image.src = "<?php echo 'images/'.$food.'-R.png'; ?>";
     } else if (state === "cooked") {
       image.src = "<?php echo "images/".$food."-C.png"; ?>";
     } else if (state === "underripe") {
       image.src = "<?php echo "images/".$food."-UR.png"; ?>";
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
+    } else if (state === "stale") {
+      image.src = "<?php echo "images/".$food."-S.png"; ?>";
     }
 
     //Go to the child node containing the state for the food item
@@ -105,12 +156,16 @@ $food = $_GET['f'];
       //Assign the string as inner html to the recipes div
       getRecipes(snapshot);
     });
+
+
+
     //This highlights and de-highlight the states depending on which
     //state is focused
-    $("div.btn-group button").click(function(){
+    $("div.btn-group-justified").on("click","div.btn-group button", function(){
       $("div.btn-group").find("button").removeClass("btn-highlight");
       $(this).addClass("btn-highlight");
     });
+
     //Adds the state to the foodHistory object
     foodHistory.value4 = state;
     //Adds the foodHistory to the ajax history data
@@ -167,9 +222,11 @@ $food = $_GET['f'];
     return foodArray;
   }
 
+
+
   //Navigate to the next food item
   function nextFood() {
-    for(let i = 0; i < foodArray.length; i++) {
+    for(var i = 0; i < foodArray.length; i++) {
       if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
         pageLoad(foodArray[0], type);
       } else if (foodArray[i] === food) {
@@ -178,9 +235,11 @@ $food = $_GET['f'];
     }
   }
 
+
+
   //Navigate to the previous food item
   function prevFood() {
-    for(let i = 0; i < foodArray.length; i++) {
+    for(var i = 0; i < foodArray.length; i++) {
       if ((foodArray[i] === food) && (i == 0)) {
         pageLoad(foodArray[foodArray.length - 1], type);
       } else if (foodArray[i] === food) {
@@ -189,17 +248,8 @@ $food = $_GET['f'];
     }
   }
 
-  //This sets the default state
-  if (food === "bread") {
-    onload = foodInformation("fresh");
-    $("#fresh").addClass("btn-outline");
-  } else if (type === "grains") {
-    onload = foodInformation("raw");
-    $("#raw").addClass("btn-outline");
-  } else {
-    onload = foodInformation("ripe");
-    $("#ripe").addClass("btn-outline");
-  }
+
+  onload = setButtons();
 
   //Tests for a standAlone page; if true, makes ripeness buttons into a footer
   var standAloneTest = <?php if (isset($_GET['l'])) { echo "1"; } else { echo "0"; } ?>;

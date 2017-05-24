@@ -348,7 +348,7 @@ hr {
 
 /*Used to manage the floats*/
 .clearfix {
-    *zoom:1
+    *zoom:1;
 }
 
 /*setting headings to the same font as body*/
@@ -366,7 +366,16 @@ h1, h2, h3, h4, h5 {
 /*sets background colour of justified buttons to the background of parent item*/
 .btn-group-justified {
   background-color: inherit;
+}
 
+.modal {
+  top: 40% !important;
+}
+
+.glyphicon-share {
+  float:right;
+  right: 5%;
+  font-size: 2em;
 }
 
 .recipeTitle {
@@ -427,3 +436,9 @@ h1, h2, h3, h4, h5 {
     font-weight: bold;
   }
 }
+
+.glyphicon-chevron-right, .glyphicon-chevron-left {
+  color:black;
+  font-size:2em;
+}
+

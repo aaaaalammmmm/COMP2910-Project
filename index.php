@@ -20,7 +20,7 @@
   </form>
 </div>
 <!-- The div tag for livesearch page loads -->
-  <div id="livesearch" class="col-xs-12 padding-lg"></div>
+<div id="livesearch" class="col-xs-12 padding-lg"></div>
 <br/>
 <!-- Redirection "buttons" for the main categories of pages -->
 <div class="text-center">
@@ -83,7 +83,6 @@ function isEmpty( el ){
 }
 // //Adds home page to history if not loading an all<food> page
 dhtmlHistory.add("home", "home");
-
 
 //Allows the user to press enter an live load the top hint
 $(function() {

@@ -1,6 +1,6 @@
 <?php
 function clean($string) {
-  return preg_replace('/[^A-Za-z0-9\- ]/', '', $string); // Removes special chars.
+  return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 }
 $xmlDoc=new DOMDocument();
 $xmlDoc->load("food.xml");
@@ -10,6 +10,7 @@ $foodLinks=$xmlDoc->getElementsByTagName('link');
 //get the q parameter from URL
 $q=$_GET["q"];
 $search = clean($q);
+$search = trim($search);
 $reg_ex = "/^" . $search . "/i";
 $hint="";
 if ($search == $q) {

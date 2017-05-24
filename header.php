@@ -3,8 +3,11 @@
 <head>
   <title>Use-It-Up</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link href="styles/bootstrap.min.css" rel="stylesheet" media="screen" />
+  <link href="styles/social-share-kit.css" rel="stylesheet" media="screen">
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/social-share-kit.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <style>
@@ -52,16 +55,18 @@
 
   // Creates a listener for page load functions
   var yourListener = function(newLocation, historyData) {
-    // Checks all <food> page values and loads corresponding page
-    if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
-      resizeBtn(historyData);
-      // Checks home value and loads main page
-    } else if (historyData == null) {
-      showResult("");
-      // If not one of these, loads appropriate food page
-    } else {
-      searchScroll(historyData.value1);
-      $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+    if (historyData != null) {
+      // Checks all <food> page values and loads corresponding page
+      if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+        resizeBtn(historyData);
+        // Checks 'home' value and loads main page
+      } else if (historyData == "home") {
+        showResult("");
+        // If not one of these, loads appropriate food page
+      } else if (historyData.value1 != "undefined"){
+        searchScroll(historyData.value1);
+        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+      }
     }
   }
 
