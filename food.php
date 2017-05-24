@@ -22,7 +22,7 @@ $food = $_GET['f'];
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
     <div id="recipes" class="text-left collapse">
-      <div id=recipeText></div>
+      <div id="recipeText"></div>
     </div>
   </div>
   <!-- Redirection for further info on food state -->
@@ -131,16 +131,21 @@ $food = $_GET['f'];
 
     var counter;
     for(counter = 0; counter < 4; counter++){
-      if(counter%2 == 0){
-        recipeText.innerHTML += "<div class =\"row\">";
+
+
+      var count;
+      var string = "";
+      for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
+        string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
       }
-      if(counter%2 != 0){
-        recipeText.innerHTML += "<\/div>";
-      }
+
       var recLab = JSON.stringify(obj.hits[counter].recipe.label);
       recLab = recLab.replace(/\"/g, "");
-      recipeText.innerHTML += "<div class=\"col-xs-6 recArea\"><img class=\"padding-sm img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img>" + "<p class=\"recipeTitle padding-xs\">" + recLab + "<\/p><\/div>";
+      recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
+
+      recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"recipeBody\">" + string+ "<\/div><\/div><\/div><\/div>";
     }
+    recipeText.innerHTML += "<\/div>";
   }
 
   //This creates a node in foods, and then uses a for each to find each key
