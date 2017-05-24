@@ -2,7 +2,7 @@
 <!--Contains info text-->
 <div class="container-fluid">
   <div class="text-center">
-    <h4>Why food waste matters</h4>
+    <h3 class="title">Why food waste matters</h3>
   </div>
   <div>
     <div class="aboutText">
@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="text-center">
-    <h4>How are we trying to help?</h4>
+    <h3 class="title">How are we trying to help?</h3>
   </div>
   <div class="aboutText">
     <p>Most overripe or wilted produce can still be used in a variety of recipes, but are thrown out because they don’t look good enough.</p>

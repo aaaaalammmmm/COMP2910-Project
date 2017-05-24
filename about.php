@@ -2,7 +2,7 @@
 <!--Contains about text-->
 <div class="container">
   <div class="text-center">
-    <h4><b>About Us</b></h4>
+    <h3 class="title">About Us</h3>
   </div>
   <div class="aboutUs">
     <div class="aboutText">

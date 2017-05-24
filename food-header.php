@@ -33,7 +33,7 @@
   var rootRef = database.ref("food");
   </script>
   <script type="text/javascript">
-  $(document).ready(function() {
+  $(document).ready(function() {222
     $("body").fadeIn(500);
 
     $("a.transition").click(function(event){
@@ -46,6 +46,7 @@
       window.location = linkLocation;
     }
   });
+
   </script>
   <!-- The following script tags are for the ajax history for our back button -->
   <script type="text/javascript" src="js/json2005.js"></script>
@@ -79,6 +80,7 @@
     dhtmlHistory.initialize();
     dhtmlHistory.addListener(yourListener);
   };
+
   </script>
 </head>
 <body class="bg-primary" id="main">

@@ -9,10 +9,14 @@ function showResult(food) {
   //   - Calls the resetBtn function
   //   - Returns to caller
   if (food.length==0) {
+<<<<<<< HEAD
+=======
+    searchScroll("");
+>>>>>>> master
     foodLoad("","");
     searchScroll("");
     //resizeBtn("");
-    resetBtn();
+    //resetBtn();
     return;
   }
   //For easter egg lol
@@ -63,7 +67,6 @@ function showResult(food) {
   xmlhttp.open("GET","livesearch.php?q="+food,true);
   xmlhttp.send();
 }
-
 // Live loads a php page in the element with the 'livesearch' id and clears the
 // search bar with the 'search-box' id. If the page to load is one of the all<food>
 // pages, highlights the correct button.
@@ -72,13 +75,10 @@ function showResult(food) {
 function load(str) {
   // Sets search bar to empty
   document.getElementById("search-box").value = "";
-  // Sets search hints to empty and removes the border
-  document.getElementById("search-hints").value = "";
-  document.getElementById("search-hints").style.border = "0px";
-  //Ensures the search bar and hints are blank
-  foodLoad("","");
   // Loads the 'str' page in the 'livesearch' div
   $("#livesearch").load(str+'.php');
+  //Ensures the search bar and hints are blank
+  foodLoad(""," ");
   // Checks the 'str' parameter against pre-determined strings
   //  - If fruit
   if (str == "allFruits") {
@@ -152,14 +152,18 @@ function foodLoad(food,type) {
 
     // If both parameters are empty:
     //   - Set 'livesearch' div to empty
+  } else if (type == " ") {
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+    //Resizes the buttons to the footer version and back
+    resizeBtn(food);
   } else {
     $("#livesearch").innerHTML = "";
     //  - Sets search hitns to empty and removes the border
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
   }
-  //Resizes the buttons to the footer version and back
-  resizeBtn(food);
 }
 
 
@@ -218,7 +222,7 @@ function resizeBtn(str) {
       load(str);
     }
     // Checks if the 'livesearch' div is NOT EMPTY
-    if(document.getElementById("livesearch").innerHTML != "") {
+    if(document.getElementById("livesearch").innerHTML != "" || str != "") {
       // - If large buttons are NOT hidden
       if (!document.getElementById("large-btn").classList.contains("hidden")){
         //  - Hides the large buttons (entire screen width)
@@ -240,6 +244,34 @@ function resizeBtn(str) {
         document.getElementById("small-btn").classList.toggle("hidden");
       }
     }
+<<<<<<< HEAD
+=======
+  } else {
+    // Checks if the 'livesearch' div is NOT EMPTY
+    if(document.getElementById("livesearch").innerHTML != "" || str== "") {
+      // - If large buttons are NOT hidden
+      if (!document.getElementById("large-btn").classList.contains("hidden")){
+        //  - Hides the large buttons (entire screen width)
+        document.getElementById("large-btn").classList.add("hidden");
+      }
+      // - If small buttons ARE hidden
+      if (document.getElementById("small-btn").classList.contains("hidden")) {
+        //  - Shows the small buttons (three accross the bottom)
+        document.getElementById("small-btn").classList.remove("hidden");
+      }
+      // If 'livesearch' div IS EMPTY
+    } else {
+      //  - If large buttons are hidden, make them visible
+      if (document.getElementById("large-btn").classList.contains("hidden")) {
+        document.getElementById("large-btn").classList.toggle("hidden");
+      }
+      alert("josh");
+      //  - If small buttons are NOT hidden, hide them
+      if (!document.getElementById("small-btn").classList.contains("hidden")) {
+        document.getElementById("small-btn").classList.toggle("hidden");
+      }
+    }
+>>>>>>> master
   }
 }
 
