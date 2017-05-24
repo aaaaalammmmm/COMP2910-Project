@@ -21,7 +21,9 @@ $food = $_GET['f'];
   </div>
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
-    <div id="recipes" class="text-left collapse"></div>
+    <div id="recipes" class="text-left collapse">
+      <div id=recipeText></div>
+    </div>
   </div>
   <!-- Redirection for further info on food state -->
   <div id="ripeness" class="btn-group-justified">
@@ -47,7 +49,6 @@ $food = $_GET['f'];
       }?>
     </div>
   </div>
-  <div class="padding-sm"></div>
   <script>
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
@@ -102,7 +103,7 @@ $food = $_GET['f'];
       //Assign the string as inner html to the storage div
       storageDiv.innerHTML = snapshot.child("storage").val();
       //Assign the string as inner html to the recipes div
-      recipesDiv.innerHTML = snapshot.child("recipes").val();
+      getRecipes(snapshot);
     });
     //This highlights and de-highlight the states depending on which
     //state is focused
@@ -116,6 +117,32 @@ $food = $_GET['f'];
     dhtmlHistory.add(food,foodHistory);
   }
 
+  function getRecipes(snapshot){
+    jsonhttp = new XMLHttpRequest();
+    var url = snapshot.child("recipes").val();
+
+    jsonhttp.open("GET", url, false);
+    jsonhttp.send();
+
+    var jsonString = jsonhttp.responseText;
+    var obj = JSON.parse(jsonString);
+
+    recipeText.innerHTML = "";
+
+    var counter;
+    for(counter = 0; counter < 4; counter++){
+      if(counter%2 == 0){
+        recipeText.innerHTML += "<div class =\"row\">";
+      }
+      if(counter%2 != 0){
+        recipeText.innerHTML += "<\/div>";
+      }
+      var recLab = JSON.stringify(obj.hits[counter].recipe.label);
+      recLab = recLab.replace(/\"/g, "");
+      recipeText.innerHTML += "<div class=\"col-xs-6 recArea\"><img class=\"padding-sm img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img>" + "<p class=\"recipeTitle padding-xs\">" + recLab + "<\/p><\/div>";
+    }
+  }
+
   //This creates a node in foods, and then uses a for each to find each key
   //of the parent node and then assigns them to an array.
   function foodKeyArray() {
@@ -123,12 +150,12 @@ $food = $_GET['f'];
     var food      = rootRef.child(type);
 
     food.once("value")
-      .then(function(snapshot) {
-        //the forEach function enumerates and iterates
-        //through all the child nodes of the parent
-        snapshot.forEach(function(childSnapshot) {
-          //Add to foodArray
-          foodArray.push(childSnapshot.key);
+    .then(function(snapshot) {
+      //the forEach function enumerates and iterates
+      //through all the child nodes of the parent
+      snapshot.forEach(function(childSnapshot) {
+        //Add to foodArray
+        foodArray.push(childSnapshot.key);
       });
     });
 

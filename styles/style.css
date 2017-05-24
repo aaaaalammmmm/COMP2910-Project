@@ -355,6 +355,7 @@ hr {
 h1, h2, h3, h4, h5 {
   font-family: 'Philosopher', sans-serif;
   font-weight: bold;
+  margin: auto;
 }
 
 .title {
@@ -366,4 +367,37 @@ h1, h2, h3, h4, h5 {
 .btn-group-justified {
   background-color: inherit;
 
+}
+
+.recImg {
+  max-height: 130px;
+  width: auto;
+}
+
+#recipeText {
+  margin: auto;
+  text-align: center;
+}
+
+.recipeTitle {
+  max-width: 80%;
+  height: auto;
+  margin: auto;
+}
+
+.recipeTitle p {
+  margin: auto;
+}
+
+@media screen and (max-width: 375px) {
+  .recImg {
+    max-height: 80px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 700px){
+  #recipeText {
+    max-width: 60%;
+  }
 }
