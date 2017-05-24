@@ -40,6 +40,42 @@
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
+  <!-- The following script tags are for the ajax history for our back button -->
+  <script type="text/javascript" src="js/json2005.js"></script>
+  <script type="text/javascript" src="js/rsh.compressed.js"></script>
+
+  <script type="text/javascript">
+  window.dhtmlHistory.create({
+    toJSON: function(o) {
+      return JSON.stringify(o);
+    }
+    , fromJSON: function(s) {
+      return JSON.parse(s);
+    }
+  });
+
+  // Creates a listener for page load functions
+  var yourListener = function(newLocation, historyData) {
+    if (historyData != null) {
+      // Checks all <food> page values and loads corresponding page
+      if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+        resizeBtn(historyData);
+        // Checks 'home' value and loads main page
+      } else if (historyData == "home") {
+        showResult("");
+        // If not one of these, loads appropriate food page
+      } else if (historyData.value1 != "undefined"){
+        searchScroll(historyData.value1);
+        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+      }
+    }
+  }
+
+  window.onload = function() {
+    dhtmlHistory.initialize();
+    dhtmlHistory.addListener(yourListener);
+  };
+  </script>
   <script type="text/javascript">
   $(document).ready(function() {
     $("body").fadeIn(750);
