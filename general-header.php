@@ -18,6 +18,8 @@
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
   <script>
+  // Enables history
+  $(document).pjax('a', '#pjax-container');
   //Configurations for the firebase initialization
   var config = {
     apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
