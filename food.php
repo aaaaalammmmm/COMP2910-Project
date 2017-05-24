@@ -21,8 +21,10 @@ $food = $_GET['f'];
     </div>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#recipes" data-target="#recipes">Recipes</button>
-    <div id="recipes" class="text-left collapse"></div>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <div id="recipes" class="text-left collapse">
+      <div id="recipeText"></div>
+    </div>
   </div>
   <!-- Redirection for further info on food state -->
   <div id="ripeness" class="btn-group-justified">
@@ -152,7 +154,7 @@ $food = $_GET['f'];
       //Assign the string as inner html to the storage div
       storageDiv.innerHTML = snapshot.child("storage").val();
       //Assign the string as inner html to the recipes div
-      recipesDiv.innerHTML = snapshot.child("recipes").val();
+      getRecipes(snapshot);
     });
 
 
@@ -170,7 +172,36 @@ $food = $_GET['f'];
     dhtmlHistory.add(food,foodHistory);
   }
 
+  function getRecipes(snapshot){
+    jsonhttp = new XMLHttpRequest();
+    var url = snapshot.child("recipes").val();
 
+    jsonhttp.open("GET", url, false);
+    jsonhttp.send();
+
+    var jsonString = jsonhttp.responseText;
+    var obj = JSON.parse(jsonString);
+
+    recipeText.innerHTML = "";
+
+    var counter;
+    for(counter = 0; counter < 4; counter++){
+
+
+      var count;
+      var string = "";
+      for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
+        string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
+      }
+
+      var recLab = JSON.stringify(obj.hits[counter].recipe.label);
+      recLab = recLab.replace(/\"/g, "");
+      recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
+
+      recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"recipeBody\">" + string+ "<\/div><\/div><\/div><\/div>";
+    }
+    recipeText.innerHTML += "<\/div>";
+  }
 
   //This creates a node in foods, and then uses a for each to find each key
   //of the parent node and then assigns them to an array.

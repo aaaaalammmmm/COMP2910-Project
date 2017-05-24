@@ -11,6 +11,11 @@
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Patua+One');
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <!--The bottom two script tags are for the firebase database to function on our app-->
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
