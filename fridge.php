@@ -32,6 +32,7 @@
   $(document).ready(function(e) {
       $('img[usemap]').rwdImageMaps();
   });
+  console.log(database);
 </script>
 
 <?php
