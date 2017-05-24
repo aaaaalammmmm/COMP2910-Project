@@ -366,3 +366,13 @@ h1, h2, h3, h4, h5 {
 .btn-group-justified {
   background-color: inherit;
 }
+
+.modal {
+  top: 40% !important;
+}
+
+.glyphicon-share {
+  float:right;
+  right: 5%;
+  font-size: 2em;
+}

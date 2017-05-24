@@ -25,6 +25,7 @@ $food = $_GET['f'];
   </div>
   <!-- Redirection for further info on food state -->
   <div id="ripeness" class="btn-group-justified">
+
     <div class="btn-group">
       <?php if($food === "bread") {
         echo "<button type='button' class='btn padding-xs state-button btn-highlight' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
@@ -46,8 +47,30 @@ $food = $_GET['f'];
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
       }?>
     </div>
+    <!-- Left & centered positioning -->
   </div>
   <div class="padding-sm"></div>
+  <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
+  <div id="share" role="dialog" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-title">
+          <br/>
+          <p>Share with your friends!</p>
+        </div>
+      <div class="modal-body">
+        <a href="" class="ssk ssk-facebook"></a>
+        <a href="" class="ssk ssk-twitter"></a>
+        <a href="" class="ssk ssk-pinterest"></a>
+      </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
   <script>
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
