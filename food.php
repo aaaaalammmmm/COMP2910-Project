@@ -27,9 +27,9 @@ $food = $_GET['f'];
   <div id="ripeness" class="btn-group-justified">
     <div class="btn-group">
       <?php if($food === "bread") {
-        echo "<button type='button' class='btn padding-xs state-button' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
+        echo "<button type='button' class='btn padding-xs state-button btn-highlight' id='fresh' onclick='foodInformation(\"fresh\")'>Fresh</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button' id='raw' onclick='foodInformation(\"raw\")'>Raw</button>";
+        echo "<button type='button' class='btn padding-xs state-button btn-highlight' id='raw' onclick='foodInformation(\"raw\")'>Raw</button>";
       } else {
         echo "<button type='button' class='btn padding-xs state-button' id=underripe onclick='foodInformation(\"underripe\")'>Underripe</button>";
       }?>
@@ -41,7 +41,7 @@ $food = $_GET['f'];
       <?php if($food === "bread") {
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"stale\")'>Stale</button>";
       } else if($type === "grains"){
-        echo "<button type='button' class='btn padding-xs state-button btn-highlight' onclick='foodInformation(\"cooked\")'>Cooked</button>";
+        echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"cooked\")'>Cooked</button>";
       }else{
         echo "<button type='button' class='btn padding-xs state-button' onclick='foodInformation(\"overripe\")'>Overripe</button>";
       }?>
@@ -81,16 +81,18 @@ $food = $_GET['f'];
   //and then assigns it to the storage div
   function foodInformation(state) {
     //This changes the main image icon
-    if (state === "ripe" || state === "fresh" || state === "stale") {
+    if (state === "ripe" || state === "fresh") {
       image.src = "<?php echo "images/".$food.".png"; ?>";
     } else if (state === "raw") {
-      image.src = "<?php echo "images/".$food."-R.png"; ?>";
+      image.src = "<?php echo 'images/'.$food.'-R.png'; ?>";
     } else if (state === "cooked") {
       image.src = "<?php echo "images/".$food."-C.png"; ?>";
     } else if (state === "underripe") {
       image.src = "<?php echo "images/".$food."-UR.png"; ?>";
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
+    } else if (state === "stale") {
+      image.src = "<?php echo "images/".$food."-S.png"; ?>";
     }
 
     //Go to the child node containing the state for the food item
@@ -123,12 +125,12 @@ $food = $_GET['f'];
     var food      = rootRef.child(type);
 
     food.once("value")
-      .then(function(snapshot) {
-        //the forEach function enumerates and iterates
-        //through all the child nodes of the parent
-        snapshot.forEach(function(childSnapshot) {
-          //Add to foodArray
-          foodArray.push(childSnapshot.key);
+    .then(function(snapshot) {
+      //the forEach function enumerates and iterates
+      //through all the child nodes of the parent
+      snapshot.forEach(function(childSnapshot) {
+        //Add to foodArray
+        foodArray.push(childSnapshot.key);
       });
     });
 

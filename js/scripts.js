@@ -3,16 +3,14 @@
 // Calls the livesearch.php page to get the hint text to display
 function showResult(food) {
   // If 'food' parameter has length 0 do the following:
-  //   - Set hints to empty
-  //   - Set livesearch div to empty
-  //   - Autoscrolls back to the top of page (searchScroll function)
   //   - Forces the livesearch to reload empty (foodLoad function with empty parameters)
+  //   - Autoscrolls back to the top of page (searchScroll function)
   //   - Calls the resizeBtn function with empty string
   //   - Calls the resetBtn function
   //   - Returns to caller
   if (food.length==0) {
-    searchScroll("");
     foodLoad("","");
+    searchScroll("");
     //resizeBtn("");
     //resetBtn();
     return;
@@ -261,7 +259,6 @@ function resizeBtn(str) {
       if (document.getElementById("large-btn").classList.contains("hidden")) {
         document.getElementById("large-btn").classList.toggle("hidden");
       }
-      alert("josh");
       //  - If small buttons are NOT hidden, hide them
       if (!document.getElementById("small-btn").classList.contains("hidden")) {
         document.getElementById("small-btn").classList.toggle("hidden");
@@ -302,18 +299,6 @@ function resetBtn() {
   // Checks if Grain button is highlighted, removes highlight
   if(document.getElementById("grain-btn").classList.contains("btn-highlight")) {
     document.getElementById("grain-btn").classList.toggle("btn-highlight");
-  }
-}
-
-// Goes back to the all<food> page from a stand alone food page
-function goBack(str) {
-  // Liveloads an all<food> page depending on the parameter passed in
-  if (str == "fruit"){
-    location.href ="index.php?f=f" ;
-  } else if (str == "vegetable") {
-    location.href ="index.php?f=v";
-  } else if (str == "grains") {
-    location.href ="index.php?f=g";
   }
 }
 

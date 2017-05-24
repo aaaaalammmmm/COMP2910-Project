@@ -80,7 +80,7 @@
     dhtmlHistory.initialize();
     dhtmlHistory.addListener(yourListener);
   };
-    
+
   </script>
 </head>
 <body class="bg-primary" id="main">
