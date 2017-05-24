@@ -9,7 +9,6 @@
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/social-share-kit.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.pjax.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
   <style>
@@ -21,8 +20,6 @@
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
   <script>
-  // Enables history
-  $(document).pjax('a', '#pjax-container');
   //Configurations for the firebase initialization
   var config = {
     apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
@@ -57,6 +54,42 @@
       window.location = linkLocation;
     }
   });
+
+  </script>
+  <!-- The following script tags are for the ajax history for our back button -->
+  <script type="text/javascript" src="js/json2005.js"></script>
+  <script type="text/javascript" src="js/rsh.compressed.js"></script>
+  <script type="text/javascript">
+  window.dhtmlHistory.create({
+    toJSON: function(o) {
+      return JSON.stringify(o);
+    }
+    , fromJSON: function(s) {
+      return JSON.parse(s);
+    }
+  });
+
+  // Creates a listener for page load functions
+  var yourListener = function(newLocation, historyData) {
+    if (historyData != null) {
+      // Checks all <food> page values and loads corresponding page
+      if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
+        resizeBtn(historyData);
+        // Checks 'home' value and loads main page
+      } else if (historyData == "home") {
+        showResult("");
+        // If not one of these, loads appropriate food page
+      } else if (historyData.value1 != "undefined"){
+        searchScroll(historyData.value1);
+        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
+      }
+    }
+  }
+
+  window.onload = function() {
+    dhtmlHistory.initialize();
+    dhtmlHistory.addListener(yourListener);
+  };
 
   </script>
 </head>
