@@ -9,6 +9,7 @@ if (!isset($type)) {
 $food = $_GET['f'];
 ?>
 <div id="main-content" class="text-center">
+  <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <h3><?php echo ucfirst($food);?></h3>
   <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
@@ -34,7 +35,6 @@ $food = $_GET['f'];
     <!-- Left & centered positioning -->
   </div>
   <div class="padding-sm"></div>
-  <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <div id="share" role="dialog" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -195,7 +195,7 @@ $food = $_GET['f'];
 
   //Navigate to the next food item
   function nextFood() {
-    for(let i = 0; i < foodArray.length; i++) {
+    for(var i = 0; i < foodArray.length; i++) {
       if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
         pageLoad(foodArray[0], type);
       } else if (foodArray[i] === food) {
@@ -208,7 +208,7 @@ $food = $_GET['f'];
 
   //Navigate to the previous food item
   function prevFood() {
-    for(let i = 0; i < foodArray.length; i++) {
+    for(var i = 0; i < foodArray.length; i++) {
       if ((foodArray[i] === food) && (i == 0)) {
         pageLoad(foodArray[foodArray.length - 1], type);
       } else if (foodArray[i] === food) {
