@@ -9,10 +9,11 @@ function showResult(food) {
   //   - Calls the resetBtn function
   //   - Returns to caller
   if (food.length==0) {
+    alert("weird");
     foodLoad("","");
     searchScroll("");
-    //resizeBtn("");
-    //resetBtn();
+    resizeBtn("");
+    resetBtn();
     return;
   }
   //For easter egg lol
@@ -155,7 +156,8 @@ function foodLoad(food,type) {
     //Resizes the buttons to the footer version and back
     resizeBtn(food);
   } else {
-    $("#livesearch").innerHTML = "";
+    alert("hi");
+    document.getElementById("livesearch").innerHTML="";
     //  - Sets search hitns to empty and removes the border
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";

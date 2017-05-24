@@ -3,6 +3,7 @@
 <head>
   <title>Use-It-Up</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link href="styles/bootstrap.min.css" rel="stylesheet" media="screen" />
   <link href="styles/social-share-kit.css" rel="stylesheet" media="screen">
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
@@ -61,7 +62,7 @@
     } else if (historyData == "home") {
       showResult("");
       // If not one of these, loads appropriate food page
-    } else {
+    } else if (historyData.value1 != null){
       searchScroll(historyData.value1);
       $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
     }
