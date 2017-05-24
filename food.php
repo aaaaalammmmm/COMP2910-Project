@@ -11,9 +11,9 @@ $food = $_GET['f'];
 <div id="main-content" class="text-center">
   <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <h3><?php echo ucfirst($food);?></h3>
-  <span class="glyphicon glyphicon-chevron-left" onclick="prevFood()"></span>
-  <img id="image" src=<?php if($food == "bread"){ echo "images/".$food.".png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-  <span class="glyphicon glyphicon-chevron-right" onclick="nextFood()"></span>
+  <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
+  <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
+  <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage">Storage</button>
     <div class="storageText">
