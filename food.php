@@ -91,7 +91,7 @@ $food = $_GET['f'];
 
     return stateArray;
   }
-  
+
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons() {
@@ -107,13 +107,13 @@ $food = $_GET['f'];
         $("#button2").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
       } else if (stateArray.length === 3) {
         foodInformation(stateArray[1]);
-        $("#button1").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[2] + "' onclick='foodInformation(\"" + stateArray[2] + "\")'>" + stateArray[2] + "</button>"); 
+        $("#button1").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[2] + "' onclick='foodInformation(\"" + stateArray[2] + "\")'>" + stateArray[2] + "</button>");
         $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
         $("#button3").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
       }
     }, 2000);
   }
-  
+
   //This stores a pointer to all info about bananas
   var foodInfo = rootRef.child(type + "/" + food);
   //This creates a pointer to the food item storage div
@@ -123,8 +123,8 @@ $food = $_GET['f'];
   //This creates a pointer to main image element
   var image = document.getElementById("image");
 
-  
-  
+
+
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
@@ -142,7 +142,7 @@ $food = $_GET['f'];
     } else if (state === "stale") {
       image.src = "<?php echo "images/".$food."-S.png"; ?>";
     }
- 
+
     //Go to the child node containing the state for the food item
     var stateInfo = foodInfo.child(state);
 
@@ -154,9 +154,9 @@ $food = $_GET['f'];
       //Assign the string as inner html to the recipes div
       recipesDiv.innerHTML = snapshot.child("recipes").val();
     });
-    
-    
-    
+
+
+
     //This highlights and de-highlight the states depending on which
     //state is focused
     $("div.btn-group-justified").on("click","div.btn-group button", function(){
@@ -170,8 +170,8 @@ $food = $_GET['f'];
     dhtmlHistory.add(food,foodHistory);
   }
 
-  
-  
+
+
   //This creates a node in foods, and then uses a for each to find each key
   //of the parent node and then assigns them to an array.
   function foodKeyArray() {
@@ -191,11 +191,11 @@ $food = $_GET['f'];
     return foodArray;
   }
 
-  
-  
+
+
   //Navigate to the next food item
   function nextFood() {
-    for(let i = 0; i < foodArray.length; i++) {
+    for(var i = 0; i < foodArray.length; i++) {
       if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
         pageLoad(foodArray[0], type);
       } else if (foodArray[i] === food) {
@@ -204,11 +204,11 @@ $food = $_GET['f'];
     }
   }
 
-  
-  
+
+
   //Navigate to the previous food item
   function prevFood() {
-    for(let i = 0; i < foodArray.length; i++) {
+    for(var i = 0; i < foodArray.length; i++) {
       if ((foodArray[i] === food) && (i == 0)) {
         pageLoad(foodArray[foodArray.length - 1], type);
       } else if (foodArray[i] === food) {
@@ -217,7 +217,7 @@ $food = $_GET['f'];
     }
   }
 
-  
+
   onload = setButtons();
 
   //Tests for a standAlone page; if true, makes ripeness buttons into a footer
