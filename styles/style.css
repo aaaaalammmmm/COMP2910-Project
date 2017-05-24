@@ -148,7 +148,7 @@ body.textPages {
 
 /*Text formatting for about, info, and affiliates page*/
 .aboutText {
-  font-size: 12px;
+  font-size: 16px;
   text-align: justify;
   margin: auto;
 }
@@ -157,7 +157,7 @@ body.textPages {
 @media screen and (min-width: 300px) {
   .aboutText {
     width: 100%;
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
