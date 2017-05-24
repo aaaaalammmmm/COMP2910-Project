@@ -8,7 +8,7 @@ if (!isset($type)) {
 }
 $food = $_GET['f'];
 ?>
-<div class="text-center">
+<div id="main-content" class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
   <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food.".png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
