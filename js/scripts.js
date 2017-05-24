@@ -42,6 +42,7 @@ function showResult(food) {
     if (this.readyState==4 && this.status==200) {
       //   - Sets text received from php file to a variable
       var response = this.responseText;
+      alert(response);
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {
