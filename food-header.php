@@ -3,6 +3,7 @@
 <head>
   <title>Use-It-Up</title>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="http://example.com/favicon.ico" />
   <link href="styles/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="styles/social-share-kit.css" rel="stylesheet" media="screen">
   <link href="styles/style.css" rel="stylesheet" type="text/css" />

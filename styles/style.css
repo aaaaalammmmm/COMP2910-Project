@@ -348,7 +348,7 @@ hr {
 
 /*Used to manage the floats*/
 .clearfix {
-    *zoom:1
+    *zoom:1;
 }
 
 /*setting headings to the same font as body*/
