@@ -81,7 +81,7 @@ $food = $_GET['f'];
   //and then assigns it to the storage div
   function foodInformation(state) {
     //This changes the main image icon
-    if (state === "ripe" || state === "fresh" || state === "stale") {
+    if (state === "ripe" || state === "fresh") {
       image.src = "<?php echo "images/".$food.".png"; ?>";
     } else if (state === "raw") {
       image.src = "<?php echo "images/".$food."-R.png"; ?>";
@@ -91,6 +91,8 @@ $food = $_GET['f'];
       image.src = "<?php echo "images/".$food."-UR.png"; ?>";
     } else if (state === "overripe") {
       image.src = "<?php echo "images/".$food."-OR.png"; ?>";
+    } else if (state === "stale") {
+      image.src = "<?php echo "images/".$food."-S.png"; ?>";
     }
 
     //Go to the child node containing the state for the food item

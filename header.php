@@ -55,8 +55,8 @@
     // Checks all <food> page values and loads corresponding page
     if (historyData == "allFruits" || historyData == "allVeggies" || historyData == "allGrains") {
       resizeBtn(historyData);
-      // Checks null value and loads main page
-    } else if (historyData == null) {
+      // Checks 'home' value and loads main page
+    } else if (historyData == "home") {
       showResult("");
       // If not one of these, loads appropriate food page
     } else {

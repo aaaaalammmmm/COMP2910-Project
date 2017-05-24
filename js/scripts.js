@@ -3,19 +3,14 @@
 // Calls the livesearch.php page to get the hint text to display
 function showResult(food) {
   // If 'food' parameter has length 0 do the following:
-  //   - Set hints to empty
-  //   - Set livesearch div to empty
-  //   - Autoscrolls back to the top of page (searchScroll function)
   //   - Forces the livesearch to reload empty (foodLoad function with empty parameters)
+  //   - Autoscrolls back to the top of page (searchScroll function)
   //   - Calls the resizeBtn function with empty string
   //   - Calls the resetBtn function
   //   - Returns to caller
   if (food.length==0) {
-    document.getElementById("search-hints").innerHTML="";
-    document.getElementById("search-hints").style.border="0px";
-    document.getElementById("livesearch").innerHTML="";
-    searchScroll("");
     foodLoad("","");
+    searchScroll("");
     //resizeBtn("");
     resetBtn();
     return;
@@ -245,30 +240,6 @@ function resizeBtn(str) {
         document.getElementById("small-btn").classList.toggle("hidden");
       }
     }
-  } else {
-    // Checks if the 'livesearch' div is NOT EMPTY
-    if(document.getElementById("livesearch").innerHTML != "") {
-      // - If large buttons are NOT hidden
-      if (!document.getElementById("large-btn").classList.contains("hidden")){
-        //  - Hides the large buttons (entire screen width)
-        document.getElementById("large-btn").classList.toggle("hidden");
-      }
-      // - If small buttons ARE hidden
-      if (document.getElementById("small-btn").classList.contains("hidden")) {
-        //  - Shows the small buttons (three accross the bottom)
-        document.getElementById("small-btn").classList.toggle("hidden");
-      }
-      // If 'livesearch' div IS EMPTY
-    } else {
-      //  - If large buttons are hidden, make them visible
-      if (document.getElementById("large-btn").classList.contains("hidden")) {
-        document.getElementById("large-btn").classList.toggle("hidden");
-      }
-      //  - If small buttons are NOT hidden, hide them
-      if (!document.getElementById("small-btn").classList.contains("hidden")) {
-        document.getElementById("small-btn").classList.toggle("hidden");
-      }
-    }
   }
 }
 
@@ -304,18 +275,6 @@ function resetBtn() {
   // Checks if Grain button is highlighted, removes highlight
   if(document.getElementById("grain-btn").classList.contains("btn-highlight")) {
     document.getElementById("grain-btn").classList.toggle("btn-highlight");
-  }
-}
-
-// Goes back to the all<food> page from a stand alone food page
-function goBack(str) {
-  // Liveloads an all<food> page depending on the parameter passed in
-  if (str == "fruit"){
-    location.href ="index.php?f=f" ;
-  } else if (str == "vegetable") {
-    location.href ="index.php?f=v";
-  } else if (str == "grains") {
-    location.href ="index.php?f=g";
   }
 }
 
