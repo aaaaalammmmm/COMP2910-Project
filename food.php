@@ -10,22 +10,24 @@ $food = $_GET['f'];
 ?>
 <div id="main-content" class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
-  <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
+  <div>
+    <span class="glyphicon glyphicon-chevron-left" onclick="prevFood();"></span>
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-  <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
+    <span class="glyphicon glyphicon-chevron-right" onclick="nextFood();"></span>
+  </div>
   <div>
     <span onclick="" data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
     <br/>
     <br/>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage">Storage</button>
+    <button class="btn mobile-button accordion-toggle collapsed accBut" data-toggle="collapse" data-target="#storage" onclick="autoScroll(this)">Storage</button>
     <div class="storageText">
-      <div id="storage" class="text-left collapse "></div>
+      <div id="storage" class="text-left collapse"></div>
     </div>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <button class="btn mobile-button accordion-toggle collapsed accBut" data-toggle="collapse" data-target="#recipes" onclick="autoScroll(this)">Recipes</button>
     <div id="recipes" class="text-left collapse">
       <div id="recipeText"></div>
     </div>
@@ -104,7 +106,12 @@ $food = $_GET['f'];
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons(stateArray) {
-      if (stateArray.length === 2) {
+      if (stateArray.length === 1) {
+        $("#button1").remove();
+        $("#button3").remove();
+        foodInformation(stateArray[0]);
+        $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
+      } else if (stateArray.length === 2) {
         $("#button3").remove();
         foodInformation(stateArray[1]);
         $("#button1").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
@@ -150,7 +157,6 @@ $food = $_GET['f'];
     });
     
 
-    
     //This highlights and de-highlight the states depending on which
     //state is focused
     $("div.btn-group-justified").on("click","div.btn-group button", function(){
@@ -161,46 +167,50 @@ $food = $_GET['f'];
 
   //get the recipe link from firebase and populate recipes
   function getRecipes(stateSnap) {
-    //variable for the request
-    jsonhttp = new XMLHttpRequest();
-    var url = stateSnap.recipes;   
-        
-    //oepn the request
-    jsonhttp.open("GET", url, false);
-    jsonhttp.send();
-    //parsing the string to remove quotes
-    var jsonString = jsonhttp.responseText;
-    var obj = JSON.parse(jsonString);
-    //clearing the inner html
-    recipeText.innerHTML = "";
+    try {
+      //variable for the request
+      jsonhttp = new XMLHttpRequest();
+      var url = stateSnap.recipes;   
 
-    var counter;
-    //loops through 4 recipes in the current food
-    for(counter = 0; counter < 4; counter++){
-      var count;
-      var string = "";
-      var recFoot = "";
-      //adds the recipes for a food into a string variable
-      for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
-        string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
+      //oepn the request
+      jsonhttp.open("GET", url, false);
+      jsonhttp.send();
+      //parsing the string to remove quotes
+      var jsonString = jsonhttp.responseText;
+      var obj = JSON.parse(jsonString);
+      //clearing the inner html
+      recipeText.innerHTML = "";
+
+      var counter;
+      //loops through 4 recipes in the current food
+      for(counter = 0; counter < 4; counter++){
+        var count;
+        var string = "";
+        var recFoot = "";
+        //adds the recipes for a food into a string variable
+        for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
+          string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
+        }
+        recFoot += "<p><h5>Source: <\/h5>" + obj.hits[counter].recipe.source + "<\/p>";
+        recFoot += "<p><h5>Serves: <\/h5>" + obj.hits[counter].recipe.yield + "<\/p>";
+
+        //puts all the labels for eahc recipe into a sting,
+        var recLab = JSON.stringify(obj.hits[counter].recipe.label);
+        //removes quotes
+        recLab = recLab.replace(/\"/g, "");
+
+        //inserts inner html to populate images for the recipes and buttons
+        recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-backdrop=\"true\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
+
+        //inserts inner html to populate modal code
+        recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"modal-body\">" + string + "<\/div><div class=\"modal-footer recFooter\">" + recFoot + "<\/div><\/div><\/div><\/div>";
       }
-
-      recFoot += "<p><h5>Source: <\/h5>" + obj.hits[counter].recipe.source + "<\/p>";
-      recFoot += "<p><h5>Serves: <\/h5>" + obj.hits[counter].recipe.yield + "<\/p>";
-
-      //puts all the labels for eahc recipe into a sting,
-      var recLab = JSON.stringify(obj.hits[counter].recipe.label);
-      //removes quotes
-      recLab = recLab.replace(/\"/g, "");
-
-      //inserts inner html to populate images for the recipes and buttons
-      recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-backdrop=\"true\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
-
-      //inserts inner html to populate modal code
-      recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"modal-body\">" + string + "<\/div><div class=\"modal-footer recFooter\">" + recFoot + "<\/div><\/div><\/div><\/div>";
+      //closes the recipeText div
+      recipeText.innerHTML += "<\/div>";
+    } catch(err) {
+      //inserts recipe text for the easter eggs
+      recipesDiv.innerHTML = snapshot.child("recipes").val();;
     }
-    //closes the recipeText div
-    recipeText.innerHTML += "<\/div>";
   }
 
   //This creates a node in foods, and then uses a for each to find each key

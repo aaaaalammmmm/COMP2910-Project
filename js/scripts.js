@@ -441,6 +441,19 @@ function searchScroll(str) {
   }
 }
 
+function autoScroll(element){
+  var target = element.getAttribute("data-target");
+  $(checkForChanges);
+
+  function checkForChanges() {
+    if ($(target).hasClass('in')) {
+      element.scrollIntoView(true);
+    } else {
+      setTimeout(checkForChanges, 50);
+    }
+  }
+}
+
 // Resets the category buttons upon searching
 function resetBtn() {
   // Checks if Fruit button is highlighted, removes highlight
