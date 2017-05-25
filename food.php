@@ -66,15 +66,21 @@ $food = $_GET['f'];
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
 
-  //Stores the child keys of the food node
-  var foodArray = foodKeyArray();
+  //This stores a pointer to all info about bananas
+  var foodInfo = database.ref("food/" + type + "/" + food);
+  //This creates a pointer to the food item storage div
+  var storageDiv = document.getElementById("storage");
+  //This creates a pointer to the food item recipes div
+  var recipesDiv = document.getElementById("recipes");
+  //This creates a pointer to main image element
+  var image = document.getElementById("image");
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
   function stateKeyArray() {
     var stateArray = new Array();
 
-    var promise =    foodInfo.once("value")
+    var promise = foodInfo.once("value")
       .then(function(snapshot) {
         //the forEach function enumerates and iterates
         //through all the child nodes of the parent
@@ -99,8 +105,6 @@ $food = $_GET['f'];
   //exists in Firebase
   function setButtons(stateArray) {
     setTimeout(function () {
-      console.log(stateArray);
-      console.log(stateArray.length);
       if (stateArray.length === 2) {
         $("#button3").remove();
         foodInformation(stateArray[1]);
@@ -114,16 +118,6 @@ $food = $_GET['f'];
       }
     }, 750);
   }
-
-  //This stores a pointer to all info about bananas
-  var foodInfo = rootRef.child(type + "/" + food);
-  //This creates a pointer to the food item storage div
-  var storageDiv = document.getElementById("storage");
-  //This creates a pointer to the food item recipes div
-  var recipesDiv = document.getElementById("recipes");
-  //This creates a pointer to main image element
-  var image = document.getElementById("image");
-
 
 
   //This function will pull the string containing information about storage
@@ -251,6 +245,7 @@ $food = $_GET['f'];
   //Navigate to the previous food item
   function prevFood() {
     var foodArray = foodKeyArray();
+    
     setTimeout(function () {
       for(var i = 0; i < foodArray.length; i++) {
         if ((foodArray[i] === food) && (i == 0)) {
