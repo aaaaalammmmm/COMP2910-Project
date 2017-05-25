@@ -74,17 +74,20 @@ $food = $_GET['f'];
   function stateKeyArray() {
     var stateArray = new Array();
 
-    foodInfo.once("value")
-    .then(function(snapshot) {
-      //the forEach function enumerates and iterates
-      //through all the child nodes of the parent
-      snapshot.forEach(function(childSnapshot) {
-        //Add to stateArray
-        stateArray.push(childSnapshot.key);
+    var promise =    foodInfo.once("value")
+      .then(function(snapshot) {
+        //the forEach function enumerates and iterates
+        //through all the child nodes of the parent
+        snapshot.forEach(function(childSnapshot) {
+          //Add to stateArray
+          stateArray.push(childSnapshot.key);
+        })
       });
+
+    Promise.resolve(promise).then(function(value) {
+      setButtons(stateArray);
     });
 
-    return stateArray;
   }
 
   function closeModal(){
@@ -94,9 +97,7 @@ $food = $_GET['f'];
   }
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
-  function setButtons() {
-    var stateArray = stateKeyArray();
-
+  function setButtons(stateArray) {
     setTimeout(function () {
       console.log(stateArray);
       console.log(stateArray.length);
@@ -261,7 +262,7 @@ $food = $_GET['f'];
     }, 100);
   }
 
-  setButtons();
+  stateKeyArray();
 
   //Tests for a standAlone page; if true, makes ripeness buttons into a footer
   var standAloneTest = <?php if (isset($_GET['l'])) { echo "1"; } else { echo "0"; } ?>;
