@@ -335,12 +335,12 @@ function closeNav() {
 
 /* Displays information about fridge shelf onto page */
 function get_fridge_info(shelf) {
+  console.log("calling get_fridge_info()");
   var fridge_element = document.getElementById("fridge_info");
   var reference = database.ref('fridge/'+'shelf-'+shelf).once('value').then(function(snapshot) {
     var info = snapshot.val();
     console.log(info);
     fridge_element.innerHTML = info;
   });
-
   console.log(reference);
 }

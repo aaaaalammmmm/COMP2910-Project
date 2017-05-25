@@ -24,11 +24,11 @@
   <br />
   <div id="fridge_info">
     <p>
-      <script>
+      <!--<script>
         $('fridge_info').animate({'opacity':0}, 400, function() {
           $(this).html('asdf').animate({'opacity':1}, 400);
         });
-      </script>
+      </script>-->
     </p>
   </div>
 </div>
