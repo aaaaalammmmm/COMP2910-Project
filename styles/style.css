@@ -84,8 +84,7 @@ body {
   background-image: url(../Images/Background-darker.jpg);
   background-repeat: no-repeat;
   background-attachment: absolute;
-  background-position: center;
-  background-size: 200%;
+  background-size: 300%;
   display: none;
   margin: auto;
   font-family: 'Philosopher', sans-serif;
@@ -400,6 +399,11 @@ h1, h2, h3, h4, h5 {
 .recModal {
   width: 100%;
   white-space: normal;
+  border: 2px solid;
+  border-color: rgb(52, 73, 94);
+}
+
+.accBut {
   border: 2px solid;
   border-color: rgb(52, 73, 94);
 }
