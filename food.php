@@ -80,23 +80,29 @@ $food = $_GET['f'];
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
 
-  //Stores the child keys of the food node
-  var foodArray = foodKeyArray();
+  //This stores a pointer to all info about bananas
+  var foodInfo = database.ref("food/" + type + "/" + food);
+  //This creates a pointer to the food item storage div
+  var storageDiv = document.getElementById("storage");
+  //This creates a pointer to the food item recipes div
+  var recipesDiv = document.getElementById("recipes");
+  //This creates a pointer to main image element
+  var image = document.getElementById("image");
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
   function stateKeyArray() {
     var stateArray = new Array();
 
-    var promise =    foodInfo.once("value")
-    .then(function(snapshot) {
-      //the forEach function enumerates and iterates
-      //through all the child nodes of the parent
-      snapshot.forEach(function(childSnapshot) {
-        //Add to stateArray
-        stateArray.push(childSnapshot.key);
-      })
-    });
+    var promise = foodInfo.once("value")
+      .then(function(snapshot) {
+        //the forEach function enumerates and iterates
+        //through all the child nodes of the parent
+        snapshot.forEach(function(childSnapshot) {
+          //Add to stateArray
+          stateArray.push(childSnapshot.key);
+        })
+      });
 
     Promise.resolve(promise).then(function(value) {
       setButtons(stateArray);
@@ -112,9 +118,6 @@ $food = $_GET['f'];
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons(stateArray) {
-    setTimeout(function () {
-      console.log(stateArray);
-      console.log(stateArray.length);
       if (stateArray.length === 1) {
         $("#button1").remove();
         $("#button3").remove();
@@ -131,18 +134,7 @@ $food = $_GET['f'];
         $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
         $("#button3").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
       }
-    }, 750);
   }
-
-  //This stores a pointer to all info about bananas
-  var foodInfo = rootRef.child(type + "/" + food);
-  //This creates a pointer to the food item storage div
-  var storageDiv = document.getElementById("storage");
-  //This creates a pointer to the food item recipes div
-  var recipesDiv = document.getElementById("recipes");
-  //This creates a pointer to main image element
-  var image = document.getElementById("image");
-
 
 
   //This function will pull the string containing information about storage
@@ -164,17 +156,18 @@ $food = $_GET['f'];
       image.src = "<?php echo "images/".$food."-S.png"; ?>";
     }
 
-    //Go to the child node containing the state for the food item
-    var stateInfo = foodInfo.child(state);
-
-    //Create a snapshot of the food state node
-    stateInfo.once("value")
-    .then(function(snapshot) {
+    //Stores a reference to the storage info node
+    var InfoRef = database.ref("food/" + type + "/" + food + "/" + state);
+    var stateSnap;
+    InfoRef.once("value").then(function(snapshot) {
+      stateSnap = snapshot.val();
       //Assign the string as inner html to the storage div
-      storageDiv.innerHTML = snapshot.child("storage").val();
+      storageDiv.innerHTML = stateSnap.storage;
+      
       //Assign the string as inner html to the recipes div
-      getRecipes(snapshot);
+      getRecipes(stateSnap);
     });
+    
 
     //This highlights and de-highlight the states depending on which
     //state is focused
@@ -185,12 +178,13 @@ $food = $_GET['f'];
   }
 
   //get the recipe link from firebase and populate recipes
-  function getRecipes(snapshot){
+  function getRecipes(stateSnap) {
     try {
       //variable for the request
       jsonhttp = new XMLHttpRequest();
-      var url = snapshot.child("recipes").val();
-      //open the request
+      var url = stateSnap.recipes;   
+
+      //oepn the request
       jsonhttp.open("GET", url, false);
       jsonhttp.send();
       //parsing the string to remove quotes
@@ -202,7 +196,6 @@ $food = $_GET['f'];
       var counter;
       //loops through 4 recipes in the current food
       for(counter = 0; counter < 4; counter++){
-
         var count;
         var string = "";
         var recFoot = "";
@@ -210,7 +203,6 @@ $food = $_GET['f'];
         for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
           string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
         }
-
         recFoot += "<p><h5>Source: <\/h5>" + obj.hits[counter].recipe.source + "<\/p>";
         recFoot += "<p><h5>Serves: <\/h5>" + obj.hits[counter].recipe.yield + "<\/p>";
 
@@ -237,7 +229,7 @@ $food = $_GET['f'];
   //of the parent node and then assigns them to an array.
   function foodKeyArray() {
     var foodArray = new Array();
-    var food      = rootRef.child(type);
+    var food      = database.ref("food/" + type);
 
     food.once("value")
     .then(function(snapshot) {
@@ -273,6 +265,7 @@ $food = $_GET['f'];
   //Navigate to the previous food item
   function prevFood() {
     var foodArray = foodKeyArray();
+    
     setTimeout(function () {
       for(var i = 0; i < foodArray.length; i++) {
         if ((foodArray[i] === food) && (i == 0)) {

@@ -36,9 +36,6 @@
   var database = firebase.database();
   //Enable logging
   firebase.database.enableLogging(true);
-
-  //Set to rootRef to the food node
-  var rootRef = database.ref("food");
   </script>
   <script type="text/javascript">
   $(document).ready(function() {222

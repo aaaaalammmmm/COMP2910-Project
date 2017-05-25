@@ -23,8 +23,12 @@
   <br />
   <br />
   <div id="fridge_info">
+    <h4>Your Fridge</h4>
     <p>
-      You probably aren't using your fridge correctly, dumdum.
+      Many consumers don't use their fridge properly. The shelves and compartments of the fridge are
+      designed to hold specific foods, and storing food improperly can actually reduce their shelf life.
+      <br />
+      <b>Tap on a section of the fridge to find out more about which foods should be stored there!</b>
       <!--<script>
         $('fridge_info').animate({'opacity':0}, 400, function() {
           $(this).html('asdf').animate({'opacity':1}, 400);
