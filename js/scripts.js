@@ -13,10 +13,6 @@ function showResult(food) {
     searchScroll("");
     resizeBtn("");
     resetBtn();
-    //Object for history
-    var historyObj = {page: "home"};
-    //Adds to history
-    history.pushState(historyObj, "Home", "#home");
     return;
   }
   //For easter egg lol
@@ -69,16 +65,107 @@ function showResult(food) {
 }
 // Live loads a php page in the element with the 'livesearch' id and clears the
 // search bar with the 'search-box' id. If the page to load is one of the all<food>
-// pages, highlights the correct button.
+// pages, highlights the correct button. If the page to load if 'home' it blanks
+// the 'livesearch' div.
 // ------------------
-// THIS FUNCTION IS ONLY USED TO LOAD THE ALL <FOOD> PAGES
+// Adds the page loaded to the browser history
+// ------------------
+// THIS FUNCTION IS ONLY USED TO LOAD THE ALL <FOOD> PAGES AND THE HOME LANDING PAGE
 function load(str) {
   // Sets search bar to empty
   document.getElementById("search-box").value = " ";
-  // Loads the 'str' page in the 'livesearch' div
-  $("#livesearch").load(str+'.php');
+  // If str is anything but 'home'
+  if (str == "home") {
+    // Loads the blank landing page
+    document.getElementById("livesearch").innerHTML = " ";
+  } else {
+    // Loads the 'str' page in the 'livesearch' div
+    $("#livesearch").load(str+'.php');
+  }
+
+  //Object for history
+  var historyObj = {page: str};
+  //Adds to history
+  history.pushState(historyObj, str, "#"+str);
+
   //Ensures the search bar and hints are blank
   foodLoad(""," ");
+  if (str == "home") {
+    showResult("");
+  }
+  // Checks the 'str' parameter against pre-determined strings
+  //  - If fruit
+  if (str == "allFruits") {
+    //  - If Fruits button isn't highlighted -> toggle highlight class
+    //       (makes sure button IS highlighted)
+    if (!document.getElementById("fruit-btn").classList.contains("btn-highlight")){
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Veggies button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("veggie-btn").classList.contains("btn-highlight")){
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Grains button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("grain-btn").classList.contains("btn-highlight")){
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
+    //  - If veggie
+  } else if (str == "allVeggies") {
+    //  - If Fruits button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("fruit-btn").classList.contains("btn-highlight")){
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Veggies button isn't highlighted -> toggle highlight class
+    //       (makes sure button IS highlighted)
+    if (!document.getElementById("veggie-btn").classList.contains("btn-highlight")){
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Grains button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("grain-btn").classList.contains("btn-highlight")){
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
+    //  - If grain
+  } else if (str == "allGrains") {
+    //  - If Fruits button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("fruit-btn").classList.contains("btn-highlight")){
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Veggies button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("veggie-btn").classList.contains("btn-highlight")){
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Grains button isn't highlighted -> toggle highlight class
+    //       (makes sure button IS highlighted)
+    if (!document.getElementById("grain-btn").classList.contains("btn-highlight")){
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
+  }
+}
+
+// A clone of the load(str) fucntion with the exception that it does not update
+// the history. Necessary for proper redirection
+function loadHistory(str) {
+  // Sets search bar to empty
+  document.getElementById("search-box").value = " ";
+  // If str is anything but 'home'
+  if (str == "home") {
+    // Loads the blank landing page
+    document.getElementById("livesearch").innerHTML = "";
+  } else {
+    // Loads the 'str' page in the 'livesearch' div
+    $("#livesearch").load(str+'.php');
+  }
+  //Ensures the search bar and hints are blank
+  foodLoad(""," ");
+  if (str == "home") {
+    showResult("");
+  }
   // Checks the 'str' parameter against pre-determined strings
   //  - If fruit
   if (str == "allFruits") {
@@ -144,6 +231,10 @@ function foodLoad(food,type) {
     //  - Dynamically loads the food item from dynamically created food.php page
     //    (uses parameter passed in as guidelines on which food page to create)
     $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+    //Object for history
+    var historyObj = {page: food, type: type, live: true};
+    //Adds to history
+    history.pushState(historyObj, food, "#"+food);
     //  - Sets the values of the search bar to 'food' parameter
     document.getElementById("search-box").value=food;
     //  - Sets search hitns to empty and removes the border
@@ -166,6 +257,36 @@ function foodLoad(food,type) {
   }
 }
 
+// A clone of foodload without the history event
+function foodLoadHistory(food,type) {
+  // If parameters 'food' and 'type' are not empty do the following:
+  if (food != "" && type != "") {
+    //  - Scroll 'livesearch' to top for max readability
+    searchScroll(food);
+    //  - Dynamically loads the food item from dynamically created food.php page
+    //    (uses parameter passed in as guidelines on which food page to create)
+    $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+    //  - Sets the values of the search bar to 'food' parameter
+    document.getElementById("search-box").value=food;
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+
+    // If both parameters are empty:
+    //   - Set 'livesearch' div to empty
+  } else if (type == " ") {
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+    //Resizes the buttons to the footer version and back
+    resizeBtn_blank();
+  } else {
+    document.getElementById("livesearch").innerHTML="";
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+  }
+}
 
 // NOTE: Pretty much a clone of the foodLoad function. Does NOT reset hints
 //       or search bar
@@ -193,6 +314,10 @@ function foodLoad_dynamic(food,type) {
           //  - Dynamically loads the food item from dynamically created food.php page
           //    (uses parameter passed in as guidelines on which food page to create)
           $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+          //Object for history
+          var historyObj = {page: food, type: type, live: true};
+          //Adds to history
+          history.pushState(historyObj, food, "#"+food);
           ///Makes the hints blank
           document.getElementById("search-hints").innerHTML="";
           document.getElementById("search-hints").style.border="0px";
@@ -274,7 +399,7 @@ function resizeBtn(str) {
 // Dinamically resizes all<food> buttons to proper size
 function resizeBtn_blank() {
   // Checks if the 'livesearch' div is NOT EMPTY
-  if(document.getElementById("livesearch").innerHTML == "") {
+  if(document.getElementById("livesearch").innerHTML != "") {
     // - If large buttons are NOT hidden
     if (!document.getElementById("large-btn").classList.contains("hidden")){
       //  - Hides the large buttons (entire screen width)
@@ -293,6 +418,15 @@ function resizeBtn_blank() {
 //       - This version has an extra variable that lets the page know that it's
 //         a stand alone page rather than a dynamic search
 function pageLoad(food,type) {
+  //Object for history
+  var historyObj = {page: food, type: type, live: false};
+  //Adds to history
+  history.pushState(historyObj, food, "#"+food);
+  location.href = "food.php?l=&f=" + food + "&t=" + type;
+}
+
+// A clone of pageLoad without a historyevent
+function pageLoadHistory(food,type) {
   location.href = "food.php?l=&f=" + food + "&t=" + type;
 }
 

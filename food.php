@@ -48,11 +48,11 @@ $food = $_GET['f'];
           <br/>
           <p>Share with your friends!</p>
         </div>
-      <div class="modal-body">
-        <a href="" class="ssk ssk-facebook"></a>
-        <a href="" class="ssk ssk-twitter"></a>
-        <a href="" class="ssk ssk-pinterest"></a>
-      </div>
+        <div class="modal-body">
+          <a href="" class="ssk ssk-facebook"></a>
+          <a href="" class="ssk ssk-twitter"></a>
+          <a href="" class="ssk ssk-pinterest"></a>
+        </div>
 
         <div class="modal-footer">
           <button type="button" class="btn" data-dismiss="modal">Close</button>
@@ -65,6 +65,9 @@ $food = $_GET['f'];
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
+
+  //Stores the child keys of the food node
+  var foodArray = foodKeyArray();
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
@@ -89,7 +92,6 @@ $food = $_GET['f'];
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
   }
-
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons() {
@@ -164,7 +166,7 @@ $food = $_GET['f'];
     });
   }
 
-//get the recipe link from firebase and populate recipes
+  //get the recipe link from firebase and populate recipes
   function getRecipes(snapshot){
     //variable for the request
     jsonhttp = new XMLHttpRequest();
@@ -248,15 +250,15 @@ $food = $_GET['f'];
   //Navigate to the previous food item
   function prevFood() {
     var foodArray = foodKeyArray();
-      setTimeout(function () {
-        for(var i = 0; i < foodArray.length; i++) {
-          if ((foodArray[i] === food) && (i == 0)) {
-            pageLoad(foodArray[foodArray.length - 1], type);
-          } else if (foodArray[i] === food) {
-            pageLoad(foodArray[i - 1], type);
-          }
+    setTimeout(function () {
+      for(var i = 0; i < foodArray.length; i++) {
+        if ((foodArray[i] === food) && (i == 0)) {
+          pageLoad(foodArray[foodArray.length - 1], type);
+        } else if (foodArray[i] === food) {
+          pageLoad(foodArray[i - 1], type);
         }
-      }, 100);
+      }
+    }, 100);
   }
 
   setButtons();

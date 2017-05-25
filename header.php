@@ -47,10 +47,20 @@
   <script>
   window.onpopstate = function(event) {
     var pageToLoad = event.state.page;
-    if (pageToLoad === "home") {
-      showResult("");
-    } else if (pageToLoad === "fruit" || pageToLoad === "veggie" || pageToLoad === "grain") {
-      load(pageToLoad);
+    var type;
+    var searchOrNot;
+    if (event.state.type != null) {
+      type = event.state.type;
+    }
+    if (event.state.live != null) {
+      searchOrNot = event.state.live;
+    }
+    if (pageToLoad === "home" || pageToLoad === "allFruits" || pageToLoad === "allVeggies" || pageToLoad === "allGrains") {
+      loadHistory(pageToLoad);
+    } else if (searchOrNot) {
+      foodLoadHistory(pageToLoad,type);
+    } else {
+      pageLoadHistory(pageToLoad,type);
     }
   };
   </script>
@@ -58,7 +68,7 @@
 <body class="bg-primary" id="main">
   <div class="container">
     <div class="text-center center-block">
-      <a href="javascript:showResult('')">
+      <a href='javascript:load("home")'>
         <img src="Images/UseItUpBanner v2.0.png"/>
       </a>
     </div>
