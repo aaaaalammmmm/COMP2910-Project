@@ -21,7 +21,7 @@ $food = $_GET['f'];
   <div class="padding-sm">
     <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage" onclick="autoScroll(this)">Storage</button>
     <div class="storageText">
-      <div id="storage" class="text-left collapse "></div>
+      <div id="storage" class="text-left collapse"></div>
     </div>
   </div>
   <div class="padding-sm">
@@ -272,6 +272,10 @@ $food = $_GET['f'];
       document.getElementById("ripeness").classList.toggle("button-footer");
     }
   }
+
+  $('#storage').visibilityChanged(function(element, visible) {
+    alert("do something");
+});
   </script>
 </div>
 <?php include 'footer.php'; ?>

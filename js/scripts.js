@@ -441,11 +441,11 @@ function searchScroll(str) {
   }
 }
 
-function autoScroll(){
-  var target = btn.getAttribute("data-target").substring(1);
-  if (doccument.getElementById(target).getAttribute("aria-expanded") == true) {
-    doccument.getElementById(target).scrollIntoView(true);
+function autoScroll(element){
+  if (document.getElementById(element.getAttribute("data-target").substring(1)).getAttribute("aria-expanded") != true) {
+    alert("test");
   }
+  element.scrollIntoView(true);
 }
 
 // Resets the category buttons upon searching
