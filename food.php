@@ -21,13 +21,13 @@ $food = $_GET['f'];
     <br/>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed accBut" data-toggle="collapse" data-target="#storage">Storage</button>
+    <button class="btn mobile-button accordion-toggle collapsed accBut" data-toggle="collapse" data-target="#storage" onclick="autoScroll(this)">Storage</button>
     <div class="storageText">
-      <div id="storage" class="text-left collapse "></div>
+      <div id="storage" class="text-left collapse"></div>
     </div>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed accBut" data-toggle="collapse" data-target="#recipes">Recipes</button>
+    <button class="btn mobile-button accordion-toggle collapsed accBut" data-toggle="collapse" data-target="#recipes" onclick="autoScroll(this)">Recipes</button>
     <div id="recipes" class="text-left collapse">
       <div id="recipeText"></div>
     </div>
@@ -77,14 +77,14 @@ $food = $_GET['f'];
     var stateArray = new Array();
 
     var promise =    foodInfo.once("value")
-      .then(function(snapshot) {
-        //the forEach function enumerates and iterates
-        //through all the child nodes of the parent
-        snapshot.forEach(function(childSnapshot) {
-          //Add to stateArray
-          stateArray.push(childSnapshot.key);
-        })
-      });
+    .then(function(snapshot) {
+      //the forEach function enumerates and iterates
+      //through all the child nodes of the parent
+      snapshot.forEach(function(childSnapshot) {
+        //Add to stateArray
+        stateArray.push(childSnapshot.key);
+      })
+    });
 
     Promise.resolve(promise).then(function(value) {
       setButtons(stateArray);
