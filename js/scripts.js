@@ -13,10 +13,6 @@ function showResult(food) {
     searchScroll("");
     resizeBtn("");
     resetBtn();
-    //Object for history
-    var historyObj = {page: "home"};
-    //Adds to history
-    history.pushState(historyObj, "Home", "#home");
     return;
   }
   //For easter egg lol
@@ -81,7 +77,7 @@ function load(str) {
   // If str is anything but 'home'
   if (str == "home") {
     // Loads the blank landing page
-    $("#livesearch").innerHTML = "";
+    document.getElementById("livesearch").innerHTML = " ";
   } else {
     // Loads the 'str' page in the 'livesearch' div
     $("#livesearch").load(str+'.php');
@@ -94,6 +90,9 @@ function load(str) {
 
   //Ensures the search bar and hints are blank
   foodLoad(""," ");
+  if (str == "home") {
+    showResult("");
+  }
   // Checks the 'str' parameter against pre-determined strings
   //  - If fruit
   if (str == "allFruits") {
@@ -157,13 +156,16 @@ function loadHistory(str) {
   // If str is anything but 'home'
   if (str == "home") {
     // Loads the blank landing page
-    $("#livesearch").innerHTML = "";
+    document.getElementById("livesearch").innerHTML = "";
   } else {
     // Loads the 'str' page in the 'livesearch' div
     $("#livesearch").load(str+'.php');
   }
   //Ensures the search bar and hints are blank
   foodLoad(""," ");
+  if (str == "home") {
+    showResult("");
+  }
   // Checks the 'str' parameter against pre-determined strings
   //  - If fruit
   if (str == "allFruits") {
@@ -359,7 +361,7 @@ function resizeBtn(str) {
 // Dinamically resizes all<food> buttons to proper size
 function resizeBtn_blank() {
   // Checks if the 'livesearch' div is NOT EMPTY
-  if(document.getElementById("livesearch").innerHTML == "") {
+  if(document.getElementById("livesearch").innerHTML != "") {
     // - If large buttons are NOT hidden
     if (!document.getElementById("large-btn").classList.contains("hidden")){
       //  - Hides the large buttons (entire screen width)
