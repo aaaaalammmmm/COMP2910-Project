@@ -79,12 +79,18 @@ $food = $_GET['f'];
 
     return stateArray;
   }
-  
+
+  function closeModal(){
+    $('#your-modal-id').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+  }
+
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons() {
     var stateArray = stateKeyArray();
-  
+
     setTimeout(function () {
       console.log(stateArray);
       console.log(stateArray.length);
@@ -92,7 +98,7 @@ $food = $_GET['f'];
         $("#button3").remove();
         foodInformation(stateArray[1]);
         $("#button1").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
-        $("#button2").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
+        $("#button2").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] +  "</button>");
       } else if (stateArray.length === 3) {
         foodInformation(stateArray[1]);
         $("#button1").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[2] + "' onclick='foodInformation(\"" + stateArray[2] + "\")'>" + stateArray[2] + "</button>");
@@ -116,6 +122,7 @@ $food = $_GET['f'];
   //This function will pull the string containing information about storage
   //and then assigns it to the storage div
   function foodInformation(state) {
+    closeModal();
     //This changes the main image icon
     if (state === "ripe" || state === "fresh") {
       image.src = "<?php echo "images/".$food.".png"; ?>";
@@ -188,7 +195,7 @@ $food = $_GET['f'];
       recLab = recLab.replace(/\"/g, "");
 
       //inserts inner html to populate images for the recipes and buttons
-      recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
+      recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-backdrop=\"true\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
 
       //inserts inner html to populate modal code
       recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"modal-body\">" + string + "<\/div><div class=\"modal-footer recFooter\">" + recFoot + "<\/div><\/div><\/div><\/div>";
@@ -220,7 +227,7 @@ $food = $_GET['f'];
   //Navigate to the next food item
   function nextFood() {
     var foodArray = foodKeyArray();
-  
+
     setTimeout(function () {
       for(var i = 0; i < foodArray.length; i++) {
         if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
@@ -247,9 +254,9 @@ $food = $_GET['f'];
         }
       }, 100);
   }
-  
+
   setButtons();
-  
+
   //Tests for a standAlone page; if true, makes ripeness buttons into a footer
   var standAloneTest = <?php if (isset($_GET['l'])) { echo "1"; } else { echo "0"; } ?>;
   if (standAloneTest == 1){
