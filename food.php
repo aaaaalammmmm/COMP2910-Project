@@ -104,7 +104,6 @@ $food = $_GET['f'];
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons(stateArray) {
-    setTimeout(function () {
       if (stateArray.length === 2) {
         $("#button3").remove();
         foodInformation(stateArray[1]);
@@ -116,7 +115,6 @@ $food = $_GET['f'];
         $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
         $("#button3").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
       }
-    }, 750);
   }
 
 
@@ -139,20 +137,20 @@ $food = $_GET['f'];
       image.src = "<?php echo "images/".$food."-S.png"; ?>";
     }
 
-    //Go to the child node containing the state for the food item
-    var stateInfo = foodInfo.child(state);
-
-    //Create a snapshot of the food state node
-    stateInfo.once("value")
-    .then(function(snapshot) {
+    //Stores a reference to the storage info node
+    var InfoRef = database.ref("food/" + type + "/" + food + "/" + state);
+    var stateSnap;
+    InfoRef.once("value").then(function(snapshot) {
+      stateSnap = snapshot.val();
       //Assign the string as inner html to the storage div
-      storageDiv.innerHTML = snapshot.child("storage").val();
+      storageDiv.innerHTML = stateSnap.storage;
+      
       //Assign the string as inner html to the recipes div
-      getRecipes(snapshot);
+      getRecipes(stateSnap);
     });
+    
 
-
-
+    
     //This highlights and de-highlight the states depending on which
     //state is focused
     $("div.btn-group-justified").on("click","div.btn-group button", function(){
@@ -162,10 +160,11 @@ $food = $_GET['f'];
   }
 
   //get the recipe link from firebase and populate recipes
-  function getRecipes(snapshot){
+  function getRecipes(stateSnap) {
     //variable for the request
     jsonhttp = new XMLHttpRequest();
-    var url = snapshot.child("recipes").val();
+    var url = stateSnap.recipes;   
+        
     //oepn the request
     jsonhttp.open("GET", url, false);
     jsonhttp.send();
@@ -178,7 +177,6 @@ $food = $_GET['f'];
     var counter;
     //loops through 4 recipes in the current food
     for(counter = 0; counter < 4; counter++){
-
       var count;
       var string = "";
       var recFoot = "";
