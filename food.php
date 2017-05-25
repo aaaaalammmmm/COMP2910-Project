@@ -172,34 +172,47 @@ $food = $_GET['f'];
     dhtmlHistory.add(food,foodHistory);
   }
 
+//get the recipe link from firebase and populate recipes
   function getRecipes(snapshot){
+    //variable for the request
     jsonhttp = new XMLHttpRequest();
     var url = snapshot.child("recipes").val();
-
+    //oepn the request
     jsonhttp.open("GET", url, false);
     jsonhttp.send();
-
+    //parsing the string to remove quotes
     var jsonString = jsonhttp.responseText;
     var obj = JSON.parse(jsonString);
-
+    //clearing the inner html
     recipeText.innerHTML = "";
 
     var counter;
+    //loops through 4 recipes in the current food
     for(counter = 0; counter < 4; counter++){
-
 
       var count;
       var string = "";
+      var recFoot = "";
+      //adds the recipes for a food into a string variable
       for(count = 0; count < obj.hits[counter].recipe.ingredients.length; count++){
         string += "<p>" + obj.hits[counter].recipe.ingredients[count].text + "<\/p>";
       }
 
+      recFoot += "<p><h5>Source: <\/h5>" + obj.hits[counter].recipe.source + "<\/p>";
+      recFoot += "<p><h5>Serves: <\/h5>" + obj.hits[counter].recipe.yield + "<\/p>";
+
+      //puts all the labels for eahc recipe into a sting,
       var recLab = JSON.stringify(obj.hits[counter].recipe.label);
+      //removes quotes
       recLab = recLab.replace(/\"/g, "");
+
+      //inserts inner html to populate images for the recipes and buttons
       recipeText.innerHTML += "<div class=\"col-xs-12 recArea padding-sm\"><div><img class=\"padding-xs img-rounded recImg\" src=" +  JSON.stringify(obj.hits[counter].recipe.image) + "alt=" + JSON.stringify(obj.hits[counter].recipe.label) + "<\/img><\/div>" + "<span class=\"recipeTitle padding-sm\"><h4><button type=\"button\" class=\"btn recModal\" data-toggle=\"modal\" data-target=\"#recipeBody" + counter + "\">" + recLab + "<\/button><\/h4><\/span><\/div>";
 
-      recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"recipeBody\">" + string+ "<\/div><\/div><\/div><\/div>";
+      //inserts inner html to populate modal code
+      recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"modal-body\">" + string + "<\/div><div class=\"modal-footer recFooter\">" + recFoot + "<\/div><\/div><\/div><\/div>";
     }
+    //closes the recipeText div
     recipeText.innerHTML += "<\/div>";
   }
 

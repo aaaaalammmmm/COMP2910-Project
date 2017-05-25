@@ -368,10 +368,6 @@ h1, h2, h3, h4, h5 {
   background-color: inherit;
 }
 
-.modal {
-  top: 40% !important;
-}
-
 .glyphicon-share {
   float:right;
   right: 5%;
@@ -379,6 +375,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .recipeTitle {
+  width: 100%;
   margin: auto;
   display:table-cell;
  vertical-align:middle;
@@ -390,6 +387,10 @@ h1, h2, h3, h4, h5 {
   float: left;
 }
 
+.recFooter {
+  text-align: left;
+}
+
 .recArea {
   display:table;
   background-color: rgba(240, 234, 214, 0.5);
@@ -397,6 +398,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .recModal {
+  width: 100%;
   white-space: normal;
   border: 2px solid;
   border-color: rgb(52, 73, 94);
@@ -410,9 +412,10 @@ h1, h2, h3, h4, h5 {
   background-color: rgb(234, 237, 237);
 }
 
+/*Styles recipes area for larger devices*/
 @media screen and (min-width: 700px) {
   #recipeText{
-    width: 70%;
+    width: 60%;
     margin: auto;
   }
 
@@ -430,10 +433,9 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-@media screen and (max-width: 350px) {
-  h4 {
-    font-size: 16px;
-    font-weight: bold;
+@media screen and (min-width: 700px) {
+  .mobile-button {
+    width: 60%;
   }
 }
 
@@ -441,4 +443,3 @@ h1, h2, h3, h4, h5 {
   color:black;
   font-size:2em;
 }
-
