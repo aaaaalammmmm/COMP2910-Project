@@ -75,8 +75,11 @@ function showResult(food) {
 function load(str) {
   // Sets search bar to empty
   document.getElementById("search-box").value = " ";
-  // Loads the 'str' page in the 'livesearch' div
-  $("#livesearch").load(str+'.php');
+  // If str is anything but 'home'
+  if (str != "home") {
+    // Loads the 'str' page in the 'livesearch' div
+    $("#livesearch").load(str+'.php');
+  }
   //Ensures the search bar and hints are blank
   foodLoad(""," ");
   // Checks the 'str' parameter against pre-determined strings

@@ -47,10 +47,8 @@
   <script>
   window.onpopstate = function(event) {
     var pageToLoad = event.state.page;
-    if (pageToLoad === "home") {
-      showResult("");
-    } else if (pageToLoad === "fruit" || pageToLoad === "veggie" || pageToLoad === "grain") {
-      load(pageToLoad);
+    if (pageToLoad === "home" || pageToLoad === "allFruits" || pageToLoad === "allVeggies" || pageToLoad === "allGrains") {
+      load(pageToLoad)
     }
   };
   </script>
