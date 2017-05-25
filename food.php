@@ -207,7 +207,7 @@ $food = $_GET['f'];
   //of the parent node and then assigns them to an array.
   function foodKeyArray() {
     var foodArray = new Array();
-    var food      = rootRef.child(type);
+    var food      = database.ref("food/" + type);
 
     food.once("value")
     .then(function(snapshot) {
