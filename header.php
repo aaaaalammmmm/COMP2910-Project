@@ -39,58 +39,26 @@
   //Set to rootRef to the food node
   var rootRef = database.ref("food");
   </script>
-  <!-- The following script tags are for the ajax history for our back button -->
-  <script type="text/javascript" src="js/json2005.js"></script>
-  <script type="text/javascript" src="js/rsh.compressed.js"></script>
-
-  <script type="text/javascript">
-  window.dhtmlHistory.create({
-    toJSON: function(o) {
-      return JSON.stringify(o);
-    }
-    , fromJSON: function(s) {
-      return JSON.parse(s);
-    }
-  });
-
-  // Creates a listener for page load functions
-  var yourListener = function(newLocation, historyData) {
-    alert(newLocation);
-    if (newLocation != "undefined") {
-      // Checks all <food> page values and loads corresponding page
-      if (newLocation == "allFruits"){
-        load(newLocation);
-      } else if  (newLocation == "allVeggies") {
-        load(newLocation);
-      } else if (newLocation == "allGrains") {
-        load(newLocation);
-        // Checks 'home' value and loads main page
-      } else if (newLocation == "home") {
-        //showResult("");
-        // If not one of these, loads appropriate food page
-      } else if (historyData.value1 != "undefined"){
-        searchScroll(historyData.value1);
-        $("#livesearch").load("food.php?f=" + historyData.value1 + "&t=" + historyData.value2);
-      }
-    }
-  }
-
-
-  window.onload = function() {
-    dhtmlHistory.initialize();
-    dhtmlHistory.addListener(yourListener);
-  };
-  </script>
   <script type="text/javascript">
   $(document).ready(function() {
     $("body").fadeIn(500);
   });
   </script>
+  <script>
+  window.onpopstate = function(event) {
+    var pageToLoad = event.state.page;
+    if (pageToLoad === "home") {
+      showResult("");
+    } else if (pageToLoad === "fruit" || pageToLoad === "veggie" || pageToLoad === "grain") {
+      load(pageToLoad);
+    }
+  };
+  </script>
 </head>
 <body class="bg-primary" id="main">
   <div class="container">
     <div class="text-center center-block">
-      <a href="index.php">
+      <a href="javascript:showResult('')">
         <img src="Images/UseItUpBanner v2.0.png"/>
       </a>
     </div>

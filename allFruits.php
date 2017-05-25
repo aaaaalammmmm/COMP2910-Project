@@ -1,4 +1,9 @@
 <script type="text/javascript">
+//Object for history
+var historyObj = {page: "allFruits"};
+//Adds to history
+history.pushState(historyObj, "Fruits", "#fruit");
+
 $(document).ready(function() {
 
   $("a.transition").click(function(event){

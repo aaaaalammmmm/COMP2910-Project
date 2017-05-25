@@ -11,8 +11,12 @@ function showResult(food) {
   if (food.length==0) {
     foodLoad("","");
     searchScroll("");
-    giresizeBtn("");
+    resizeBtn("");
     resetBtn();
+    //Object for history
+    var historyObj = {page: "home"};
+    //Adds to history
+    history.pushState(historyObj, "Home", "#home");
     return;
   }
   //For easter egg lol
