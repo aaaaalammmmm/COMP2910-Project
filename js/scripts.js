@@ -69,14 +69,96 @@ function showResult(food) {
 }
 // Live loads a php page in the element with the 'livesearch' id and clears the
 // search bar with the 'search-box' id. If the page to load is one of the all<food>
-// pages, highlights the correct button.
+// pages, highlights the correct button. If the page to load if 'home' it blanks
+// the 'livesearch' div.
 // ------------------
-// THIS FUNCTION IS ONLY USED TO LOAD THE ALL <FOOD> PAGES
+// Adds the page loaded to the browser history
+// ------------------
+// THIS FUNCTION IS ONLY USED TO LOAD THE ALL <FOOD> PAGES AND THE HOME LANDING PAGE
 function load(str) {
   // Sets search bar to empty
   document.getElementById("search-box").value = " ";
   // If str is anything but 'home'
-  if (str != "home") {
+  if (str == "home") {
+    // Loads the blank landing page
+    $("#livesearch").innerHTML = "";
+  } else {
+    // Loads the 'str' page in the 'livesearch' div
+    $("#livesearch").load(str+'.php');
+  }
+
+  //Object for history
+  var historyObj = {page: str};
+  //Adds to history
+  history.pushState(historyObj, str, "#"+str);
+
+  //Ensures the search bar and hints are blank
+  foodLoad(""," ");
+  // Checks the 'str' parameter against pre-determined strings
+  //  - If fruit
+  if (str == "allFruits") {
+    //  - If Fruits button isn't highlighted -> toggle highlight class
+    //       (makes sure button IS highlighted)
+    if (!document.getElementById("fruit-btn").classList.contains("btn-highlight")){
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Veggies button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("veggie-btn").classList.contains("btn-highlight")){
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Grains button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("grain-btn").classList.contains("btn-highlight")){
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
+    //  - If veggie
+  } else if (str == "allVeggies") {
+    //  - If Fruits button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("fruit-btn").classList.contains("btn-highlight")){
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Veggies button isn't highlighted -> toggle highlight class
+    //       (makes sure button IS highlighted)
+    if (!document.getElementById("veggie-btn").classList.contains("btn-highlight")){
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Grains button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("grain-btn").classList.contains("btn-highlight")){
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
+    //  - If grain
+  } else if (str == "allGrains") {
+    //  - If Fruits button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("fruit-btn").classList.contains("btn-highlight")){
+      document.getElementById("fruit-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Veggies button is highlighted -> toggle highlight class
+    //       (makes sure button is NOT highlighted)
+    if (document.getElementById("veggie-btn").classList.contains("btn-highlight")){
+      document.getElementById("veggie-btn").classList.toggle("btn-highlight");
+    }
+    //  - If Grains button isn't highlighted -> toggle highlight class
+    //       (makes sure button IS highlighted)
+    if (!document.getElementById("grain-btn").classList.contains("btn-highlight")){
+      document.getElementById("grain-btn").classList.toggle("btn-highlight");
+    }
+  }
+}
+
+// A clone of the load(str) fucntion with the exception that it does not update
+// the history. Necessary for proper redirection
+function loadHistory(str) {
+  // Sets search bar to empty
+  document.getElementById("search-box").value = " ";
+  // If str is anything but 'home'
+  if (str == "home") {
+    // Loads the blank landing page
+    $("#livesearch").innerHTML = "";
+  } else {
     // Loads the 'str' page in the 'livesearch' div
     $("#livesearch").load(str+'.php');
   }

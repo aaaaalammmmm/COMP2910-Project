@@ -48,7 +48,7 @@
   window.onpopstate = function(event) {
     var pageToLoad = event.state.page;
     if (pageToLoad === "home" || pageToLoad === "allFruits" || pageToLoad === "allVeggies" || pageToLoad === "allGrains") {
-      load(pageToLoad)
+      loadHistory(pageToLoad);
     }
   };
   </script>
@@ -56,7 +56,7 @@
 <body class="bg-primary" id="main">
   <div class="container">
     <div class="text-center center-block">
-      <a href="javascript:showResult('')">
+      <a href='javascript:load("home")'>
         <img src="Images/UseItUpBanner v2.0.png"/>
       </a>
     </div>

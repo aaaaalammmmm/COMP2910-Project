@@ -1,24 +1,19 @@
 <script type="text/javascript">
-//Object for history
-var historyObj = {page: "allGrains"};
-//Adds to history
-history.pushState(historyObj, "Grains", "#grain");
-
 $(document).ready(function() {
 
   $("a.transition").click(function(event){
-      event.preventDefault();
-      linkLocation = this.href;
-      $("body").fadeOut(500, redirectPage);
+    event.preventDefault();
+    linkLocation = this.href;
+    $("body").fadeOut(500, redirectPage);
   });
 
   function redirectPage() {
-      window.location = linkLocation;
+    window.location = linkLocation;
   }
 });
 </script>
 <!-- This page loads all the grains  -->
-<div class="row text-center block-center">
+<div class="row text-center center-block">
   <div class="col-lg-2 col-md-3 col-xs-4">
     <a href="javascript:pageLoad('bread','grains')" class="transition">
       <figure>
