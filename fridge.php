@@ -24,6 +24,7 @@
   <br />
   <div id="fridge_info">
     <p>
+      You probably aren't using your fridge correctly, dumdum.
       <!--<script>
         $('fridge_info').animate({'opacity':0}, 400, function() {
           $(this).html('asdf').animate({'opacity':1}, 400);
