@@ -9,8 +9,8 @@ if (!isset($type)) {
 $food = $_GET['f'];
 ?>
 <div id="main-content" class="text-center">
-  <span data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <h3><?php echo ucfirst($food);?></h3>
+  <span onclick="" data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
   <button class="btn-link glyphicon glyphicon-chevron-left" onclick="prevFood()"></button>
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
   <button class="btn-link glyphicon glyphicon-chevron-right" onclick="nextFood()"></button>
@@ -61,20 +61,6 @@ $food = $_GET['f'];
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
-  //Stores the child keys of the food node
-  var foodArray = foodKeyArray();
-  //Creates a food item to be added to the ajax history. Added below with the proper state
-  //  - Creates complex object for food item
-  var foodHistory = new Object();
-  //  - Checks if standAlone page or livesearch
-  var standAlone = "<?php echo isset($_GET["l"]); ?>";
-  //  - Assigns the food to the complex food item variable
-  foodHistory.value1 = food;
-  //  - Assigns the type to the complex food item variable
-  foodHistory.value2 = type;
-  //  - Assigns the standAlone condition to the complex food item variable
-  foodHistory.value3 = standAlone;
-  dhtmlHistory.add(food,foodHistory);
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
@@ -93,12 +79,12 @@ $food = $_GET['f'];
 
     return stateArray;
   }
-
+  
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons() {
     var stateArray = stateKeyArray();
-
+  
     setTimeout(function () {
       console.log(stateArray);
       console.log(stateArray.length);
@@ -113,7 +99,7 @@ $food = $_GET['f'];
         $("#button2").html("<button type='button' class='btn padding-xs state-button btn-highlight' id='" + stateArray[1] + "' onclick='foodInformation(\"" + stateArray[1] + "\")'>" + stateArray[1] + "</button>");
         $("#button3").html("<button type='button' class='btn padding-xs state-button' id='" + stateArray[0] + "' onclick='foodInformation(\"" + stateArray[0] + "\")'>" + stateArray[0] + "</button>");
       }
-    }, 2000);
+    }, 750);
   }
 
   //This stores a pointer to all info about bananas
@@ -165,11 +151,6 @@ $food = $_GET['f'];
       $("div.btn-group").find("button").removeClass("btn-highlight");
       $(this).addClass("btn-highlight");
     });
-
-    //Adds the state to the foodHistory object
-    foodHistory.value4 = state;
-    //Adds the foodHistory to the ajax history data
-    dhtmlHistory.add(food,foodHistory);
   }
 
 //get the recipe link from firebase and populate recipes
@@ -236,34 +217,39 @@ $food = $_GET['f'];
   }
 
 
-
   //Navigate to the next food item
   function nextFood() {
-    for(var i = 0; i < foodArray.length; i++) {
-      if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
-        pageLoad(foodArray[0], type);
-      } else if (foodArray[i] === food) {
-        pageLoad(foodArray[i + 1], type);
+    var foodArray = foodKeyArray();
+  
+    setTimeout(function () {
+      for(var i = 0; i < foodArray.length; i++) {
+        if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
+          pageLoad(foodArray[0], type);
+        } else if (foodArray[i] === food) {
+          pageLoad(foodArray[i + 1], type);
+        }
       }
-    }
+    }, 100);
   }
 
 
 
   //Navigate to the previous food item
   function prevFood() {
-    for(var i = 0; i < foodArray.length; i++) {
-      if ((foodArray[i] === food) && (i == 0)) {
-        pageLoad(foodArray[foodArray.length - 1], type);
-      } else if (foodArray[i] === food) {
-        pageLoad(foodArray[i - 1], type);
-      }
-    }
+    var foodArray = foodKeyArray();
+      setTimeout(function () {
+        for(var i = 0; i < foodArray.length; i++) {
+          if ((foodArray[i] === food) && (i == 0)) {
+            pageLoad(foodArray[foodArray.length - 1], type);
+          } else if (foodArray[i] === food) {
+            pageLoad(foodArray[i - 1], type);
+          }
+        }
+      }, 100);
   }
-
-
-  onload = setButtons();
-
+  
+  setButtons();
+  
   //Tests for a standAlone page; if true, makes ripeness buttons into a footer
   var standAloneTest = <?php if (isset($_GET['l'])) { echo "1"; } else { echo "0"; } ?>;
   if (standAloneTest == 1){

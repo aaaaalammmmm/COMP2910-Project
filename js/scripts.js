@@ -13,6 +13,10 @@ function showResult(food) {
     searchScroll("");
     resizeBtn("");
     resetBtn();
+    //Object for history
+    var historyObj = {page: "home"};
+    //Adds to history
+    history.pushState(historyObj, "Home", "#home");
     return;
   }
   //For easter egg lol
@@ -42,7 +46,6 @@ function showResult(food) {
     if (this.readyState==4 && this.status==200) {
       //   - Sets text received from php file to a variable
       var response = this.responseText;
-      alert(response);
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {
@@ -271,7 +274,7 @@ function resizeBtn(str) {
 // Dinamically resizes all<food> buttons to proper size
 function resizeBtn_blank() {
   // Checks if the 'livesearch' div is NOT EMPTY
-  if(document.getElementById("livesearch").innerHTML != "") {
+  if(document.getElementById("livesearch").innerHTML == "") {
     // - If large buttons are NOT hidden
     if (!document.getElementById("large-btn").classList.contains("hidden")){
       //  - Hides the large buttons (entire screen width)
@@ -281,16 +284,6 @@ function resizeBtn_blank() {
     if (document.getElementById("small-btn").classList.contains("hidden")) {
       //  - Shows the small buttons (three accross the bottom)
       document.getElementById("small-btn").classList.remove("hidden");
-    }
-    // If 'livesearch' div IS EMPTY
-  } else {
-    //  - If large buttons are hidden, make them visible
-    if (document.getElementById("large-btn").classList.contains("hidden")) {
-      document.getElementById("large-btn").classList.toggle("hidden");
-    }
-    //  - If small buttons are NOT hidden, hide them
-    if (!document.getElementById("small-btn").classList.contains("hidden")) {
-      document.getElementById("small-btn").classList.toggle("hidden");
     }
   }
 }
@@ -338,4 +331,9 @@ function openNav() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
+}
+
+/* Displays information about fridge shelf onto page */
+function get_fridge_info(shelf) {
+
 }

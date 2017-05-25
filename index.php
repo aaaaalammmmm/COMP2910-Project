@@ -1,4 +1,10 @@
 <?php include 'header.php'; ?>
+<script>
+//Object for history
+var historyObj = {page: "home"};
+//Adds to history
+history.pushState(historyObj, "Home", "#home");
+</script>
 <div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -81,8 +87,6 @@
 function isEmpty( el ){
   return !$.trim(el.html())
 }
-// //Adds home page to history if not loading an all<food> page
-dhtmlHistory.add("home", "home");
 
 //Allows the user to press enter an live load the top hint
 $(function() {
