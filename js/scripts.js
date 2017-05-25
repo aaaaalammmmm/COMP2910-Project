@@ -441,6 +441,13 @@ function searchScroll(str) {
   }
 }
 
+function autoScroll(){
+  var target = btn.getAttribute("data-target").substring(1);
+  if (doccument.getElementById(target).getAttribute("aria-expanded") == true) {
+    doccument.getElementById(target).scrollIntoView(true);
+  }
+}
+
 // Resets the category buttons upon searching
 function resetBtn() {
   // Checks if Fruit button is highlighted, removes highlight

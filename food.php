@@ -19,7 +19,7 @@ $food = $_GET['f'];
     <br/>
   </div>
   <div class="padding-sm">
-    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage">Storage</button>
+    <button class="btn mobile-button accordion-toggle collapsed" data-toggle="collapse" href="#storage" data-target="#storage" onclick="autoScroll(this)">Storage</button>
     <div class="storageText">
       <div id="storage" class="text-left collapse "></div>
     </div>
