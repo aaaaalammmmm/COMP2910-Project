@@ -72,7 +72,7 @@
         <a class="text-black" href="index.php">Home</a>
         <a class="text-black" href="about.php">About Us</a>
         <a class="text-black" href="info.php">Info</a>
-        <a class="text-black" href="fridge.php">Abour Your Fridge</a>
+        <a class="text-black" href="fridge.php">About Your Fridge</a>
         <a class="text-black" href="affiliates.php">Partners</a>
         <a class="text-black" href="contactus.php">Contact Us</a>
       </div>
