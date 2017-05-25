@@ -10,9 +10,11 @@ $food = $_GET['f'];
 ?>
 <div id="main-content" class="text-center">
   <h3><?php echo ucfirst($food);?></h3>
-  <span class="glyphicon glyphicon-chevron-left" onclick="prevFood()"></span>
+  <div>
+    <span class="glyphicon glyphicon-chevron-left" onclick="prevFood();"></span>
   <img id="image" src=<?php if($food == "bread"){ echo "images/".$food."-S.png";} else if($type == "grains"){ echo "images/".$food."-R.png"; } else {echo "images/".$food.".png"; }?> class="single-food-imagesize" alt=<?php echo $food; ?> />
-  <span class="glyphicon glyphicon-chevron-right" onclick="nextFood()"></span>
+    <span class="glyphicon glyphicon-chevron-right" onclick="nextFood();"></span>
+  </div>
   <div>
     <span onclick="" data-toggle="modal" data-target="#share" class="glyphicon glyphicon-share"></span>
     <br/>
