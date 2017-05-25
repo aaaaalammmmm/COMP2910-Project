@@ -73,6 +73,8 @@ $food = $_GET['f'];
   //  - Assigns the standAlone condition to the complex food item variable
   foodHistory.value3 = standAlone;
   dhtmlHistory.add(food,foodHistory);
+  //Stores the child keys of the food node
+  var foodArray = foodKeyArray();
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
@@ -163,11 +165,6 @@ $food = $_GET['f'];
       $("div.btn-group").find("button").removeClass("btn-highlight");
       $(this).addClass("btn-highlight");
     });
-
-    //Adds the state to the foodHistory object
-    foodHistory.value4 = state;
-    //Adds the foodHistory to the ajax history data
-    dhtmlHistory.add(food,foodHistory);
   }
 
   function getRecipes(snapshot){

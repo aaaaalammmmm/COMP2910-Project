@@ -1,7 +1,3 @@
-<script>
-// Adds the ajax liveload to the ajax history
-dhtmlHistory.add("allGrains","allGrains");
-</script>
 <script type="text/javascript">
 $(document).ready(function() {
 
