@@ -6,7 +6,7 @@
   </div>
   <div>
     <div class="aboutText">
-      <p>47% of wasted food comes from consumers, most of it as avoidable food waste.There are three main reasons why food waste is a problem:</p>
+      <p>47% of wasted food comes from consumers, most of it as avoidable food waste. There are three main reasons why food waste is a problem:</p>
       <div>
         <!--list for reasons why food waste is important-->
         <div class="infograph text-center">
