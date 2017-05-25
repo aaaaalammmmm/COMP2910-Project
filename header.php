@@ -47,8 +47,20 @@
   <script>
   window.onpopstate = function(event) {
     var pageToLoad = event.state.page;
+    var type;
+    var searchOrNot;
+    if (event.state.type != null) {
+      type = event.state.type;
+    }
+    if (event.state.live != null) {
+      searchOrNot = event.state.live;
+    }
     if (pageToLoad === "home" || pageToLoad === "allFruits" || pageToLoad === "allVeggies" || pageToLoad === "allGrains") {
       loadHistory(pageToLoad);
+    } else if (searchOrNot) {
+      foodLoadHistory(pageToLoad,type);
+    } else {
+      pageLoadHistory(pageToLoad,type);
     }
   };
   </script>

@@ -231,6 +231,10 @@ function foodLoad(food,type) {
     //  - Dynamically loads the food item from dynamically created food.php page
     //    (uses parameter passed in as guidelines on which food page to create)
     $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+    //Object for history
+    var historyObj = {page: food, type: type, live: true};
+    //Adds to history
+    history.pushState(historyObj, food, "#"+food);
     //  - Sets the values of the search bar to 'food' parameter
     document.getElementById("search-box").value=food;
     //  - Sets search hitns to empty and removes the border
@@ -253,6 +257,36 @@ function foodLoad(food,type) {
   }
 }
 
+// A clone of foodload without the history event
+function foodLoadHistory(food,type) {
+  // If parameters 'food' and 'type' are not empty do the following:
+  if (food != "" && type != "") {
+    //  - Scroll 'livesearch' to top for max readability
+    searchScroll(food);
+    //  - Dynamically loads the food item from dynamically created food.php page
+    //    (uses parameter passed in as guidelines on which food page to create)
+    $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+    //  - Sets the values of the search bar to 'food' parameter
+    document.getElementById("search-box").value=food;
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+
+    // If both parameters are empty:
+    //   - Set 'livesearch' div to empty
+  } else if (type == " ") {
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+    //Resizes the buttons to the footer version and back
+    resizeBtn_blank();
+  } else {
+    document.getElementById("livesearch").innerHTML="";
+    //  - Sets search hitns to empty and removes the border
+    document.getElementById("search-hints").innerHTML="";
+    document.getElementById("search-hints").style.border="0px";
+  }
+}
 
 // NOTE: Pretty much a clone of the foodLoad function. Does NOT reset hints
 //       or search bar
@@ -280,6 +314,10 @@ function foodLoad_dynamic(food,type) {
           //  - Dynamically loads the food item from dynamically created food.php page
           //    (uses parameter passed in as guidelines on which food page to create)
           $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+          //Object for history
+          var historyObj = {page: food, type: type, live: true};
+          //Adds to history
+          history.pushState(historyObj, food, "#"+food);
           ///Makes the hints blank
           document.getElementById("search-hints").innerHTML="";
           document.getElementById("search-hints").style.border="0px";
@@ -380,6 +418,15 @@ function resizeBtn_blank() {
 //       - This version has an extra variable that lets the page know that it's
 //         a stand alone page rather than a dynamic search
 function pageLoad(food,type) {
+  //Object for history
+  var historyObj = {page: food, type: type, live: false};
+  //Adds to history
+  history.pushState(historyObj, food, "#"+food);
+  location.href = "food.php?l=&f=" + food + "&t=" + type;
+}
+
+// A clone of pageLoad without a historyevent
+function pageLoadHistory(food,type) {
   location.href = "food.php?l=&f=" + food + "&t=" + type;
 }
 
