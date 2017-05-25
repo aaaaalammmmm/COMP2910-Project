@@ -268,13 +268,13 @@ function foodLoad(food,type) {
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
     //Resizes the buttons to the footer version and back
-    resizeBtn_blank();
-  } else {
-    document.getElementById("livesearch").innerHTML="";
-    //  - Sets search hitns to empty and removes the border
-    document.getElementById("search-hints").innerHTML="";
-    document.getElementById("search-hints").style.border="0px";
-  }
+    resizeBtn_blank();}
+  // } else {
+  //   document.getElementById("livesearch").innerHTML="";
+  //   //  - Sets search hitns to empty and removes the border
+  //   document.getElementById("search-hints").innerHTML="";
+  //   document.getElementById("search-hints").style.border="0px";
+  // }
 }
 
 // A clone of foodload without the history event
