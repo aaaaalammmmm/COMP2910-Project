@@ -11,8 +11,12 @@ function showResult(food) {
   if (food.length==0) {
     foodLoad("","");
     searchScroll("");
-    giresizeBtn("");
+    resizeBtn("");
     resetBtn();
+    //Object for history
+    var historyObj = {page: "home"};
+    //Adds to history
+    history.pushState(historyObj, "Home", "#home");
     return;
   }
   //For easter egg lol
@@ -42,7 +46,6 @@ function showResult(food) {
     if (this.readyState==4 && this.status==200) {
       //   - Sets text received from php file to a variable
       var response = this.responseText;
-      alert(response);
       //   - Checks if the response text has the selected string and sets the
       //       type variable accordingly
       if(response.includes("fruit")) {

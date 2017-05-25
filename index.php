@@ -1,4 +1,10 @@
 <?php include 'header.php'; ?>
+<script>
+//Object for history
+var historyObj = {page: "home"};
+//Adds to history
+history.pushState(historyObj, "Home", "#home");
+</script>
 <div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

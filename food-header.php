@@ -9,7 +9,6 @@
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/social-share-kit.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.pjax.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/scripts.js"></script>
   <style>
@@ -21,8 +20,6 @@
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
   <script>
-  // Enables history
-  $(document).pjax('a', '#pjax-container');
   //Configurations for the firebase initialization
   var config = {
     apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",

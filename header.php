@@ -9,7 +9,6 @@
   <link href="styles/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/social-share-kit.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.pjax.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <style>
   @import url('https://fonts.googleapis.com/css?family=Patua+One');
@@ -20,8 +19,6 @@
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-database.js"></script>
   <script>
-  // Enables history
-  $(document).pjax('a', '#pjax-container');
   //Configurations for the firebase initialization
   var config = {
     apiKey: "AIzaSyCS3TPF_o_6n52S9wevo7sz6k3h3V4FMS8",
@@ -47,11 +44,21 @@
     $("body").fadeIn(500);
   });
   </script>
+  <script>
+  window.onpopstate = function(event) {
+    var pageToLoad = event.state.page;
+    if (pageToLoad === "home") {
+      showResult("");
+    } else if (pageToLoad === "fruit" || pageToLoad === "veggie" || pageToLoad === "grain") {
+      load(pageToLoad);
+    }
+  };
+  </script>
 </head>
 <body class="bg-primary" id="main">
   <div class="container">
     <div class="text-center center-block">
-      <a href="index.php">
+      <a href="javascript:showResult('')">
         <img src="Images/UseItUpBanner v2.0.png"/>
       </a>
     </div>

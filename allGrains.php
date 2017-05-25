@@ -1,4 +1,9 @@
 <script type="text/javascript">
+//Object for history
+var historyObj = {page: "allGrains"};
+//Adds to history
+history.pushState(historyObj, "Grains", "#grain");
+
 $(document).ready(function() {
 
   $("a.transition").click(function(event){
