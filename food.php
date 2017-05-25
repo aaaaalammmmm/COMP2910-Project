@@ -61,7 +61,7 @@ $food = $_GET['f'];
   //Assign the food and type php variables to Javascript variables
   var food = "<?php echo $food; ?>";
   var type = "<?php echo $type; ?>";
-  
+
   //Stores the child keys of the food node
   var foodArray = foodKeyArray();
 
