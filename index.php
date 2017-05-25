@@ -33,17 +33,17 @@ history.pushState(historyObj, "Home", "#home");
   <div id="large-btn" class="btn-toolbar-home">
     <div class="hidden-lg col-xs-12">
       <a href="javascript:resizeBtn('allFruits')">
-        <button type="button" class="btn mobile-button">Fruits</button>
+        <button type="button" class="btn mobile-button accBut">Fruits</button>
       </a>
     </div>
     <div class="hidden-lg col-xs-12">
       <a href="javascript:resizeBtn('allVeggies')">
-        <button type="button" class="btn mobile-button">Veggies</button>
+        <button type="button" class="btn mobile-button accBut">Veggies</button>
       </a>
     </div>
     <div class="hidden-lg col-xs-12">
       <a href="javascript:resizeBtn('allGrains')">
-        <button type="button" class="btn mobile-button">Grains</button>
+        <button type="button" class="btn mobile-button accBut">Grains</button>
       </a>
     </div>
 
@@ -66,17 +66,17 @@ history.pushState(historyObj, "Home", "#home");
   <div id="small-btn" class="btn-group-justified button-footer btn-group hidden">
     <div class="btn-group">
       <a href="javascript:load('allFruits')">
-        <button class="state-button btn" type="button" id="fruit-btn" class="btn">Fruits</button>
+        <button class="state-button btn accBut" type="button" id="fruit-btn" class="btn">Fruits</button>
       </a>
     </div>
     <div class="btn-group">
       <a href="javascript:load('allVeggies')">
-        <button class="state-button btn" type="button" id="veggie-btn" class="btn">Veggies</button>
+        <button class="state-button btn accBut" type="button" id="veggie-btn" class="btn">Veggies</button>
       </a>
     </div>
     <div class="btn-group">
       <a href="javascript:load('allGrains')">
-        <button class="state-button btn" type="button" id="grain-btn" class="btn">Grains</button>
+        <button class="state-button btn accBut" type="button" id="grain-btn" class="btn">Grains</button>
       </a>
     </div>
   </div>
