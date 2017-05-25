@@ -55,7 +55,7 @@ function showResult(food) {
       document.getElementById("search-hints").innerHTML=response;
       document.getElementById("search-hints").style.border="1px solid #A5ACB2";
       // Live loads the 'food' with the 'type'
-      foodLoad_dynamic(food,type);
+      foodLoad(food,type);
     }
   }
   //   - Sends 'food' parameter to livesearch.php via GET['q']
@@ -226,20 +226,40 @@ function loadHistory(str) {
 function foodLoad(food,type) {
   // If parameters 'food' and 'type' are not empty do the following:
   if (food != "" && type != "") {
-    //  - Scroll 'livesearch' to top for max readability
-    searchScroll(food);
-    //  - Dynamically loads the food item from dynamically created food.php page
-    //    (uses parameter passed in as guidelines on which food page to create)
-    $("#livesearch").load("food.php?f=" + food + "&t=" + type);
-    //Object for history
-    var historyObj = {page: food, type: type, live: true};
-    //Adds to history
-    history.pushState(historyObj, food, "#"+food);
-    //  - Sets the values of the search bar to 'food' parameter
-    document.getElementById("search-box").value=food;
-    //  - Sets search hitns to empty and removes the border
-    document.getElementById("search-hints").innerHTML="";
-    document.getElementById("search-hints").style.border="0px";
+    //   - Creates an XMLHttpRequest to receive data from a file
+    if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      canBeLoaded=new XMLHttpRequest();
+    } else {  // code for IE6, IE5
+      canBeLoaded=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    // Variable to track if livesearch should load or not
+    canLoad = "false";
+    canBeLoaded.onreadystatechange=function() {
+      if (this.readyState == 4 && this.status == 200) {
+        canLoad = this.responseText;
+        if(canLoad == "true") {
+          //  - Scroll 'livesearch' to top for max readability
+          searchScroll(food);
+          //  - Dynamically loads the food item from dynamically created food.php page
+          //    (uses parameter passed in as guidelines on which food page to create)
+          $("#livesearch").load("food.php?f=" + food + "&t=" + type);
+          //Object for history
+          var historyObj = {page: food, type: type, live: true};
+          //Adds to history
+          history.pushState(historyObj, food, "#"+food);
+          ///Makes the hints blank
+          document.getElementById("search-hints").innerHTML="";
+          document.getElementById("search-hints").style.border="0px";
+          //Resizes the buttons to the footer version and back
+          resizeBtn(food);
+        }
+      }
+    }
+    //   - Sends 'food' parameter to liveload.php via GET['q']
+    //   - Receives data from liveload.php
+    canBeLoaded.open("GET","liveload.php?q="+food,true);
+    canBeLoaded.send();
 
     // If both parameters are empty:
     //   - Set 'livesearch' div to empty
@@ -285,56 +305,6 @@ function foodLoadHistory(food,type) {
     //  - Sets search hitns to empty and removes the border
     document.getElementById("search-hints").innerHTML="";
     document.getElementById("search-hints").style.border="0px";
-  }
-}
-
-// NOTE: Pretty much a clone of the foodLoad function. Does NOT reset hints
-//       or search bar
-// Live loads a php page in the element with the 'livesearch' id and replaces the
-// search bar text with id 'search-box' to the passed string. Removes hint suggestions.
-function foodLoad_dynamic(food,type) {
-  // If parameters 'food' and 'type' are not empty do the following:
-  if (food != "" && type != "") {
-    //   - Creates an XMLHttpRequest to receive data from a file
-    if (window.XMLHttpRequest) {
-      // code for IE7+, Firefox, Chrome, Opera, Safari
-      xmlhttp=new XMLHttpRequest();
-    } else {  // code for IE6, IE5
-      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    // Variable to track if livesearch should load or not
-    canLoad = "false";
-
-    xmlhttp.onreadystatechange=function() {
-      if (this.readyState == 4 && this.status == 200) {
-        canLoad = this.responseText;
-        if(canLoad == "true") {
-          //  - Scroll 'livesearch' to top for max readability
-          searchScroll(food);
-          //  - Dynamically loads the food item from dynamically created food.php page
-          //    (uses parameter passed in as guidelines on which food page to create)
-          $("#livesearch").load("food.php?f=" + food + "&t=" + type);
-          //Object for history
-          var historyObj = {page: food, type: type, live: true};
-          //Adds to history
-          history.pushState(historyObj, food, "#"+food);
-          ///Makes the hints blank
-          document.getElementById("search-hints").innerHTML="";
-          document.getElementById("search-hints").style.border="0px";
-          //Resizes the buttons to the footer version and back
-          resizeBtn(food);
-        }
-      }
-    }
-    //   - Sends 'food' parameter to liveload.php via GET['q']
-    //   - Receives data from liveload.php
-    xmlhttp.open("GET","liveload.php?q="+food,true);
-    xmlhttp.send();
-
-    // If both parameters are empty:
-    //   - Set 'livesearch' div to empty
-  } else {
-    $("#livesearch").innerHTML = "";
   }
 }
 
