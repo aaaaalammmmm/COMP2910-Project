@@ -19,7 +19,9 @@
     <area id="shelf_3" alt="dairy/other" title="shelf_3" shape="poly" coords="329,252,331,311,52,314,53,451,590,454,592,250" style="outline:none;" target="_self"
           onclick="console.log('shelf3');get_fridge_info(3);console.log('done calling function')"/>
   </map>
-
+  <h6 class="text-center">
+    <b>Tap on a section of the fridge to find out more about which foods should be stored there!</b>
+  </h6>
   <br />
   <br />
   <div id="fridge_info">
@@ -28,7 +30,7 @@
       Many consumers don't use their fridge properly. The shelves and compartments of the fridge are
       designed to hold specific foods, and storing food improperly can actually reduce their shelf life.
       <br />
-      <b>Tap on a section of the fridge to find out more about which foods should be stored there!</b>
+
       <!--<script>
         $('fridge_info').animate({'opacity':0}, 400, function() {
           $(this).html('asdf').animate({'opacity':1}, 400);
