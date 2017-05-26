@@ -216,7 +216,7 @@ $food = $_GET['f'];
       recipeText.innerHTML += "<\/div>";
     } catch(err) {
       //inserts recipe text for the easter eggs
-      recipesDiv.innerHTML = snapshot.child("recipes").val();;
+      recipesDiv.innerHTML = stateSnap.storage;
     }
   }
 
