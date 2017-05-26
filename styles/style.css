@@ -21,6 +21,10 @@
   padding: 1.5em;
 }
 
+.padding-lg-btm {
+  padding-bottom: 1.5em;
+}
+
 .padding-xl {
   padding: 3em;
 }
