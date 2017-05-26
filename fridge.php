@@ -23,7 +23,6 @@
     <b>Tap on a section of the fridge to find out more about which foods should be stored there!</b>
   </h6>
   <br />
-  <br />
   <div id="fridge_info">
     <h4>Your Fridge</h4>
     <p>
