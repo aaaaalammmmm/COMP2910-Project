@@ -83,7 +83,7 @@ body {
   /* Background image */
   background-image: url(../Images/Background-darker.jpg);
   background-repeat: no-repeat;
-  background-attachment: absolute;
+  background-attachment: fixed;
   background-size: 300%;
   display: none;
   margin: auto;
