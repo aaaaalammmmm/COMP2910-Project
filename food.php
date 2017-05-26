@@ -87,7 +87,9 @@ $food = $_GET['f'];
   //This creates a pointer to the food item recipes div
   var recipesDiv = document.getElementById("recipes");
   //This creates a pointer to main image element
-  var image = document.getElementById("image");
+  var image = document.getElementById("image");  
+  //This sets up an array with the food items key
+  var foodArray = foodKeyArray();
 
   //This function takes the child keys of a food item and
   //adds to an array. The array is returned.
@@ -242,34 +244,26 @@ $food = $_GET['f'];
 
   //Navigate to the next food item
   function nextFood() {
-    var foodArray = foodKeyArray();
-
-    setTimeout(function () {
-      for(var i = 0; i < foodArray.length; i++) {
-        if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
-          pageLoad(foodArray[0], type);
-        } else if (foodArray[i] === food) {
-          pageLoad(foodArray[i + 1], type);
-        }
+    for(var i = 0; i < foodArray.length; i++) {
+      if ((foodArray[i] === food) && (i == foodArray.length - 1)) {
+        pageLoad(foodArray[0], type);
+      } else if (foodArray[i] === food) {
+        pageLoad(foodArray[i + 1], type);
       }
-    }, 100);
+    }
   }
 
 
 
   //Navigate to the previous food item
   function prevFood() {
-    var foodArray = foodKeyArray();
-
-    setTimeout(function () {
-      for(var i = 0; i < foodArray.length; i++) {
-        if ((foodArray[i] === food) && (i == 0)) {
-          pageLoad(foodArray[foodArray.length - 1], type);
-        } else if (foodArray[i] === food) {
-          pageLoad(foodArray[i - 1], type);
-        }
+    for(var i = 0; i < foodArray.length; i++) {
+      if ((foodArray[i] === food) && (i == 0)) {
+        pageLoad(foodArray[foodArray.length - 1], type);
+      } else if (foodArray[i] === food) {
+        pageLoad(foodArray[i - 1], type);
       }
-    }, 100);
+    }
   }
 
   stateKeyArray();
