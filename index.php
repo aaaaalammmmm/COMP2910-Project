@@ -26,7 +26,7 @@ history.pushState(historyObj, "Home", "#home");
   </form>
 </div>
 <!-- The div tag for livesearch page loads -->
-<div id="livesearch" class="col-xs-12 padding-lg"></div>
+<div id="livesearch" class="col-xs-12 padding-md"></div>
 <br/>
 <!-- Redirection "buttons" for the main categories of pages -->
 <div class="text-center">
