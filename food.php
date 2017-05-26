@@ -110,11 +110,6 @@ $food = $_GET['f'];
 
   }
 
-  function closeModal(){
-    $('#your-modal-id').modal('hide');
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
-  }
   //This sets the state buttons in food.php, depending on what sort of states
   //exists in Firebase
   function setButtons(stateArray) {
@@ -163,11 +158,11 @@ $food = $_GET['f'];
       stateSnap = snapshot.val();
       //Assign the string as inner html to the storage div
       storageDiv.innerHTML = stateSnap.storage;
-      
+
       //Assign the string as inner html to the recipes div
       getRecipes(stateSnap);
     });
-    
+
 
     //This highlights and de-highlight the states depending on which
     //state is focused
@@ -182,7 +177,7 @@ $food = $_GET['f'];
     try {
       //variable for the request
       jsonhttp = new XMLHttpRequest();
-      var url = stateSnap.recipes;   
+      var url = stateSnap.recipes;
 
       //oepn the request
       jsonhttp.open("GET", url, false);
@@ -265,7 +260,7 @@ $food = $_GET['f'];
   //Navigate to the previous food item
   function prevFood() {
     var foodArray = foodKeyArray();
-    
+
     setTimeout(function () {
       for(var i = 0; i < foodArray.length; i++) {
         if ((foodArray[i] === food) && (i == 0)) {
