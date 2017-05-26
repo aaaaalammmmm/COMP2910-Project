@@ -21,7 +21,7 @@ history.pushState(historyObj, "Home", "#home");
   <!-- Main Div tag for the search bar and hints -->
   <form id="search" class="text-center home-search center-block" onsubmit="">
     <input id="search-box" type="text" class="inputBox home-search text-center" placeholder="Search Foods..."
-    onkeyup="showResult(this.value)" autocomplete="off">
+    onkeyup="" autocomplete="off">
     <div id="search-hints" class="transparent"></div>
   </form>
 </div>
@@ -99,6 +99,16 @@ $(function() {
       document.getElementById("search-hints").innerHTML = "";
     }
   });
+});
+
+$("#search-box").on("input", function(e) {
+  showResult(this.value);
+  var content = document.getElementById("search-hints").innerHTML;
+  if (content != "no suggestion" && content != "") {
+    var regEx = /javascript\:foodLoad\("[a-zA-Z]+-?[a-zA-Z]*","[a-zA-Z]+"\)/;
+    location.href = regEx.exec(content);
+    document.getElementById("search-hints").innerHTML = "";
+  }
 });
 </script>
 <?php
