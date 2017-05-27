@@ -87,7 +87,7 @@ $food = $_GET['f'];
   //This creates a pointer to the food item recipes div
   var recipesDiv = document.getElementById("recipes");
   //This creates a pointer to main image element
-  var image = document.getElementById("image");  
+  var image = document.getElementById("image");
   //This sets up an array with the food items key
   var foodArray = foodKeyArray();
 
@@ -190,9 +190,9 @@ $food = $_GET['f'];
       //clearing the inner html
       recipeText.innerHTML = "";
 
-      var counter;
+      var counter = 0;
       //loops through 4 recipes in the current food
-      for(counter = 0; counter < 4; counter++){
+      while(counter < 4 && counter < obj.count){
         var count;
         var string = "";
         var recFoot = "";
@@ -213,6 +213,7 @@ $food = $_GET['f'];
 
         //inserts inner html to populate modal code
         recipeText.innerHTML += "<div class=\"modal fade\" id=\"recipeBody" + counter + "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"recipeBody" + counter + "\" aria-hidden=\"true\"><div class=\"modal-dialog\"role=\"document\"><div class=\"modal-content\"><div class=\"modal-header\"><h5 class=\"modal-title\" id=\"recipeBody" + counter + "\">" + recLab + "<\/h5><button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;<\/span><\/button><\/div><div class=\"modal-body\">" + string + "<\/div><div class=\"modal-footer recFooter\">" + recFoot + "<\/div><\/div><\/div><\/div>";
+        counter++;
       }
       //closes the recipeText div
       recipeText.innerHTML += "<\/div>";
