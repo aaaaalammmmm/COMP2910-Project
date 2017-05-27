@@ -192,7 +192,7 @@ $food = $_GET['f'];
 
       var counter = 0;
       //loops through 4 recipes in the current food
-      while(counter < 4 && counter < obj.count){
+      while(counter <= 4 && counter < obj.hits.length){
         var count;
         var string = "";
         var recFoot = "";
